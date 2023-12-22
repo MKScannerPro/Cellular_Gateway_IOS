@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'MKGatewayFour_Example' do
+  pod 'MKGatewayFour', :path => '../'
+
+  target 'MKGatewayFour_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
