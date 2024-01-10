@@ -1,0 +1,6 @@
+framework module MKGatewayFour {
+  umbrella header "MKGatewayFour-umbrella.h"
+
+  export *
+  module * { export * }
+}

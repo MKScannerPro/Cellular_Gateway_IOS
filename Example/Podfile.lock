@@ -1,0 +1,2603 @@
+PODS:
+  - CircleProgressBar (0.32)
+  - CTMediator (48)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - HHTransition (3.1.2)
+  - iOSDFULibrary (4.13.0):
+    - ZIPFoundation (= 0.9.11)
+  - libxlsxwriter (1.1.5)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
+  - MJRefresh (3.7.6)
+  - MKBaseBleModule (1.1.4)
+  - MKBaseModuleLibrary (2.0.9):
+    - MKBaseModuleLibrary/Base (= 2.0.9)
+    - MKBaseModuleLibrary/Category (= 2.0.9)
+    - MKBaseModuleLibrary/Defines (= 2.0.9)
+    - MKBaseModuleLibrary/Tools (= 2.0.9)
+  - MKBaseModuleLibrary/Base (2.0.9):
+    - MKBaseModuleLibrary/Base/Cell (= 2.0.9)
+    - MKBaseModuleLibrary/Base/Controller (= 2.0.9)
+    - MKBaseModuleLibrary/Base/NavigationController (= 2.0.9)
+    - MKBaseModuleLibrary/Base/View (= 2.0.9)
+  - MKBaseModuleLibrary/Base/Cell (2.0.9):
+    - MKBaseModuleLibrary/Base/Cell/MKBaseCell (= 2.0.9)
+  - MKBaseModuleLibrary/Base/Cell/MKBaseCell (2.0.9):
+    - Masonry
+    - MKBaseModuleLibrary/Defines
+  - MKBaseModuleLibrary/Base/Controller (2.0.9):
+    - MKBaseModuleLibrary/Category
+    - MKBaseModuleLibrary/Defines
+    - WRNavigationBar
+  - MKBaseModuleLibrary/Base/NavigationController (2.0.9)
+  - MKBaseModuleLibrary/Base/View (2.0.9):
+    - MKBaseModuleLibrary/Base/View/CollectionView (= 2.0.9)
+    - MKBaseModuleLibrary/Base/View/TableView (= 2.0.9)
+  - MKBaseModuleLibrary/Base/View/CollectionView (2.0.9)
+  - MKBaseModuleLibrary/Base/View/TableView (2.0.9)
+  - MKBaseModuleLibrary/Category (2.0.9):
+    - MKBaseModuleLibrary/Defines
+    - MKBaseModuleLibrary/Tools/MKClassInfo
+    - Toast
+  - MKBaseModuleLibrary/Defines (2.0.9)
+  - MKBaseModuleLibrary/Tools (2.0.9):
+    - MKBaseModuleLibrary/Tools/MKClassInfo (= 2.0.9)
+    - MKBaseModuleLibrary/Tools/MKDateFormatter (= 2.0.9)
+    - MKBaseModuleLibrary/Tools/MKExcelManager (= 2.0.9)
+  - MKBaseModuleLibrary/Tools/MKClassInfo (2.0.9)
+  - MKBaseModuleLibrary/Tools/MKDateFormatter (2.0.9)
+  - MKBaseModuleLibrary/Tools/MKExcelManager (2.0.9):
+    - libxlsxwriter
+    - MKBaseModuleLibrary/Defines
+    - SSZipArchive
+  - MKCustomUIModule (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Cell (= 2.1.3)
+    - MKCustomUIModule/Controller (= 2.1.3)
+    - MKCustomUIModule/MQTTServerView (= 2.1.3)
+    - MKCustomUIModule/UIAdopter (= 2.1.3)
+    - MKCustomUIModule/View (= 2.1.3)
+  - MKCustomUIModule/Cell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Cell/FilterCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell (= 2.1.3)
+  - MKCustomUIModule/Cell/FilterCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Cell/FilterCell/FilterBeaconCell (= 2.1.3)
+    - MKCustomUIModule/Cell/FilterCell/FilterByRawDataCell (= 2.1.3)
+    - MKCustomUIModule/Cell/FilterCell/FilterEditSectionHeaderView (= 2.1.3)
+    - MKCustomUIModule/Cell/FilterCell/FilterNormalTextFieldCell (= 2.1.3)
+  - MKCustomUIModule/Cell/FilterCell/FilterBeaconCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/UIAdopter
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/Cell/FilterCell/FilterByRawDataCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/Cell/FilterCell/FilterEditSectionHeaderView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/FilterCell/FilterNormalTextFieldCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/UIAdopter
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/Cell/LoRaCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterConditionCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (= 2.1.3)
+    - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (= 2.1.3)
+  - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterConditionCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/UIAdopter
+    - MKCustomUIModule/View/MKPickerView
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKPickerView
+  - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/UIAdopter
+    - MKCustomUIModule/View/MKSlider
+  - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/NormalCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Cell/NormalCell/MKButtonMsgCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKDeviceInfoCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKDeviceInfoDfuCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKSettingTextCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (= 2.1.3)
+    - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (= 2.1.3)
+  - MKCustomUIModule/Cell/NormalCell/MKButtonMsgCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/NormalCell/MKDeviceInfoCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/NormalCell/MKDeviceInfoDfuCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/UIAdopter
+  - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/UIAdopter
+    - MKCustomUIModule/View/MKSlider
+  - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/NormalCell/MKSettingTextCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKPickerView
+  - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Controller (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Controller/CASelectPage (= 2.1.3)
+    - MKCustomUIModule/Controller/MKAboutPage (= 2.1.3)
+    - MKCustomUIModule/Controller/MKAlertController (= 2.1.3)
+    - MKCustomUIModule/Controller/MKTrackerAboutPage (= 2.1.3)
+  - MKCustomUIModule/Controller/CASelectPage (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Controller/CASelectPage/Controller (= 2.1.3)
+  - MKCustomUIModule/Controller/CASelectPage/Controller (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell
+  - MKCustomUIModule/Controller/MKAboutPage (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Controller/MKAboutPage/Controller (= 2.1.3)
+    - MKCustomUIModule/Controller/MKAboutPage/Model (= 2.1.3)
+    - MKCustomUIModule/Controller/MKAboutPage/View (= 2.1.3)
+  - MKCustomUIModule/Controller/MKAboutPage/Controller (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Controller/MKAboutPage/Model
+    - MKCustomUIModule/Controller/MKAboutPage/View
+  - MKCustomUIModule/Controller/MKAboutPage/Model (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Controller/MKAboutPage/View (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Controller/MKAboutPage/Model
+  - MKCustomUIModule/Controller/MKAlertController (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Controller/MKTrackerAboutPage (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (= 2.1.3)
+  - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/MQTTServerView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/MQTTServerView/GeneralParams (= 2.1.3)
+    - MKCustomUIModule/MQTTServerView/SSL (= 2.1.3)
+    - MKCustomUIModule/MQTTServerView/UserCredentials (= 2.1.3)
+  - MKCustomUIModule/MQTTServerView/GeneralParams (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/MQTTServerView/SSL (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/MQTTServerView/UserCredentials (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/UIAdopter (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View
+  - MKCustomUIModule/View (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/HaveRefreshView (= 2.1.3)
+    - MKCustomUIModule/View/MKAlertView (= 2.1.3)
+    - MKCustomUIModule/View/MKHexKeyBoard (= 2.1.3)
+    - MKCustomUIModule/View/MKHudManager (= 2.1.3)
+    - MKCustomUIModule/View/MKPageControl (= 2.1.3)
+    - MKCustomUIModule/View/MKPickerView (= 2.1.3)
+    - MKCustomUIModule/View/MKProgressView (= 2.1.3)
+    - MKCustomUIModule/View/MKSearchButton (= 2.1.3)
+    - MKCustomUIModule/View/MKSearchConditionsView (= 2.1.3)
+    - MKCustomUIModule/View/MKSlider (= 2.1.3)
+    - MKCustomUIModule/View/MKTableSectionHeader (= 2.1.3)
+    - MKCustomUIModule/View/MKTextField (= 2.1.3)
+    - MKCustomUIModule/View/NirKxMenu (= 2.1.3)
+    - MKCustomUIModule/View/WifiAlertView (= 2.1.3)
+  - MKCustomUIModule/View/HaveRefreshView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKAlertView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/View/MKHexKeyBoard (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKHudManager (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKPageControl (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKPickerView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKProgressView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKSearchButton (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKSearchConditionsView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKSlider
+  - MKCustomUIModule/View/MKSlider (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKTableSectionHeader (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKTextField (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/NirKxMenu (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/WifiAlertView (2.1.3):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKGatewayFour (0.0.1):
+    - MKGatewayFour/ConnectModule (= 0.0.1)
+    - MKGatewayFour/CTMediator (= 0.0.1)
+    - MKGatewayFour/DatabaseManager (= 0.0.1)
+    - MKGatewayFour/Expand (= 0.0.1)
+    - MKGatewayFour/Functions (= 0.0.1)
+    - MKGatewayFour/SDK (= 0.0.1)
+    - MKGatewayFour/Target (= 0.0.1)
+  - MKGatewayFour/ConnectModule (0.0.1):
+    - MKBaseModuleLibrary
+    - MKGatewayFour/SDK
+  - MKGatewayFour/CTMediator (0.0.1):
+    - CTMediator
+    - MKBaseModuleLibrary
+  - MKGatewayFour/DatabaseManager (0.0.1):
+    - FMDB
+    - MKBaseModuleLibrary
+    - MKGatewayFour/DatabaseManager/LogDatabase (= 0.0.1)
+  - MKGatewayFour/DatabaseManager/LogDatabase (0.0.1):
+    - FMDB
+    - MKBaseModuleLibrary
+  - MKGatewayFour/Expand (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/Expand/ExcelManager (= 0.0.1)
+    - MKGatewayFour/Expand/ImportServerPage (= 0.0.1)
+    - MKGatewayFour/Expand/View (= 0.0.1)
+  - MKGatewayFour/Expand/ExcelManager (0.0.1):
+    - libxlsxwriter
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - SSZipArchive
+  - MKGatewayFour/Expand/ImportServerPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/Expand/ImportServerPage/Controller (= 0.0.1)
+  - MKGatewayFour/Expand/ImportServerPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+  - MKGatewayFour/Expand/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/Expand/View/ButtonListCell (= 0.0.1)
+  - MKGatewayFour/Expand/View/ButtonListCell (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+  - MKGatewayFour/Functions (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/AxisSettingsPage (= 0.0.1)
+    - MKGatewayFour/Functions/BatteryManagementPage (= 0.0.1)
+    - MKGatewayFour/Functions/BleParamsPage (= 0.0.1)
+    - MKGatewayFour/Functions/DebuggerPage (= 0.0.1)
+    - MKGatewayFour/Functions/DeviceInfoPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages (= 0.0.1)
+    - MKGatewayFour/Functions/FilterSettingsPage (= 0.0.1)
+    - MKGatewayFour/Functions/FixModePage (= 0.0.1)
+    - MKGatewayFour/Functions/GpsFixPage (= 0.0.1)
+    - MKGatewayFour/Functions/HeartbeatReportPage (= 0.0.1)
+    - MKGatewayFour/Functions/LedSettingsPage (= 0.0.1)
+    - MKGatewayFour/Functions/MotionFixPage (= 0.0.1)
+    - MKGatewayFour/Functions/MqttSettingsPage (= 0.0.1)
+    - MKGatewayFour/Functions/NetworkPage (= 0.0.1)
+    - MKGatewayFour/Functions/NetworkSettingsPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadItemsPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages (= 0.0.1)
+    - MKGatewayFour/Functions/PeriodicFixPage (= 0.0.1)
+    - MKGatewayFour/Functions/PeriodicScanPage (= 0.0.1)
+    - MKGatewayFour/Functions/PeriodicScanReportPage (= 0.0.1)
+    - MKGatewayFour/Functions/PositionPage (= 0.0.1)
+    - MKGatewayFour/Functions/RealtimeScanPage (= 0.0.1)
+    - MKGatewayFour/Functions/ScannerReportPage (= 0.0.1)
+    - MKGatewayFour/Functions/ScanPage (= 0.0.1)
+    - MKGatewayFour/Functions/ScanReportModePage (= 0.0.1)
+    - MKGatewayFour/Functions/SettingsPage (= 0.0.1)
+    - MKGatewayFour/Functions/SyncTime (= 0.0.1)
+    - MKGatewayFour/Functions/SystemTimePage (= 0.0.1)
+    - MKGatewayFour/Functions/TabBarPage (= 0.0.1)
+    - MKGatewayFour/Functions/UpdatePage (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/AxisSettingsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/AxisSettingsPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/AxisSettingsPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/AxisSettingsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/AxisSettingsPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/AxisSettingsPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/BatteryManagementPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/BatteryManagementPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/BatteryManagementPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/BatteryManagementPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/BatteryManagementPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/BatteryManagementPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/BleParamsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/BleParamsPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/BleParamsPage/Model (= 0.0.1)
+    - MKGatewayFour/Functions/BleParamsPage/View (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/BleParamsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/BleParamsPage/Model
+    - MKGatewayFour/Functions/BleParamsPage/View
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/BleParamsPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/BleParamsPage/View (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/DebuggerPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/DebuggerPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/DebuggerPage/View (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/DebuggerPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/DebuggerPage/View
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/DebuggerPage/View (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/DeviceInfoPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/DeviceInfoPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/DeviceInfoPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/DeviceInfoPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/DeviceInfoPage/Model
+    - MKGatewayFour/Functions/UpdatePage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/DeviceInfoPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByMacPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByOtherPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByPirPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByTLMPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByTofPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByUIDPage (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByURLPage (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByMacPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByMacPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByMacPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByMacPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByMacPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByMacPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByOtherPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByPirPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByPirPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByPirPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByPirPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByPirPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByPirPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByPirPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Model
+    - MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByTofPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByURLPage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByTLMPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByTofPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByTofPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByTofPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByTofPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByTofPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByTofPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByUIDPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByURLPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByURLPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterPages/FilterByURLPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByURLPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByURLPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByURLPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterSettingsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterSettingsPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FilterSettingsPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterSettingsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages
+    - MKGatewayFour/Functions/FilterSettingsPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterSettingsPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FixModePage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FixModePage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/FixModePage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FixModePage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FixModePage/Model
+    - MKGatewayFour/Functions/MotionFixPage/Controller
+    - MKGatewayFour/Functions/PeriodicFixPage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FixModePage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/GpsFixPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/GpsFixPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/GpsFixPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/GpsFixPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/GpsFixPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/GpsFixPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/HeartbeatReportPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/HeartbeatReportPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/HeartbeatReportPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/HeartbeatReportPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/HeartbeatReportPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/HeartbeatReportPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/LedSettingsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/LedSettingsPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/LedSettingsPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/LedSettingsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/LedSettingsPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/LedSettingsPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/MotionFixPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/MotionFixPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/MotionFixPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/MotionFixPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/MotionFixPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/MotionFixPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/MqttSettingsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/MqttSettingsPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/MqttSettingsPage/Model (= 0.0.1)
+    - MKGatewayFour/Functions/MqttSettingsPage/View (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/MqttSettingsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/MqttSettingsPage/Model
+    - MKGatewayFour/Functions/MqttSettingsPage/View
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/MqttSettingsPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/MqttSettingsPage/View (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/NetworkPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/NetworkPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/NetworkPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/NetworkPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/MqttSettingsPage/Controller
+    - MKGatewayFour/Functions/NetworkPage/Model
+    - MKGatewayFour/Functions/NetworkSettingsPage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/NetworkPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/NetworkSettingsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/NetworkSettingsPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/NetworkSettingsPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/NetworkSettingsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/NetworkSettingsPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/NetworkSettingsPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadItemsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadItemsPage/Controller (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadItemsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/AccPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/PirPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/TagPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/ThPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/TlmPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/TofPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/UidPayloadPage (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/UrlPayloadPage (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/AccPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/AccPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/AccPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/AccPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/AccPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/AccPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/View (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/Model
+    - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/View
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/View (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/PirPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/PirPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/PirPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/PirPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/PirPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/PirPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TagPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/TagPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/TagPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TagPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/TagPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TagPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/ThPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/ThPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/ThPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/ThPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/ThPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/ThPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TlmPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/TlmPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/TlmPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TlmPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/TlmPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TlmPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TofPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/TofPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/TofPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TofPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/TofPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/TofPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/UidPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/UidPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/UidPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/UidPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/UidPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/UidPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/UrlPayloadPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/UrlPayloadPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PayloadPages/UrlPayloadPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/UrlPayloadPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/UrlPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/UrlPayloadPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicFixPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PeriodicFixPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PeriodicFixPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicFixPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PeriodicFixPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicFixPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicScanPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PeriodicScanPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PeriodicScanPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicScanPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PeriodicScanPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicScanPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicScanReportPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PeriodicScanReportPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/PeriodicScanReportPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicScanReportPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PeriodicScanReportPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PeriodicScanReportPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PositionPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PositionPage/Controller (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PositionPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/AxisSettingsPage/Controller
+    - MKGatewayFour/Functions/FixModePage/Controller
+    - MKGatewayFour/Functions/GpsFixPage/Controller
+    - MKGatewayFour/Functions/PeriodicScanReportPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/RealtimeScanPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/RealtimeScanPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/RealtimeScanPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/RealtimeScanPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/RealtimeScanPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/RealtimeScanPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScannerReportPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/ScannerReportPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/ScannerReportPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScannerReportPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterSettingsPage/Controller
+    - MKGatewayFour/Functions/PayloadItemsPage/Controller
+    - MKGatewayFour/Functions/ScannerReportPage/Model
+    - MKGatewayFour/Functions/ScanReportModePage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScannerReportPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScanPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/ScanPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/ScanPage/View (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScanPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/ScanPage/View
+    - MKGatewayFour/Functions/TabBarPage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScanPage/View (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScanReportModePage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/ScanReportModePage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/ScanReportModePage/Model (= 0.0.1)
+    - MKGatewayFour/Functions/ScanReportModePage/View (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScanReportModePage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PeriodicScanPage/Controller
+    - MKGatewayFour/Functions/PeriodicScanReportPage/Controller
+    - MKGatewayFour/Functions/RealtimeScanPage/Controller
+    - MKGatewayFour/Functions/ScanReportModePage/Model
+    - MKGatewayFour/Functions/ScanReportModePage/View
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScanReportModePage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/ScanReportModePage/View (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SettingsPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/SettingsPage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/SettingsPage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SettingsPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/BatteryManagementPage/Controller
+    - MKGatewayFour/Functions/BleParamsPage/Controller
+    - MKGatewayFour/Functions/DebuggerPage/Controller
+    - MKGatewayFour/Functions/DeviceInfoPage/Controller
+    - MKGatewayFour/Functions/HeartbeatReportPage/Controller
+    - MKGatewayFour/Functions/LedSettingsPage/Controller
+    - MKGatewayFour/Functions/SettingsPage/Model
+    - MKGatewayFour/Functions/SystemTimePage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SettingsPage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SyncTime (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/SyncTime/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/SyncTime/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SyncTime/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/SyncTime/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SyncTime/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SystemTimePage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/SystemTimePage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/SystemTimePage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SystemTimePage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/SyncTime/Controller
+    - MKGatewayFour/Functions/SystemTimePage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SystemTimePage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/TabBarPage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/TabBarPage/Controller (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/TabBarPage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/NetworkPage/Controller
+    - MKGatewayFour/Functions/PositionPage/Controller
+    - MKGatewayFour/Functions/ScannerReportPage/Controller
+    - MKGatewayFour/Functions/SettingsPage/Controller
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/UpdatePage (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/UpdatePage/Controller (= 0.0.1)
+    - MKGatewayFour/Functions/UpdatePage/Model (= 0.0.1)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/UpdatePage/Controller (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/UpdatePage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/UpdatePage/Model (0.0.1):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/SDK (0.0.1):
+    - MKBaseBleModule
+  - MKGatewayFour/Target (0.0.1):
+    - MKGatewayFour/Functions
+  - MLInputDodger (1.5.2)
+  - SSZipArchive (2.4.3)
+  - Toast (4.1.0)
+  - WRNavigationBar (1.4.0)
+  - ZIPFoundation (0.9.11)
+
+DEPENDENCIES:
+  - MKGatewayFour (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CircleProgressBar
+    - CTMediator
+    - FMDB
+    - HHTransition
+    - iOSDFULibrary
+    - libxlsxwriter
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseBleModule
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MLInputDodger
+    - SSZipArchive
+    - Toast
+    - WRNavigationBar
+    - ZIPFoundation
+
+EXTERNAL SOURCES:
+  MKGatewayFour:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
+  CTMediator: 3f3578b525b3a46a7a2f92a99922ec40363f4269
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  HHTransition: 67c1bc632c4838e4eb28f07b9be1b927362ae07d
+  iOSDFULibrary: 3b9de67ed4bfb901b5f09c2fea843f65e152612d
+  libxlsxwriter: 07cdc00cf0edb30ce9773efbbb49a03459a6e0f0
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
+  MKBaseBleModule: 15aa067c4e408a473e025b1a768ebce00a7e5949
+  MKBaseModuleLibrary: 2b79bcae588c755588413fbb643b510253271b23
+  MKCustomUIModule: bbc862397ad4ffad0a88de756265a29aad5ddaab
+  MKGatewayFour: be2e7859c16269ba100eebdb92b40ad7a7ce8057
+  MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
+  Toast: ec33c32b8688982cecc6348adeae667c1b9938da
+  WRNavigationBar: 10bfdf96addf14d640d07c2ef08a029c18d8af10
+  ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
+
+PODFILE CHECKSUM: d5cf4b03760f0f46849529f6cf8ff547ac0e8229
+
+COCOAPODS: 1.11.3
