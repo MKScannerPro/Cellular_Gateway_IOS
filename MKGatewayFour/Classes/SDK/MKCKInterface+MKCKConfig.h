@@ -135,6 +135,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_deleteBufferDataWithSucBlock:(void (^)(void))sucBlock
                             failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// Power on when charging.
+/// @param isOn isOn
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configPowerOnWhenChargingStatus:(BOOL)isOn 
+                                  sucBlock:(void (^)(void))sucBlock
+                               failedBlock:(void (^)(NSError *error))failedBlock;
+
 #pragma mark *********************MQTT Params************************
 /// Configure the domain name of the MQTT server.
 /// @param host 1~64 character ascii code.

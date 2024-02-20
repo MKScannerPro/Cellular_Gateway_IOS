@@ -109,7 +109,7 @@ MKTextButtonCellDelegate>
         return self.section2List.count;
     }
     if (section == 3) {
-        return self.section3List.count;
+        return 0;
     }
     
     return 0;

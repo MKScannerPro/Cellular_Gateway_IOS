@@ -57,6 +57,8 @@ MKCKDebuggerCellDelegate>
 /// 用户是否是点击了返回按钮
 @property (nonatomic, assign)BOOL leftAction;
 
+@property (nonatomic, strong)UITextView *textView;
+
 @end
 
 @implementation MKCKDebuggerController
@@ -152,6 +154,8 @@ MKCKDebuggerCellDelegate>
         return;
     }
     [self.contentList addObject:deviceLog];
+    self.textView.text = [self.textView.text stringByAppendingString:deviceLog];
+    [self.textView scrollRangeToVisible:NSMakeRange(self.textView.text.length, 1)];
 }
 
 #pragma mark - MKCKDebuggerCellDelegate
@@ -202,6 +206,7 @@ MKCKDebuggerCellDelegate>
         return;
     }
     //开始监听
+    self.textView.text = @"";
     self.logStartTime = [self.formatter stringFromDate:[NSDate date]];
     self.deleteButton.enabled = NO;
     self.exportButton.enabled = NO;
@@ -393,6 +398,13 @@ MKCKDebuggerCellDelegate>
         make.left.mas_equalTo(15.f);
         make.right.mas_equalTo(-15.f);
         make.top.mas_equalTo(headerView.mas_bottom);
+        make.height.mas_equalTo(200.f);
+    }];
+    [self.view addSubview:self.textView];
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(15.f);
+        make.right.mas_equalTo(-15.f);
+        make.top.mas_equalTo(self.tableView.mas_bottom).mas_offset(20.f);
         make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
     }];
 }
@@ -412,6 +424,23 @@ MKCKDebuggerCellDelegate>
         _tableView.layer.cornerRadius = 5.f;
     }
     return _tableView;
+}
+
+- (UITextView *)textView {
+    if (!_textView) {
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(15.f, 0.f, kViewWidth - 2 * 15.f, 150.f)];
+        _textView.backgroundColor = COLOR_WHITE_MACROS;
+        _textView.font = MKFont(12.f);
+        _textView.layoutManager.allowsNonContiguousLayout = NO;
+        _textView.editable = NO;
+        _textView.textColor = DEFAULT_TEXT_COLOR;
+                
+        _textView.layer.masksToBounds = YES;
+        _textView.layer.borderColor = CUTTING_LINE_COLOR.CGColor;
+        _textView.layer.borderWidth = CUTTING_LINE_HEIGHT;
+        _textView.layer.cornerRadius = 5.f;
+    }
+    return _textView;
 }
 
 - (NSMutableArray *)dataList {

@@ -196,6 +196,17 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_readLowPowerThresholdWithSucBlock:(void (^)(id returnData))sucBlock
                                  failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// Power on when charging.
+/*
+ @{
+ @"isOn":@(YES)
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readPowerOnWhenChargingStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                         failedBlock:(void (^)(NSError *error))failedBlock;
+
 
 #pragma mark *********************MQTT Params************************
 

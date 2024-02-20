@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadConnectationNeedPasswordOperation,        //读取密码验证开关
     mk_ck_taskReadLowPowerNotificationOperation,            //读取低电报警开关
     mk_ck_taskReadLowPowerThresholdOperation,               //读取低电量阈值
+    mk_ck_taskReadPowerOnWhenChargingStatusOperation,       //读取低电关机充电是否开机
     
 #pragma mark - MQTT Params
     mk_ck_taskReadServerHostOperation,          //读取MQTT服务器域名
@@ -167,6 +168,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigLowPowerNotificationOperation,      //配置低电报警开关
     mk_ck_taskConfigLowPowerThresholdOperation,         //配置低电量阈值
     mk_ck_taskDeleteBufferDataOperation,                //清除离线数据
+    mk_ck_taskConfigPowerOnWhenChargingStatusOperation, //配置低电关机充电是否开机
     
 #pragma mark - MQTT Params
     mk_ck_taskConfigServerHostOperation,        //配置MQTT服务器域名

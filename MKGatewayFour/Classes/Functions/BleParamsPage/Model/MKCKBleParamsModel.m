@@ -369,7 +369,7 @@
     __block BOOL success = NO;
     [MKCKInterface ck_readTxPowerWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        self.txPower = [returnData[@"result"][@"txPower"] integerValue];
+        self.txPower = [self fetchTxPowerValueString:returnData[@"result"][@"txPower"]];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);
@@ -486,6 +486,52 @@
     }
     
     return YES;
+}
+
+- (NSInteger)fetchTxPowerValueString:(NSString *)txPower {
+    if ([txPower isEqualToString:@"-40dBm"]) {
+        return 0;
+    }
+    if ([txPower isEqualToString:@"-20dBm"]) {
+        return 1;
+    }
+    if ([txPower isEqualToString:@"-16dBm"]) {
+        return 2;
+    }
+    if ([txPower isEqualToString:@"-12dBm"]) {
+        return 3;
+    }
+    if ([txPower isEqualToString:@"-8dBm"]) {
+        return 4;
+    }
+    if ([txPower isEqualToString:@"-4dBm"]) {
+        return 5;
+    }
+    if ([txPower isEqualToString:@"0dBm"]) {
+        return 6;
+    }
+    if ([txPower isEqualToString:@"2dBm"]) {
+        return 7;
+    }
+    if ([txPower isEqualToString:@"3dBm"]) {
+        return 8;
+    }
+    if ([txPower isEqualToString:@"4dBm"]) {
+        return 9;
+    }
+    if ([txPower isEqualToString:@"5dBm"]) {
+        return 10;
+    }
+    if ([txPower isEqualToString:@"6dBm"]) {
+        return 11;
+    }
+    if ([txPower isEqualToString:@"7dBm"]) {
+        return 12;
+    }
+    if ([txPower isEqualToString:@"8dBm"]) {
+        return 13;
+    }
+    return 5;
 }
 
 #pragma mark - getter

@@ -13,6 +13,85 @@
 
 @implementation MKCKSDKDataAdopter
 
++ (NSString *)fetchTxPower:(mk_ck_txPower)txPower {
+    switch (txPower) {
+        case mk_ck_txPower8dBm:
+            return @"08";
+        case mk_ck_txPower7dBm:
+            return @"07";
+        case mk_ck_txPower6dBm:
+            return @"06";
+        case mk_ck_txPower5dBm:
+            return @"05";
+        case mk_ck_txPower4dBm:
+            return @"04";
+        case mk_ck_txPower3dBm:
+            return @"03";
+        case mk_ck_txPower2dBm:
+            return @"02";
+        case mk_ck_txPower0dBm:
+            return @"00";
+        case mk_ck_txPowerNeg4dBm:
+            return @"fc";
+        case mk_ck_txPowerNeg8dBm:
+            return @"f8";
+        case mk_ck_txPowerNeg12dBm:
+            return @"f4";
+        case mk_ck_txPowerNeg16dBm:
+            return @"f0";
+        case mk_ck_txPowerNeg20dBm:
+            return @"ec";
+        case mk_ck_txPowerNeg40dBm:
+            return @"d8";
+    }
+}
+
++ (NSString *)fetchTxPowerValueString:(NSString *)content {
+    if ([content isEqualToString:@"08"]) {
+        return @"8dBm";
+    }
+    if ([content isEqualToString:@"07"]) {
+        return @"7dBm";
+    }
+    if ([content isEqualToString:@"06"]) {
+        return @"6dBm";
+    }
+    if ([content isEqualToString:@"05"]) {
+        return @"5dBm";
+    }
+    if ([content isEqualToString:@"04"]) {
+        return @"4dBm";
+    }
+    if ([content isEqualToString:@"03"]) {
+        return @"3dBm";
+    }
+    if ([content isEqualToString:@"02"]) {
+        return @"2dBm";
+    }
+    if ([content isEqualToString:@"00"]) {
+        return @"0dBm";
+    }
+    if ([content isEqualToString:@"fc"]) {
+        return @"-4dBm";
+    }
+    if ([content isEqualToString:@"f8"]) {
+        return @"-8dBm";
+    }
+    if ([content isEqualToString:@"f4"]) {
+        return @"-12dBm";
+    }
+    if ([content isEqualToString:@"f0"]) {
+        return @"-16dBm";
+    }
+    if ([content isEqualToString:@"ec"]) {
+        return @"-20dBm";
+    }
+    if ([content isEqualToString:@"d8"]) {
+        return @"-40dBm";
+    }
+    return @"0dBm";
+}
+
 + (NSString *)fetchAsciiCode:(NSString *)value {
     if (!MKValidStr(value)) {
         return @"";

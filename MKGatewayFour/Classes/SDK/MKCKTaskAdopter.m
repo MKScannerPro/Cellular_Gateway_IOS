@@ -271,6 +271,13 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"threshold":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
         };
         operationID = mk_ck_taskReadLowPowerThresholdOperation;
+    }else if ([cmd isEqualToString:@"19"]) {
+        //读取低电关机充电是否开机
+        BOOL isOn = ([content isEqualToString:@"01"]);
+        resultDic = @{
+            @"isOn":@(isOn)
+        };
+        operationID = mk_ck_taskReadPowerOnWhenChargingStatusOperation;
     }else if ([cmd isEqualToString:@"20"]) {
         //读取MQTT服务器域名
         NSString *host = @"";
@@ -797,9 +804,8 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
         operationID = mk_ck_taskReadAdvIntervalOperation;
     }else if ([cmd isEqualToString:@"87"]) {
         //读取Tx Power
-        resultDic = @{
-            @"txPower":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
-        };
+        NSString *txPower = [MKCKSDKDataAdopter fetchTxPowerValueString:content];
+        resultDic = @{@"txPower":txPower};
         operationID = mk_ck_taskReadTxPowerOperation;
     }else if ([cmd isEqualToString:@"88"]) {
         //读取超时广播时长
@@ -1333,6 +1339,9 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"18"]) {
         //清除离线数据
         operationID = mk_ck_taskDeleteBufferDataOperation;
+    }else if ([cmd isEqualToString:@"19"]) {
+        //配置低电关机充电是否开机
+        operationID = mk_ck_taskConfigPowerOnWhenChargingStatusOperation;
     }else if ([cmd isEqualToString:@"20"]) {
         //配置MQTT服务器域名
         operationID = mk_ck_taskConfigServerHostOperation;

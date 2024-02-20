@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)BOOL isOn;
 
-/// 0:过滤所有TLM  1:过滤非加密类型TLM 2:过滤加密类型TLM
+/// 0:过滤非加密类型TLM 1:过滤加密类型TLM 2:过滤所有TLM  
 @property (nonatomic, assign)NSInteger tlm;
 
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;

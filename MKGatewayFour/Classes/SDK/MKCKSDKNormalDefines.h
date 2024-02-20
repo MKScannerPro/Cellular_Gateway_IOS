@@ -109,9 +109,9 @@ typedef NS_ENUM(NSInteger, mk_ck_positionFixMode) {
 };
 
 typedef NS_ENUM(NSInteger, mk_ck_filterByTLMVersion) {
-    mk_ck_filterByTLMVersion_null,             //Do not filter data.
     mk_ck_filterByTLMVersion_0,                //Unencrypted TLM data.
     mk_ck_filterByTLMVersion_1,                //Encrypted TLM data.
+    mk_ck_filterByTLMVersion_all,             //All version.
 };
 
 typedef NS_ENUM(NSInteger, mk_ck_filterByOther) {

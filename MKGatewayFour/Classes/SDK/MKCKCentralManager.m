@@ -218,8 +218,8 @@ static dispatch_once_t onceToken;
         [MKBLEBaseSDKAdopter operationConnectFailedBlock:failedBlock];
         return;
     }
-    if (password.length != 8 || ![MKBLEBaseSDKAdopter asciiString:password]) {
-        [self operationFailedBlockWithMsg:@"The password should be 8 characters." failedBlock:failedBlock];
+    if (password.length < 6 || password.length > 10 || ![MKBLEBaseSDKAdopter asciiString:password]) {
+        [self operationFailedBlockWithMsg:@"The password should be 6-10 characters." failedBlock:failedBlock];
         return;
     }
     self.password = @"";
@@ -327,7 +327,7 @@ static dispatch_once_t onceToken;
     self.failedBlock = failedBlock;
     MKCKPeripheral *trackerPeripheral = [[MKCKPeripheral alloc] initWithPeripheral:peripheral];
     [[MKBLEBaseCentralManager shared] connectDevice:trackerPeripheral sucBlock:^(CBPeripheral * _Nonnull peripheral) {
-        if (MKValidStr(self.password) && self.password.length == 8) {
+        if (MKValidStr(self.password) && (self.password.length >= 6 && self.password.length <= 10)) {
             //需要密码登录
             [self logToLocal:@"密码登录"];
             [self sendPasswordToDevice];
@@ -471,7 +471,7 @@ static dispatch_once_t onceToken;
 - (NSDictionary *)parseModelWithRssi:(NSNumber *)rssi advDic:(NSDictionary *)advDic peripheral:(CBPeripheral *)peripheral {
     NSDictionary *manuParams = advDic[CBAdvertisementDataServiceDataKey];
     NSData *manufacturerData = manuParams[[CBUUID UUIDWithString:@"AA11"]];
-    if (!MKValidData(manufacturerData) || manufacturerData.length != 14) {
+    if (!MKValidData(manufacturerData) || manufacturerData.length < 8) {
         return @{};
     }
     NSString *content = [MKBLEBaseSDKAdopter hexStringFromData:manufacturerData];

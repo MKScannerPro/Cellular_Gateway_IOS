@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKCKSDKDataAdopter : NSObject
 
++ (NSString *)fetchTxPower:(mk_ck_txPower)txPower;
+
++ (NSString *)fetchTxPowerValueString:(NSString *)content;
 
 + (NSString *)fetchAsciiCode:(NSString *)value;
 + (NSString *)fetchConnectModeString:(mk_ck_connectMode)mode;

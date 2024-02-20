@@ -153,7 +153,7 @@ MKFilterBeaconCellDelegate>
     }
 }
 
-- (void)mk_ck_beaconMaxValueChanged:(NSString *)value index:(NSInteger)index {
+- (void)mk_beaconMaxValueChanged:(NSString *)value index:(NSInteger)index {
     MKFilterBeaconCellModel *cellModel = self.section2List[index];
     cellModel.maxValue = value;
     if (index == 0) {

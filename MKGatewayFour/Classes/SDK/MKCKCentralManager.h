@@ -62,7 +62,7 @@ extern NSString *const mk_ck_deviceDisconnectTypeNotification;
 
 /// Connect device function.
 /// @param peripheral peripheral
-/// @param password Device connection password,8 characters long ascii code
+/// @param password Device connection password,6-10 characters long ascii code
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
 - (void)connectPeripheral:(nonnull CBPeripheral *)peripheral

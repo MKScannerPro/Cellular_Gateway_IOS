@@ -169,6 +169,14 @@
                  failedBlock:failedBlock];
 }
 
++ (void)ck_readPowerOnWhenChargingStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                         failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadPowerOnWhenChargingStatusOperation
+                     cmdFlag:@"19"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
 #pragma mark *********************MQTT Params************************
 
 + (void)ck_readServerHostWithSucBlock:(void (^)(id returnData))sucBlock

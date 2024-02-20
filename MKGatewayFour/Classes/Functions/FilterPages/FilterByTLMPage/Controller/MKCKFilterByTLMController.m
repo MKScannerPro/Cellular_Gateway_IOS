@@ -184,7 +184,7 @@ mk_textSwitchCellDelegate>
     MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
     cellModel.index = 0;
     cellModel.msg = @"TLM Version";
-    cellModel.dataList = @[@"Null",@"version 0",@"version 1"];
+    cellModel.dataList = @[@"version 0",@"version 1",@"all"];
     cellModel.dataListIndex = self.dataModel.tlm;
     [self.section1List addObject:cellModel];
 }

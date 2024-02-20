@@ -366,9 +366,9 @@ MKCKScanInfoCellDelegate>
     NSString *localPassword = [[NSUserDefaults standardUserDefaults] objectForKey:localPasswordKey];
     self.asciiText = localPassword;
     MKAlertViewTextField *textField = [[MKAlertViewTextField alloc] initWithTextValue:SafeStr(localPassword)
-                                                                          placeholder:@"The password is 8 characters."
+                                                                          placeholder:@"The password should be 6-10 characters."
                                                                         textFieldType:mk_normal
-                                                                            maxLength:8
+                                                                            maxLength:10
                                                                               handler:^(NSString * _Nonnull text) {
         @strongify(self);
         self.asciiText = text;
@@ -384,8 +384,8 @@ MKCKScanInfoCellDelegate>
 
 - (void)connectDeviceWithDataModel:(MKCKScanInfoCellModel *)scanDataModel {
     NSString *password = self.asciiText;
-    if (scanDataModel.needPassword && password.length != 8) {
-        [self.view showCentralToast:@"The password should be 8 characters."];
+    if (scanDataModel.needPassword && (password.length < 6 || password.length > 10)) {
+        [self.view showCentralToast:@"The password should be 6-10 characters."];
         return;
     }
     [[MKHudManager share] showHUDWithTitle:@"Connecting..." inView:self.view isPenetration:NO];

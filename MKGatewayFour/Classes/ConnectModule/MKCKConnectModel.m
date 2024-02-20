@@ -51,7 +51,7 @@
           failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.connectQueue, ^{
         NSDictionary *dic = @{};
-        if (ValidStr(password) && password.length == 8) {
+        if (ValidStr(password) && (password.length >= 6 && password.length <= 10)) {
             //有密码登录
             dic = [self connectDevice:peripheral password:password];
             self.hasPassword = YES;
@@ -66,7 +66,7 @@
             return ;
         }
         if (![self readMacAddress]) {
-            [self operationFailedMsg:@"Read mac address rrror" completeBlock:failedBlock];
+            [self operationFailedMsg:@"Read mac address error" completeBlock:failedBlock];
             return;
         }
         self.deviceName = deviceName;

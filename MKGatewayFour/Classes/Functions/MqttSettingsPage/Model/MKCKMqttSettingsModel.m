@@ -133,6 +133,10 @@
             [self operationFailedBlockWithMsg:@"Read Publish Topic Timeout" block:failedBlock];
             return;
         }
+        if (![self readSSLStatus]) {
+            [self operationFailedBlockWithMsg:@"Read SSL Status Timeout" block:failedBlock];
+            return;
+        }
         
         
         moko_dispatch_main_safe(^{

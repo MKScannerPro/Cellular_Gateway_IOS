@@ -219,6 +219,16 @@ static NSInteger const maxDataLen = 150;
                    failedBlock:failedBlock];
 }
 
++ (void)ck_configPowerOnWhenChargingStatus:(BOOL)isOn
+                                  sucBlock:(void (^)(void))sucBlock
+                               failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = (isOn ? @"ed01190101" : @"ed01190100");
+    [self configDataWithTaskID:mk_ck_taskConfigPowerOnWhenChargingStatusOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
 #pragma mark *********************MQTT Params************************
 
 + (void)ck_configServerHost:(NSString *)host
@@ -1125,12 +1135,7 @@ static NSInteger const maxDataLen = 150;
 + (void)ck_configFilterByTLMVersion:(mk_ck_filterByTLMVersion)version
                            sucBlock:(void (^)(void))sucBlock
                         failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *versionString = @"00";
-    if (version == mk_ck_filterByTLMVersion_0) {
-        versionString = @"01";
-    }else if (version == mk_ck_filterByTLMVersion_1) {
-        versionString = @"02";
-    }
+    NSString *versionString = [MKBLEBaseSDKAdopter fetchHexValue:version byteLen:1];
     NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed016401",versionString];
     [self configDataWithTaskID:mk_ck_taskConfigFilterByTLMVersionOperation
                           data:commandString
@@ -1348,7 +1353,7 @@ static NSInteger const maxDataLen = 150;
                    failedBlock:failedBlock];
 }
 
-+ (void)ck_configFilterTofCodeList:(NSArray <NSString *>*)codeList
++ (void)  ck_configFilterTofCodeList:(NSArray <NSString *>*)codeList
                           sucBlock:(void (^)(void))sucBlock
                        failedBlock:(void (^)(NSError *error))failedBlock {
     if (codeList.count > 10) {
@@ -1543,7 +1548,7 @@ static NSInteger const maxDataLen = 150;
 + (void)ck_configTxPower:(mk_ck_txPower)txPower
                 sucBlock:(void (^)(void))sucBlock
              failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:txPower byteLen:1];
+    NSString *value = [MKCKSDKDataAdopter fetchTxPower:txPower];
     NSString *commandString = [@"ed018701" stringByAppendingString:value];
     [self configDataWithTaskID:mk_ck_taskConfigTxPowerOperation
                           data:commandString

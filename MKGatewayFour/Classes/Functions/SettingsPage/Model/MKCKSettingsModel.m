@@ -35,6 +35,11 @@
             return;
         }
         
+        if (![self readPowerOnWhenCharging]) {
+            [self operationFailedBlockWithMsg:@"Read Power on when charging Error" block:failedBlock];
+            return;
+        }
+        
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();
@@ -62,6 +67,20 @@
     [MKCKInterface ck_readPowerLossNotificationWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.powerLoss = [returnData[@"result"][@"isOn"] boolValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readPowerOnWhenCharging {
+    __block BOOL success = NO;
+    [MKCKInterface ck_readPowerOnWhenChargingStatusWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.powerOnWhenCharging = [returnData[@"result"][@"isOn"] boolValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

@@ -218,6 +218,11 @@ mk_textSwitchCellDelegate>
         [self configPowerLossNotification:isOn];
         return;
     }
+    if (index == 1) {
+        //Power on when charging
+        [self configPowerOnWhenCharging:isOn];
+        return;
+    }
 }
 
 #pragma mark - Interface
@@ -240,6 +245,9 @@ mk_textSwitchCellDelegate>
     
     MKTextSwitchCellModel *powerLossModel = self.section1List[0];
     powerLossModel.isOn = self.dataModel.powerLoss;
+    
+    MKTextSwitchCellModel *powerOnModel = self.section1List[1];
+    powerOnModel.isOn = self.dataModel.powerOnWhenCharging;
     
     [self.tableView reloadData];
 }
@@ -286,6 +294,21 @@ mk_textSwitchCellDelegate>
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
         [self.tableView mk_reloadRow:0 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
+    }];
+}
+
+#pragma mark - Power on when charging
+- (void)configPowerOnWhenCharging:(BOOL)isOn {
+    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
+    [MKCKInterface ck_configPowerOnWhenChargingStatus:isOn sucBlock:^{
+        [[MKHudManager share] hide];
+        MKTextSwitchCellModel *cellModel = self.section1List[1];
+        cellModel.isOn = isOn;
+        self.dataModel.powerOnWhenCharging = isOn;
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.tableView mk_reloadRow:1 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
 
@@ -427,11 +450,17 @@ mk_textSwitchCellDelegate>
 }
 
 - (void)loadSection1Datas {
-    MKTextSwitchCellModel *cellModel = [[MKTextSwitchCellModel alloc] init];
-    cellModel.index = 0;
-    cellModel.msg = @"Power loss notification";
-    cellModel.isOn = YES;
-    [self.section1List addObject:cellModel];
+    MKTextSwitchCellModel *cellModel1 = [[MKTextSwitchCellModel alloc] init];
+    cellModel1.index = 0;
+    cellModel1.msg = @"Power loss notification";
+    cellModel1.isOn = YES;
+    [self.section1List addObject:cellModel1];
+    
+    MKTextSwitchCellModel *cellModel2 = [[MKTextSwitchCellModel alloc] init];
+    cellModel2.index = 1;
+    cellModel2.msg = @"Power on when charging";
+    cellModel2.isOn = YES;
+    [self.section1List addObject:cellModel2];
 }
 
 - (void)loadSection2Datas {

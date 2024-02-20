@@ -230,6 +230,13 @@ MKCKBroadcastTxPowerCellDelegate>
         cellModel.textFieldValue = value;
         return;
     }
+    if (index == 6) {
+        //Password
+        self.dataModel.password = value;
+        MKTextFieldCellModel *cellModel = self.section6List[0];
+        cellModel.textFieldValue = value;
+        return;
+    }
 }
 
 #pragma mark - MKNormalSliderCellDelegate
@@ -417,6 +424,7 @@ MKCKBroadcastTxPowerCellDelegate>
 - (void)loadSection3Datas {
     MKNormalSliderCellModel *cellModel = [[MKNormalSliderCellModel alloc] init];
     cellModel.index = 0;
+    cellModel.sliderMinValue = -100;
     cellModel.msg = [MKCustomUIAdopter attributedString:@[@"RSSI@1m",@"   (-100dBm ~ 0dBm)"] fonts:@[MKFont(15.f),MKFont(13.f)] colors:@[DEFAULT_TEXT_COLOR,RGBCOLOR(223, 223, 223)]];
     cellModel.changed = YES;
     cellModel.noteMsgColor = RGBCOLOR(223, 223, 223);
