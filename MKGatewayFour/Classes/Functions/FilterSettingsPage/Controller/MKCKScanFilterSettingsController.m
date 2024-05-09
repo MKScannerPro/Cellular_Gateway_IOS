@@ -322,7 +322,7 @@ MKCKButtonListCellDelegate>
     MKCKButtonListCellModel *cellModel = [[MKCKButtonListCellModel alloc] init];
     cellModel.index = 2;
     cellModel.msg = @"Duplicate Data Filter";
-    cellModel.dataList = @[@"Null",@"Only MAC",@"Only ADV Name",@"Only RAW DATA"];
+    cellModel.dataList = @[@"None",@"MAC",@"MAC+Data type",@"MAC+Raw data"];
     cellModel.dataListIndex = self.dataModel.dataFilter;
     [self.section4List addObject:cellModel];
 }

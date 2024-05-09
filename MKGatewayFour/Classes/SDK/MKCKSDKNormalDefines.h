@@ -98,8 +98,8 @@ typedef NS_ENUM(NSInteger, mk_ck_filterRelationship) {
 typedef NS_ENUM(NSInteger, mk_ck_duplicateDataFilter) {
     mk_ck_duplicateDataFilter_none,                     //Null
     mk_ck_duplicateDataFilter_mac,                     //Only MAC
-    mk_ck_duplicateDataFilter_advName,                 //Only ADV Name
-    mk_ck_duplicateDataFilter_rawData,                //Only RAW DATA
+    mk_ck_duplicateDataFilter_macAndDataType,          //MAC+Data type
+    mk_ck_duplicateDataFilter_macAndRawData,           //MAC+Raw data
 };
 
 typedef NS_ENUM(NSInteger, mk_ck_positionFixMode) {

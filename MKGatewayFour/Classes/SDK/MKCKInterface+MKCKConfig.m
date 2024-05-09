@@ -696,7 +696,7 @@ static NSInteger const maxDataLen = 150;
 + (void)ck_configRealtimeScanPeriodicReportInterval:(NSInteger)interval
                                            sucBlock:(void (^)(void))sucBlock
                                         failedBlock:(void (^)(NSError *error))failedBlock {
-    if (interval < 600 || interval > 86400) {
+    if (interval < 10 || interval > 86400) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
     }
@@ -712,7 +712,7 @@ static NSInteger const maxDataLen = 150;
                                            interval:(NSInteger)interval
                                            sucBlock:(void (^)(void))sucBlock
                                         failedBlock:(void (^)(NSError *error))failedBlock {
-    if (interval < 600 || interval > 86400 || duration < 3 || duration > 3600) {
+    if (interval < 10 || interval > 86400 || duration < 3 || duration > 3600) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
     }
@@ -730,8 +730,8 @@ static NSInteger const maxDataLen = 150;
                                 reportInterval:(NSInteger)reportInterval
                                       sucBlock:(void (^)(void))sucBlock
                                    failedBlock:(void (^)(NSError *error))failedBlock {
-    if (scanDuration < 3 || scanDuration > 3600 || scanInterval < 600 
-        || scanInterval > 86400 || reportInterval < 600 || reportInterval > 86400) {
+    if (scanDuration < 3 || scanDuration > 3600 || scanInterval < 10
+        || scanInterval > 86400 || reportInterval < 10 || reportInterval > 86400) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
     }
@@ -1587,7 +1587,7 @@ static NSInteger const maxDataLen = 150;
 + (void)ck_configPeriodicFixInterval:(NSInteger)interval
                             sucBlock:(void (^)(void))sucBlock
                          failedBlock:(void (^)(NSError *error))failedBlock {
-    if (interval < 60 || interval > 86400) {
+    if (interval < 10 || interval > 86400) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
     }

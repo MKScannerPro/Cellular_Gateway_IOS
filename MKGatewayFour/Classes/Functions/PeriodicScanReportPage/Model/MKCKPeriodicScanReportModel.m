@@ -133,10 +133,10 @@
     if (!ValidStr(self.scanDuration) || [self.scanDuration integerValue] < 3 || [self.scanDuration integerValue] > 3600) {
         return NO;
     }
-    if (!ValidStr(self.scanInterval) || [self.scanInterval integerValue] < 600 || [self.scanInterval integerValue] > 86400) {
+    if (!ValidStr(self.scanInterval) || [self.scanInterval integerValue] < 10 || [self.scanInterval integerValue] > 86400) {
         return NO;
     }
-    if (!ValidStr(self.reportInterval) || [self.reportInterval integerValue] < 600 || [self.reportInterval integerValue] > 86400) {
+    if (!ValidStr(self.reportInterval) || [self.reportInterval integerValue] < 10 || [self.reportInterval integerValue] > 86400) {
         return NO;
     }
     

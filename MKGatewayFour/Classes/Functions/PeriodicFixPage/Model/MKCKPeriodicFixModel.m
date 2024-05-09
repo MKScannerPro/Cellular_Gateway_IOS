@@ -92,7 +92,7 @@
 }
 
 - (BOOL)checkParams {
-    if (!ValidStr(self.interval) || [self.interval integerValue] < 60 || [self.interval integerValue] > 86400) {
+    if (!ValidStr(self.interval) || [self.interval integerValue] < 10 || [self.interval integerValue] > 86400) {
         return NO;
     }
     

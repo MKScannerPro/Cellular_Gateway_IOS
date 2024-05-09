@@ -225,7 +225,7 @@ MKCKOtherDataBlockCellDelegate>
     NSMutableArray *list = [NSMutableArray array];
     for (NSInteger i = 0; i < self.section1List.count; i ++) {
         MKCKOtherDataBlockCellModel *cellModel = self.section1List[i];
-        if (!ValidStr(cellModel.start) || !ValidStr(cellModel.end) || [cellModel.start integerValue] < 1 || [cellModel.start integerValue] > 29 || [cellModel.end integerValue] < 1 || [cellModel.end integerValue] > 29 || [cellModel.start integerValue] > [cellModel.end integerValue]) {
+        if (!ValidStr(cellModel.dataType) || cellModel.dataType.length != 2 || !ValidStr(cellModel.start) || !ValidStr(cellModel.end) || [cellModel.start integerValue] < 1 || [cellModel.start integerValue] > 29 || [cellModel.end integerValue] < 1 || [cellModel.end integerValue] > 29 || [cellModel.start integerValue] > [cellModel.end integerValue]) {
             [self.view showCentralToast:@"Params Error"];
             return;
         }

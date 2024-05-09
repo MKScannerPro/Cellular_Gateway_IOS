@@ -98,7 +98,7 @@
     if (!ValidStr(self.duration) || [self.duration integerValue] < 3 || [self.duration integerValue] > 3600) {
         return NO;
     }
-    if (!ValidStr(self.interval) || [self.interval integerValue] < 600 || [self.interval integerValue] > 86400) {
+    if (!ValidStr(self.interval) || [self.interval integerValue] < 10 || [self.interval integerValue] > 86400) {
         return NO;
     }
     

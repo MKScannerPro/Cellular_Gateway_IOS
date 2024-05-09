@@ -119,7 +119,7 @@ MKTextFieldCellDelegate>
     cellModel.index = 0;
     cellModel.msg = @"Fix interval";
     cellModel.textFieldType = mk_realNumberOnly;
-    cellModel.textPlaceholder = @"60~86400";
+    cellModel.textPlaceholder = @"10~86400";
     cellModel.textFieldValue = self.dataModel.interval;
     cellModel.maxLength = 5;
     cellModel.unit = @"second";

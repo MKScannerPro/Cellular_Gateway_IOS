@@ -346,11 +346,13 @@ static dispatch_once_t onceToken;
 }
 
 - (void)sendPasswordToDevice {
-    NSString *commandData = @"ed010108";
+    NSString *psd = @"";
     for (NSInteger i = 0; i < self.password.length; i ++) {
         int asciiCode = [self.password characterAtIndex:i];
-        commandData = [commandData stringByAppendingString:[NSString stringWithFormat:@"%1lx",(unsigned long)asciiCode]];
+        psd = [psd stringByAppendingString:[NSString stringWithFormat:@"%1lx",(unsigned long)asciiCode]];
     }
+    NSString *len = [MKBLEBaseSDKAdopter fetchHexValue:self.password.length byteLen:1];
+    NSString *commandData = [NSString stringWithFormat:@"%@%@%@",@"ed0101",len,psd];
     __weak typeof(self) weakSelf = self;
     MKCKOperation *operation = [[MKCKOperation alloc] initOperationWithID:mk_ck_connectPasswordOperation commandBlock:^{
         __strong typeof(self) sself = weakSelf;

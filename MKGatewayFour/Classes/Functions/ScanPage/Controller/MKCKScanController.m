@@ -390,12 +390,11 @@ MKCKScanInfoCellDelegate>
     }
     [[MKHudManager share] showHUDWithTitle:@"Connecting..." inView:self.view isPenetration:NO];
     [[MKCKConnectModel shared] connectDevice:scanDataModel.peripheral password:(scanDataModel.needPassword ? password : @"") deviceName:scanDataModel.deviceName sucBlock:^{
-        if (scanDataModel.needPassword && ValidStr(self.asciiText) && self.asciiText.length == 8) {
+        if (scanDataModel.needPassword && ValidStr(self.asciiText) && (self.asciiText.length >= 6 || self.asciiText.length <= 10)) {
             [[NSUserDefaults standardUserDefaults] setObject:self.asciiText forKey:localPasswordKey];
         }
         [[MKHudManager share] hide];
-        [self.view showCentralToast:@"Time sync completed!"];
-        [self performSelector:@selector(pushTabBarPage) withObject:nil afterDelay:0.6f];
+        [self performSelector:@selector(pushTabBarPage) withObject:nil afterDelay:0.1f];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];

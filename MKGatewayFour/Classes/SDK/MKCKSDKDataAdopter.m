@@ -337,7 +337,7 @@
         protocol.dataType = @"00";
     }
     
-    if (![MKBLEBaseSDKAdopter asciiString:protocol.dataType]) {
+    if (![MKBLEBaseSDKAdopter asciiString:protocol.dataType] || protocol.dataType.length != 2) {
         return NO;
     }
     

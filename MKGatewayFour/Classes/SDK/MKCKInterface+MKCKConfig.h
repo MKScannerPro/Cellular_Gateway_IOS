@@ -330,7 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
                          failedBlock:(void (^)(NSError *error))failedBlock;
 
 /// Report interval of Real time scan& periodic report.
-/// @param interval 600s~86400s
+/// @param interval 10s~86400s
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
 + (void)ck_configRealtimeScanPeriodicReportInterval:(NSInteger)interval
@@ -339,7 +339,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Params of Periodic scan& immediate report.
 /// @param duration Scan duration,3s~3600s.
-/// @param interval Scan interval,600s~86400s.
+/// @param interval Scan interval,10s~86400s.
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
 + (void)ck_configPeriodicScanImmediateReportDuratin:(NSInteger)duration 
@@ -349,8 +349,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Params of Perodic scan & periodic report.
 /// @param scanDuration Scan duration,3s~3600s.
-/// @param scanInterval Scan interval,600s~86400s.
-/// @param reportInterval Report interval,600s~86400s.
+/// @param scanInterval Scan interval,10s~86400s.
+/// @param reportInterval Report interval,10s~86400s.
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
 + (void)ck_configPeriodicScanReportScanDuratin:(NSInteger)scanDuration
@@ -817,7 +817,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Periodic fix interval.
 /// - Parameters:
-///   - interval: 60s~86400s.
+///   - interval: 10s~86400s.
 ///   - sucBlock: Success callback
 ///   - failedBlock: Failure callback
 + (void)ck_configPeriodicFixInterval:(NSInteger)interval 

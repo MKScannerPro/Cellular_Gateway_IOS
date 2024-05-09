@@ -193,7 +193,7 @@ MKTextButtonCellDelegate>
     MKTextFieldCellModel *cellModel2 = [[MKTextFieldCellModel alloc] init];
     cellModel2.index = 1;
     cellModel2.msg = @"Scan interval";
-    cellModel2.textPlaceholder = @"600~86400";
+    cellModel2.textPlaceholder = @"10~86400";
     cellModel2.textFieldType = mk_realNumberOnly;
     cellModel2.maxLength = 5;
     cellModel2.unit = @"second";
@@ -203,7 +203,7 @@ MKTextButtonCellDelegate>
     MKTextFieldCellModel *cellModel3 = [[MKTextFieldCellModel alloc] init];
     cellModel3.index = 2;
     cellModel3.msg = @"Report interval";
-    cellModel3.textPlaceholder = @"600~86400";
+    cellModel3.textPlaceholder = @"10~86400";
     cellModel3.textFieldType = mk_realNumberOnly;
     cellModel3.maxLength = 5;
     cellModel3.unit = @"second";

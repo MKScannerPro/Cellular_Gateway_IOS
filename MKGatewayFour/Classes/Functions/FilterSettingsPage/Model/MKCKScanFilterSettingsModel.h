@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @[@"Null",@"Only MAC",@"Only ADV Name",@"Only Raw Data",@"ADV Name & Raw Data",@"MAC & ADV Name & Raw Data",@"ADV Name | Raw Data",@"ADV Name & MAC"]
 @property (nonatomic, assign)NSInteger relationship;
 
-/// 0:Null      1:Only MAC    2:Only ADV Name     3:Only RAW DATA
+/// 0:None      1:MAC    2:MAC + Data type     3:MAC + Raw data
 @property (nonatomic, assign)NSInteger dataFilter;
 
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
