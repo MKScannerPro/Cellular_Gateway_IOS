@@ -165,8 +165,14 @@ MKCKDebuggerCellDelegate>
         [self.tableView reloadData];
         return;
     }
-    MKCKDebuggerCellModel *cellModel = self.dataList[index];
-    cellModel.selected = selected;
+    for (NSInteger i = 0; i < self.dataList.count; i ++) {
+        MKCKDebuggerCellModel *cellModel = self.dataList[i];
+        if (cellModel.index == index) {
+            cellModel.selected = selected;
+            break;
+        }
+    }
+    
     [self updateTopButtonState];
 }
 
