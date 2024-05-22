@@ -8,14 +8,13 @@
 
 #import "Target_ScannerPro_GW4_Module.h"
 
+#import "MKCKScanController.h"
+
 
 @implementation Target_ScannerPro_GW4_Module
 
 - (UIViewController *)Action_MKScannerPro_GW4_ScanPage:(NSDictionary *)params {
-//    MKCKDeviceListController *vc = [[MKCKDeviceListController alloc] init];
-//    vc.connectServer = YES;
-//    return vc;
-    return [[UIViewController alloc] init];
+    return [[MKCKScanController alloc] init];
 }
 
 @end
