@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)BOOL vehicle;
 
+@property (nonatomic, assign)BOOL sequence;
+
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
 
 - (void)configDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;

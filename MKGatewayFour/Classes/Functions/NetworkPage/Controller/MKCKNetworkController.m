@@ -24,6 +24,7 @@
 #import "MKCKNetworkModel.h"
 
 #import "MKCKNetworkSettingsController.h"
+#import "MKCKNetworkSettingsV2Controller.h"
 #import "MKCKMqttSettingsController.h"
 
 @interface MKCKNetworkController ()<UITableViewDelegate,
@@ -33,6 +34,7 @@ UITableViewDataSource>
 
 @property (nonatomic, strong)NSMutableArray *dataList;
 
+@property (nonatomic, strong)dispatch_source_t refreshTimer;
 
 @property (nonatomic, strong)MKCKNetworkModel *dataModel;
 
@@ -46,7 +48,15 @@ UITableViewDataSource>
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self readDataFromDevice];
+    [self addRefreshTimer];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (self.refreshTimer) {
+        dispatch_cancel(self.refreshTimer);
+        self.refreshTimer = nil;
+    }
 }
 
 - (void)viewDidLoad {
@@ -68,6 +78,12 @@ UITableViewDataSource>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
         //Network Settings
+        if ([MKCKConnectModel shared].isV104) {
+            //V2
+            MKCKNetworkSettingsV2Controller *vc = [[MKCKNetworkSettingsV2Controller alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return;
+        }
         MKCKNetworkSettingsController *vc = [[MKCKNetworkSettingsController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
@@ -108,6 +124,20 @@ UITableViewDataSource>
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
+}
+
+#pragma mark - private method
+- (void)addRefreshTimer {
+    self.refreshTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,dispatch_get_global_queue(0, 0));
+    dispatch_source_set_timer(self.refreshTimer, dispatch_time(DISPATCH_TIME_NOW, 0),  3 * NSEC_PER_SEC, 0);
+    @weakify(self);
+    dispatch_source_set_event_handler(self.refreshTimer, ^{
+        @strongify(self);
+        moko_dispatch_main_safe(^{
+            [self readDataFromDevice];
+        });
+    });
+    dispatch_resume(self.refreshTimer);
 }
 
 - (void)updateCellValues {

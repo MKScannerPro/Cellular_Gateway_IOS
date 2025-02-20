@@ -10,6 +10,8 @@
 
 #import "MKMacroDefines.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKInterface.h"
 
 @interface MKCKSettingsModel ()
@@ -38,6 +40,17 @@
         if (![self readPowerOnWhenCharging]) {
             [self operationFailedBlockWithMsg:@"Read Power on when charging Error" block:failedBlock];
             return;
+        }
+        
+        if ([MKCKConnectModel shared].isV104) {
+            if (![self readOfflineDataCount]) {
+                [self operationFailedBlockWithMsg:@"Read Offline Data Count Error" block:failedBlock];
+                return;
+            }
+            if (![self readPowerOnByMagnet]) {
+                [self operationFailedBlockWithMsg:@"Read Power On By Magnet Error" block:failedBlock];
+                return;
+            }
         }
         
         moko_dispatch_main_safe(^{
@@ -81,6 +94,34 @@
     [MKCKInterface ck_readPowerOnWhenChargingStatusWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.powerOnWhenCharging = [returnData[@"result"][@"isOn"] boolValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readOfflineDataCount {
+    __block BOOL success = NO;
+    [MKCKInterface ck_readOfflineDataCountWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.offlineDataCount = returnData[@"result"][@"count"];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readPowerOnByMagnet {
+    __block BOOL success = NO;
+    [MKCKInterface ck_readPowerOnByMagnetTypeWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.powerOnByMagnet = returnData[@"result"][@"type"];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

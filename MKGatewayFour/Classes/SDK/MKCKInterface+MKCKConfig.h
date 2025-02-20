@@ -7,6 +7,7 @@
 //
 
 #import "MKCKInterface.h"
+#import "MKCKSDKNormalDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -142,6 +143,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_configPowerOnWhenChargingStatus:(BOOL)isOn 
                                   sucBlock:(void (^)(void))sucBlock
                                failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Power on by magnet.
+/// @param isOn isOn
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configPowerOnByMagnet:(mk_ck_powerOnByMagnetType)type
+                        sucBlock:(void (^)(void))sucBlock
+                     failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark *********************MQTT Params************************
 /// Configure the domain name of the MQTT server.
@@ -310,6 +319,22 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_configNBConnectTimeout:(NSInteger)timeout
                          sucBlock:(void (^)(void))sucBlock
                       failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Pin of NB module.(Only V2)
+/// @param pin 0 or 4~8 characters.
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configNBPin:(NSString *)pin
+              sucBlock:(void (^)(void))sucBlock
+           failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Connect Region of NB module.(Only V2)
+/// @param timeout 30s~600s.
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configNBRegion:(id <mk_ck_networkRegionsBandsProtocol>)protocol
+                 sucBlock:(void (^)(void))sucBlock
+              failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark *********************扫描上报参数***************************
 
@@ -726,6 +751,38 @@ NS_ASSUME_NONNULL_BEGIN
                             sucBlock:(void (^)(void))sucBlock
                          failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// Switch status of filter by BXP-S TagID.
+/// @param isOn isOn
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configFilterByBXPSTagIDStatus:(BOOL)isOn
+                                sucBlock:(void (^)(void))sucBlock
+                             failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Precise Match BXP-S's Tag ID.
+/// @param isOn isOn
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configPreciseMatchBXPSTagIDStatus:(BOOL)isOn
+                                    sucBlock:(void (^)(void))sucBlock
+                                 failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Reverse Filter BXP-S's Tag ID.
+/// @param isOn isOn
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configReverseFilterBXPSTagIDStatus:(BOOL)isOn
+                                     sucBlock:(void (^)(void))sucBlock
+                                  failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Filtered list of BXP-S's TagID.
+/// @param macList You can set up to 10 filters.1-6 Bytes.
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configFilterBXPSTagIDList:(NSArray <NSString *>*)tagIDList
+                            sucBlock:(void (^)(void))sucBlock
+                         failedBlock:(void (^)(NSError *error))failedBlock;
+
 #pragma mark *********************蓝牙广播参数************************
 
 /// Advertise response packet status.
@@ -925,6 +982,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_configGpsPDOPLimit:(NSInteger)pdop
                      sucBlock:(void (^)(void))sucBlock
                   failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Upload payload Settings.
+/// @param hdop hdop.
+/// @param sequence Position packet message sequence number
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configPositionUploadPayload:(BOOL)hdop
+                              sequence:(BOOL)sequence
+                              sucBlock:(void (^)(void))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock;
  
 #pragma mark *********************蓝牙数据上报************************
 
@@ -1031,6 +1098,24 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_configOtherBlockPayload:(NSArray <id <mk_ck_otherPayloadProtocol>> *)list
                           sucBlock:(void (^)(void))sucBlock
                        failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Common Info payload.
+/// @param beacon Reporting the number of Bluetooth broadcast packets.
+/// @param sequence Bluetooth packet message sequence number
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configCommonPayload:(BOOL)beacon
+                      sequence:(BOOL)sequence
+                      sucBlock:(void (^)(void))sucBlock
+                   failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// BXP-S payload.
+/// @param protocol protocol
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configBXPSPayload:(id <mk_ck_bxpBXPSPayloadProtocol>)protocol
+                    sucBlock:(void (^)(void))sucBlock
+                 failedBlock:(void (^)(NSError *error))failedBlock;
 
 @end
 

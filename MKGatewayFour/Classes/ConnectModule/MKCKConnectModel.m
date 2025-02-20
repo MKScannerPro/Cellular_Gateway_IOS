@@ -27,6 +27,8 @@
 
 @property (nonatomic, copy)NSString *macAddress;
 
+@property (nonatomic, assign)BOOL isV104;
+
 @end
 
 @implementation MKCKConnectModel
@@ -47,6 +49,7 @@
 - (void)connectDevice:(CBPeripheral *)peripheral
              password:(NSString *)password
            deviceName:(NSString *)deviceName
+                 isV104:(BOOL)isV104
              sucBlock:(void (^)(void))sucBlock
           failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.connectQueue, ^{
@@ -70,6 +73,7 @@
             return;
         }
         self.deviceName = deviceName;
+        self.isV104 = isV104;
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();

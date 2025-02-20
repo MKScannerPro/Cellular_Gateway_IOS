@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MKGatewayFour'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'A short description of MKGatewayFour.'
 
 # This description is used to generate tags and improve search results.
@@ -213,6 +213,19 @@ TODO: Add long description of the pod here.
         end
       end
       
+      sss.subspec 'FilterByBXPSPage' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPSPage/Controller/**'
+        
+          sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Model'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPSPage/Model/**'
+        end
+      end
+      
       sss.subspec 'FilterByBXPTagPage' do |ssss|
         ssss.subspec 'Controller' do |sssss|
           sssss.source_files = 'MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPTagPage/Controller/**'
@@ -280,6 +293,7 @@ TODO: Add long description of the pod here.
           sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByPirPage/Controller'
           sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByTofPage/Controller'
           sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller'
+          sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Controller'
           
         end
       
@@ -450,6 +464,7 @@ TODO: Add long description of the pod here.
         ssss.dependency 'MKGatewayFour/Functions/NetworkPage/Model'
         
         ssss.dependency 'MKGatewayFour/Functions/NetworkSettingsPage/Controller'
+        ssss.dependency 'MKGatewayFour/Functions/NetworkSettingsV2Page/Controller'
         ssss.dependency 'MKGatewayFour/Functions/MqttSettingsPage/Controller'
       end
       
@@ -472,11 +487,32 @@ TODO: Add long description of the pod here.
       
     end
     
+    ss.subspec 'NetworkSettingsV2Page' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/NetworkSettingsV2Page/Controller/**'
+        
+        ssss.dependency 'MKGatewayFour/Functions/NetworkSettingsV2Page/Model'
+        ssss.dependency 'MKGatewayFour/Functions/NetworkSettingsV2Page/View'
+      end
+      
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/NetworkSettingsV2Page/Model/**'
+      end
+      
+      sss.subspec 'View' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/NetworkSettingsV2Page/View/**'
+      end
+      
+    end
+    
     ss.subspec 'PayloadItemsPage' do |sss|
       sss.subspec 'Controller' do |ssss|
         ssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadItemsPage/Controller/**'
         
-        ssss.dependency 'MKGatewayFour/Functions/PayloadPages'
+        ssss.dependency 'MKGatewayFour/Functions/PayloadItemsPage/Model'
+      end
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadItemsPage/Model/**'
       end
     end
     
@@ -518,6 +554,19 @@ TODO: Add long description of the pod here.
       
         ssss.subspec 'Model' do |sssss|
           sssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadPages/ButtonPayloadPage/Model/**'
+        end
+      end
+      
+      sss.subspec 'BXPSPayloadPage' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadPages/BXPSPayloadPage/Controller/**'
+        
+          sssss.dependency 'MKGatewayFour/Functions/PayloadPages/BXPSPayloadPage/Model'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadPages/BXPSPayloadPage/Model/**'
         end
       end
       
@@ -690,6 +739,8 @@ TODO: Add long description of the pod here.
         ssss.dependency 'MKGatewayFour/Functions/FixModePage/Controller'
         ssss.dependency 'MKGatewayFour/Functions/GpsFixPage/Controller'
         ssss.dependency 'MKGatewayFour/Functions/AxisSettingsPage/Controller'
+        ssss.dependency 'MKGatewayFour/Functions/UploadPayloadSettingsPage/Controller'
+
       end
     end
     
@@ -823,6 +874,19 @@ TODO: Add long description of the pod here.
       
       sss.subspec 'Model' do |ssss|
         ssss.source_files = 'MKGatewayFour/Classes/Functions/UpdatePage/Model/**'
+      end
+    end
+    
+    ss.subspec 'UploadPayloadSettingsPage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/UploadPayloadSettingsPage/Controller/**'
+        
+        ssss.dependency 'MKGatewayFour/Functions/UploadPayloadSettingsPage/Model'
+        
+      end
+      
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/UploadPayloadSettingsPage/Model/**'
       end
     end
     

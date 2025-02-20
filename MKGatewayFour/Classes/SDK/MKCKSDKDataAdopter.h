@@ -47,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isConfirmOtherBlockPayloadProtocol:(id <mk_ck_otherBlockPayloadProtocol>)protocol;
 
++ (NSString *)fetchRegionCmdString:(id <mk_ck_networkRegionsBandsProtocol>)protocol;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,6 +19,8 @@
 #import "MKTextSwitchCell.h"
 #import "MKNormalTextCell.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKInterface+MKCKConfig.h"
 
 #import "MKCKFilterByRawDataModel.h"
@@ -32,6 +34,7 @@
 #import "MKCKFilterByPirController.h"
 #import "MKCKFilterByTofController.h"
 #import "MKCKFilterByOtherController.h"
+#import "MKCKFilterByBXPSController.h"
 
 @interface MKCKFilterByRawDataController ()<UITableViewDelegate,
 UITableViewDataSource,
@@ -44,6 +47,10 @@ mk_textSwitchCellDelegate>
 @property (nonatomic, strong)NSMutableArray *section1List;
 
 @property (nonatomic, strong)NSMutableArray *section2List;
+
+@property (nonatomic, strong)NSMutableArray *section3List;
+
+@property (nonatomic, strong)NSMutableArray *section4List;
 
 @property (nonatomic, strong)MKCKFilterByRawDataModel *dataModel;
 
@@ -109,19 +116,25 @@ mk_textSwitchCellDelegate>
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 2 && indexPath.row == 2) {
+    if (indexPath.section == 3 && indexPath.row == 0) {
+        //BXP - Sensor
+        MKCKFilterByBXPSController *vc = [[MKCKFilterByBXPSController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.section == 4 && indexPath.row == 0) {
         //PIR Presence
         MKCKFilterByPirController *vc = [[MKCKFilterByPirController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 2 && indexPath.row == 3) {
+    if (indexPath.section == 4 && indexPath.row == 1) {
         //MK TOF
         MKCKFilterByTofController *vc = [[MKCKFilterByTofController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 2 && indexPath.row == 4) {
+    if (indexPath.section == 4 && indexPath.row == 2) {
         //Other
         MKCKFilterByOtherController *vc = [[MKCKFilterByOtherController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
@@ -131,7 +144,7 @@ mk_textSwitchCellDelegate>
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -143,6 +156,12 @@ mk_textSwitchCellDelegate>
     }
     if (section == 2) {
         return self.section2List.count;
+    }
+    if (section == 3) {
+        return ([MKCKConnectModel shared].isV104 ? self.section3List.count : 0);
+    }
+    if (section == 4) {
+        return self.section4List.count;
     }
     return 0;
 }
@@ -159,8 +178,18 @@ mk_textSwitchCellDelegate>
         cell.delegate = self;
         return cell;
     }
+    if (indexPath.section == 2) {
+        MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section2List[indexPath.row];
+        return cell;
+    }
+    if (indexPath.section == 3) {
+        MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section3List[indexPath.row];
+        return cell;
+    }
     MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
-    cell.dataModel = self.section2List[indexPath.row];
+    cell.dataModel = self.section4List[indexPath.row];
     return cell;
 }
 
@@ -272,14 +301,17 @@ mk_textSwitchCellDelegate>
     MKNormalTextCellModel *cellModel10 = self.section2List[1];
     cellModel10.rightMsg = (self.dataModel.bxpTag ? @"ON" : @"OFF");
     
-    MKNormalTextCellModel *cellModel11 = self.section2List[2];
-    cellModel11.rightMsg = (self.dataModel.pir ? @"ON" : @"OFF");
+    MKNormalTextCellModel *cellModel11 = self.section3List[0];
+    cellModel11.rightMsg = (self.dataModel.bxps ? @"ON" : @"OFF");
     
-    MKNormalTextCellModel *cellModel12 = self.section2List[3];
-    cellModel12.rightMsg = (self.dataModel.tof ? @"ON" : @"OFF");
+    MKNormalTextCellModel *cellModel12 = self.section4List[0];
+    cellModel12.rightMsg = (self.dataModel.pir ? @"ON" : @"OFF");
     
-    MKNormalTextCellModel *cellModel13 = self.section2List[4];
-    cellModel13.rightMsg = (self.dataModel.other ? @"ON" : @"OFF");
+    MKNormalTextCellModel *cellModel13 = self.section4List[1];
+    cellModel13.rightMsg = (self.dataModel.tof ? @"ON" : @"OFF");
+    
+    MKNormalTextCellModel *cellModel14 = self.section4List[2];
+    cellModel14.rightMsg = (self.dataModel.other ? @"ON" : @"OFF");
     
     [self.tableView reloadData];
 }
@@ -288,6 +320,8 @@ mk_textSwitchCellDelegate>
     [self loadSection0Datas];
     [self loadSection1Datas];
     [self loadSection2Datas];
+    [self loadSection3Datas];
+    [self loadSection4Datas];
     
     [self.tableView reloadData];
 }
@@ -341,21 +375,30 @@ mk_textSwitchCellDelegate>
     cellModel2.showRightIcon = YES;
     cellModel2.leftMsg = @"BXP - Tag";
     [self.section2List addObject:cellModel2];
+}
+
+- (void)loadSection3Datas {
+    MKNormalTextCellModel *cellModel = [[MKNormalTextCellModel alloc] init];
+    cellModel.showRightIcon = YES;
+    cellModel.leftMsg = @"BXP - Sensor";
+    [self.section3List addObject:cellModel];
+}
+
+- (void)loadSection4Datas {
+    MKNormalTextCellModel *cellModel1 = [[MKNormalTextCellModel alloc] init];
+    cellModel1.showRightIcon = YES;
+    cellModel1.leftMsg = @"PIR Presence";
+    [self.section4List addObject:cellModel1];
+    
+    MKNormalTextCellModel *cellModel2 = [[MKNormalTextCellModel alloc] init];
+    cellModel2.showRightIcon = YES;
+    cellModel2.leftMsg = @"MK TOF";
+    [self.section4List addObject:cellModel2];
     
     MKNormalTextCellModel *cellModel3 = [[MKNormalTextCellModel alloc] init];
     cellModel3.showRightIcon = YES;
-    cellModel3.leftMsg = @"PIR Presence";
-    [self.section2List addObject:cellModel3];
-    
-    MKNormalTextCellModel *cellModel4 = [[MKNormalTextCellModel alloc] init];
-    cellModel4.showRightIcon = YES;
-    cellModel4.leftMsg = @"MK TOF";
-    [self.section2List addObject:cellModel4];
-    
-    MKNormalTextCellModel *cellModel5 = [[MKNormalTextCellModel alloc] init];
-    cellModel5.showRightIcon = YES;
-    cellModel5.leftMsg = @"Other";
-    [self.section2List addObject:cellModel5];
+    cellModel3.leftMsg = @"Other";
+    [self.section4List addObject:cellModel3];
 }
 
 #pragma mark - UI
@@ -399,6 +442,20 @@ mk_textSwitchCellDelegate>
         _section2List = [NSMutableArray array];
     }
     return _section2List;
+}
+
+- (NSMutableArray *)section3List {
+    if (!_section3List) {
+        _section3List = [NSMutableArray array];
+    }
+    return _section3List;
+}
+
+- (NSMutableArray *)section4List {
+    if (!_section4List) {
+        _section4List = [NSMutableArray array];
+    }
+    return _section4List;
 }
 
 - (MKCKFilterByRawDataModel *)dataModel {

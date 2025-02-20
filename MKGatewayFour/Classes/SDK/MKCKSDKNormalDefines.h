@@ -149,6 +149,11 @@ typedef NS_ENUM(NSInteger, mk_ck_pirFilterDetectionStatus) {
     mk_ck_pirFilterDetectionStatus_all,
 };
 
+typedef NS_ENUM(NSInteger, mk_ck_powerOnByMagnetType) {
+    mk_ck_powerOnByMagnetType_detectsThreeTimes,
+    mk_ck_powerOnByMagnetType_detectsThreeSeconds,
+};
+
 
 
 @protocol mk_ck_heartbeatReportItemsProtocol <NSObject>
@@ -158,6 +163,8 @@ typedef NS_ENUM(NSInteger, mk_ck_pirFilterDetectionStatus) {
 @property (nonatomic, assign)BOOL accelerometer;
 
 @property (nonatomic, assign)BOOL vehicle;
+
+@property (nonatomic, assign)BOOL sequence;
 
 @end
 
@@ -192,6 +199,28 @@ typedef NS_ENUM(NSInteger, mk_ck_pirFilterDetectionStatus) {
 
 @end
 
+
+
+@protocol mk_ck_networkRegionsBandsProtocol <NSObject>
+
+@property (nonatomic, assign)BOOL us;
+
+@property (nonatomic, assign)BOOL europe;
+
+@property (nonatomic, assign)BOOL korea;
+
+@property (nonatomic, assign)BOOL australia;
+
+@property (nonatomic, assign)BOOL middleEst;
+
+@property (nonatomic, assign)BOOL japan;
+
+@property (nonatomic, assign)BOOL china;
+
+///Only 2 areas can be configured at the same time. If allOfThem is selected, it can only be configured as allOfThem.
+@property (nonatomic, assign)BOOL allOfThem;
+
+@end
 
 
 
@@ -420,6 +449,12 @@ typedef NS_ENUM(NSInteger, mk_ck_pirFilterDetectionStatus) {
 @property (nonatomic, assign)BOOL advertising;
 
 @property (nonatomic, assign)BOOL response;
+
+@end
+
+@protocol mk_ck_bxpBXPSPayloadProtocol <mk_ck_bxpTagPayloadProtocol>
+
+@property (nonatomic, assign)BOOL TH;
 
 @end
 

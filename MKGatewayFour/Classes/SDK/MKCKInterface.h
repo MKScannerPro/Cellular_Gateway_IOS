@@ -134,6 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
     @"battery":@(YES),
     @"accelerometer":@(YES),
     @"vehicle":@(YES),
+    @"sequence":@(YES),
  }
  */
 /// @param sucBlock Success callback
@@ -206,6 +207,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)ck_readPowerOnWhenChargingStatusWithSucBlock:(void (^)(id returnData))sucBlock
                                          failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Power on by magnet.
+/*
+ @{
+ @"type":@"0",  //@"0":Detects three times  @"1":Detects three seconds
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readPowerOnByMagnetTypeWithSucBlock:(void (^)(id returnData))sucBlock
+                                   failedBlock:(void (^)(NSError *error))failedBlock;
 
 
 #pragma mark *********************MQTT Params************************
@@ -405,6 +417,30 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)ck_readNBConnectTimeoutWithSucBlock:(void (^)(id returnData))sucBlock
                                 failedBlock:(void (^)(NSError * error))failedBlock;
+
+/// Connect Pin of NB module.(Only V2)
+/*
+    @{
+    @"pin":@"xxx",
+ }
+
+*/
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readNBPinWithSucBlock:(void (^)(id returnData))sucBlock
+                     failedBlock:(void (^)(NSError * error))failedBlock;
+
+/// Connect Region of NB module.(Only V2)
+/*
+    @{
+    @"region":@"xxx",
+ }
+
+*/
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readNBRegionWithSucBlock:(void (^)(id returnData))sucBlock
+                        failedBlock:(void (^)(NSError * error))failedBlock;
 
 #pragma mark *********************扫描上报参数***************************
 /// Scan & Report mode.
@@ -999,6 +1035,54 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_readDuplicateDataFilterWithSucBlock:(void (^)(id returnData))sucBlock
                                    failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// Switch status of filter by BXP-S.
+/*
+ @{
+ @"isOn":@(YES)
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readFilterByBXPSIDStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                    failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Precise Match BXP-S's Tag ID.
+/*
+ @{
+ @"isOn":@(YES)
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readPreciseMatchBXPSTagIDStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                           failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Reverse Filter BXP-S's Tag ID.
+/*
+ @{
+ @"isOn":@(YES)
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readReverseFilterBXPSTagIDStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                            failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Filtered list of BXP-S's TagID addresses.
+/*
+ @{
+ @"tagIDList":@[
+    @"aabb",
+ @"aabbccdd",
+ @"ddeeff"
+ ],
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readFilterBXPSTagIDListWithSucBlock:(void (^)(id returnData))sucBlock
+                                   failedBlock:(void (^)(NSError *error))failedBlock;
+
 #pragma mark ********************广播参数****************************
 /// Advertise response packet status.
 /*
@@ -1258,6 +1342,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)ck_readGpsPDOPLimitWithSucBlock:(void (^)(id returnData))sucBlock
                             failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Read Position Upload payload settings.
+/*
+    @{
+    @"hdop":@(YES),
+    @"sequence":@(YES),
+ }
+*/
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readPositionUploadPayloadSettingsWithSucBlock:(void (^)(id returnData))sucBlock
+                                             failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark ********************蓝牙数据上报****************************
 /// iBeacon payload.
@@ -1531,6 +1627,42 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_readOtherBlockPayloadWithSucBlock:(void (^)(id returnData))sucBlock
                                  failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// Common Info payload.
+/*
+ @{
+    @"beacon":@(YES),
+    @"sequence":@(YES),
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readCommonPayloadWithSucBlock:(void (^)(id returnData))sucBlock
+                             failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// BXP-Tag Info payload.
+/*
+ @{
+    @"rssi":@(YES),
+    @"timestamp":@(YES),
+ 
+    @"sensorStatus":@(YES),
+    @"hallTriggerEventCount":@(YES),
+    @"motionTriggerEventCount":@(YES),
+    @"axisData":@(YES),
+    @"voltage":@(YES),
+    @"tagID":@(YES),
+    @"TH":@(YES),
+    @"deviceName":@(YES),
+ 
+    @"advertising":@(YES),
+    @"response":@(YES)
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readBXPSPayloadWithSucBlock:(void (^)(id returnData))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock;
+
 #pragma mark ********************设备状态****************************
 /// Read battery voltage.
 /*
@@ -1586,6 +1718,39 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)ck_readMQTTStatusWithSucBlock:(void (^)(id returnData))sucBlock
                           failedBlock:(void (^)(NSError * error))failedBlock;
+
+/// Cellular Mode.
+/*
+    @{
+    @"mode":@"0",   //@"0":BG95M3   @"1":EG915Q @"2":EG915U-EU  3:@"EG915U-LA"
+ }
+*/
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readCellularModeWithSucBlock:(void (^)(id returnData))sucBlock
+                            failedBlock:(void (^)(NSError * error))failedBlock;
+
+/// Offline Data Counts.
+/*
+    @{
+    @"count":@"1",
+ }
+*/
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readOfflineDataCountWithSucBlock:(void (^)(id returnData))sucBlock
+                                failedBlock:(void (^)(NSError * error))failedBlock;
+
+/// Cellular Version.
+/*
+    @{
+    @"version":@"V1.0.1",   
+ }
+*/
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readCellularVersionWithSucBlock:(void (^)(id returnData))sucBlock
+                               failedBlock:(void (^)(NSError * error))failedBlock;
 
 
 @end

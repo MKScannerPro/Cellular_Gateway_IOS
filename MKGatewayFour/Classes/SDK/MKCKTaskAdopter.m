@@ -230,10 +230,12 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
         BOOL battery = ([[binary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"]);
         BOOL accelerometer = ([[binary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
         BOOL vehicle = ([[binary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"]);
+        BOOL sequence = ([[binary substringWithRange:NSMakeRange(4, 1)] isEqualToString:@"1"]);
         resultDic = @{
             @"battery":@(battery),
             @"accelerometer":@(accelerometer),
             @"vehicle":@(vehicle),
+            @"sequence":@(sequence),
         };
         operationID = mk_ck_taskReadReportItemsOperation;
     }else if ([cmd isEqualToString:@"13"]) {
@@ -278,6 +280,12 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"isOn":@(isOn)
         };
         operationID = mk_ck_taskReadPowerOnWhenChargingStatusOperation;
+    }else if ([cmd isEqualToString:@"1a"]) {
+        //读取开关机方式
+        resultDic = @{
+            @"type":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
+        };
+        operationID = mk_ck_taskReadPowerOnByMagnetTypeOperation;
     }else if ([cmd isEqualToString:@"20"]) {
         //读取MQTT服务器域名
         NSString *host = @"";
@@ -392,6 +400,23 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"timeout":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
         };
         operationID = mk_ck_taskReadNBConnectTimeoutOperation;
+    }else if ([cmd isEqualToString:@"35"]) {
+        //读取Pin
+        NSString *pin = @"";
+        if (data.length > 4) {
+            NSData *pinData = [data subdataWithRange:NSMakeRange(4, data.length - 4)];
+            pin = [[NSString alloc] initWithData:pinData encoding:NSUTF8StringEncoding];
+        }
+        resultDic = @{
+            @"pin":(MKValidStr(pin) ? pin : @""),
+        };
+        operationID = mk_ck_taskReadNBPinOperation;
+    }else if ([cmd isEqualToString:@"36"]) {
+        //读取Region
+        resultDic = @{
+            @"region":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
+        };
+        operationID = mk_ck_taskReadNBRegionOperation;
     }else if ([cmd isEqualToString:@"40"]) {
         //读取蓝牙扫描上报模式
         resultDic = @{
@@ -512,6 +537,7 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
         BOOL pir = ([[highBinary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
         BOOL tof = ([[highBinary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"]);
         BOOL other = ([[highBinary substringWithRange:NSMakeRange(4, 1)] isEqualToString:@"1"]);
+        BOOL bxps = ([[highBinary substringWithRange:NSMakeRange(3, 1)] isEqualToString:@"1"]);
         resultDic = @{
             @"iBeacon":@(iBeacon),
             @"uid":@(uid),
@@ -525,6 +551,7 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"bxp_tag":@(bxp_tag),
             @"other":@(other),
             @"tof":@(tof),
+            @"bxps":@(bxps),
         };
         operationID = mk_ck_taskReadFilterTypeStatusOperation;
     }else if ([cmd isEqualToString:@"5a"]) {
@@ -754,6 +781,34 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"filterType":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
         };
         operationID = mk_ck_taskReadDuplicateDataFilterOperation;
+    }else if ([cmd isEqualToString:@"7b"]) {
+        //读取BXP-S过滤开关
+        BOOL isOn = ([content isEqualToString:@"01"]);
+        resultDic = @{
+            @"isOn":@(isOn)
+        };
+        operationID = mk_ck_taskReadFilterByBXPSIDStatusOperation;
+    }else if ([cmd isEqualToString:@"7c"]) {
+        //读取BXP-S tagID精准过滤开关
+        BOOL isOn = ([content isEqualToString:@"01"]);
+        resultDic = @{
+            @"isOn":@(isOn)
+        };
+        operationID = mk_ck_taskReadPreciseMatchBXPSTagIDStatusOperation;
+    }else if ([cmd isEqualToString:@"7d"]) {
+        //读取BXP-S tagID反向过滤开关
+        BOOL isOn = ([content isEqualToString:@"01"]);
+        resultDic = @{
+            @"isOn":@(isOn)
+        };
+        operationID = mk_ck_taskReadReverseFilterBXPSTagIDStatusOperation;
+    }else if ([cmd isEqualToString:@"7e"]) {
+        //读取BXP-S tagID列表
+        NSArray *tagIDList = [MKCKSDKDataAdopter parseFilterMacList:content];
+        resultDic = @{
+            @"tagIDList":(MKValidArray(tagIDList) ? tagIDList : @[]),
+        };
+        operationID = mk_ck_taskReadFilterBXPSTagIDListOperation;
     }else if ([cmd isEqualToString:@"80"]) {
         //读取回应包开关
         BOOL isOn = ([content isEqualToString:@"01"]);
@@ -901,6 +956,16 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"pdop":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
         };
         operationID = mk_ck_taskReadGpsPDOPLimitOperation;
+    }else if ([cmd isEqualToString:@"9d"]) {
+        //读取定位数据上报选择
+        NSString *binary = [MKBLEBaseSDKAdopter binaryByhex:content];
+        BOOL hdop = ([[binary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"]);
+        BOOL sequence = ([[binary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
+        resultDic = @{
+            @"hdop":@(hdop),
+            @"sequence":@(sequence),
+        };
+        operationID = mk_ck_taskReadPositionUploadPayloadSettingsOperation;
     }else if ([cmd isEqualToString:@"a0"]) {
         //读取iBeacon上报选择
         NSString *binary = [MKBLEBaseSDKAdopter binaryByhex:content];
@@ -1242,6 +1307,48 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"list":list
         };
         operationID = mk_ck_taskReadOtherBlockPayloadOperation;
+    }else if ([cmd isEqualToString:@"ad"]) {
+        //读取扫描上报包参数
+        NSString *binary = [MKBLEBaseSDKAdopter binaryByhex:content];
+        BOOL beacon = ([[binary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"]);
+        BOOL sequence = ([[binary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
+        resultDic = @{
+            @"beacon":@(beacon),
+            @"sequence":@(sequence),
+        };
+        operationID = mk_ck_taskReadCommonPayloadOperation;
+    }else if ([cmd isEqualToString:@"ae"]) {
+        //读取BXP_S上报选择
+        NSString *highBinary = [MKBLEBaseSDKAdopter binaryByhex:[content substringWithRange:NSMakeRange(0, 2)]];
+        NSString *lowBinary = [MKBLEBaseSDKAdopter binaryByhex:[content substringWithRange:NSMakeRange(2, 2)]];
+        BOOL rssi = ([[lowBinary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"]);
+        BOOL timestamp = ([[lowBinary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
+        BOOL sensorStatus = ([[lowBinary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"]);
+        BOOL hallTriggerEventCount = ([[lowBinary substringWithRange:NSMakeRange(4, 1)] isEqualToString:@"1"]);
+        BOOL motionTriggerEventCount = ([[lowBinary substringWithRange:NSMakeRange(3, 1)] isEqualToString:@"1"]);
+        BOOL axisData = ([[lowBinary substringWithRange:NSMakeRange(2, 1)] isEqualToString:@"1"]);
+        BOOL voltage = ([[lowBinary substringWithRange:NSMakeRange(1, 1)] isEqualToString:@"1"]);
+        BOOL tagID = ([[lowBinary substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"1"]);
+        
+        BOOL deviceName = ([[highBinary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"]);
+        BOOL advertising = ([[highBinary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
+        BOOL response = ([[highBinary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"]);
+        BOOL TH = ([[highBinary substringWithRange:NSMakeRange(4, 1)] isEqualToString:@"1"]);
+        resultDic = @{
+            @"rssi":@(rssi),
+            @"timestamp":@(timestamp),
+            @"sensorStatus":@(sensorStatus),
+            @"hallTriggerEventCount":@(hallTriggerEventCount),
+            @"motionTriggerEventCount":@(motionTriggerEventCount),
+            @"axisData":@(axisData),
+            @"voltage":@(voltage),
+            @"tagID":@(tagID),
+            @"deviceName":@(deviceName),
+            @"advertising":@(advertising),
+            @"response":@(response),
+            @"TH":@(TH),
+        };
+        operationID = mk_ck_taskReadBXPSPayloadOperation;
     }else if ([cmd isEqualToString:@"c0"]) {
         //读取电池电压
         resultDic = @{
@@ -1282,6 +1389,29 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"status":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
         };
         operationID = mk_ck_taskReadMQTTConnectStatusOperation;
+    }else if ([cmd isEqualToString:@"c7"]) {
+        //读取Cellular模块类型
+        resultDic = @{
+            @"mode":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
+        };
+        operationID = mk_ck_taskReadCellularModeOperation;
+    }else if ([cmd isEqualToString:@"c8"]) {
+        //读取离线数据条数
+        resultDic = @{
+            @"count":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
+        };
+        operationID = mk_ck_taskReadOfflineDataCountOperation;
+    }else if ([cmd isEqualToString:@"c9"]) {
+        //读取Cellular模块版本
+        NSString *version = @"";
+        if (data.length > 4) {
+            NSData *versionData = [data subdataWithRange:NSMakeRange(4, data.length - 4)];
+            version = [[NSString alloc] initWithData:versionData encoding:NSUTF8StringEncoding];
+        }
+        resultDic = @{
+            @"version":(MKValidStr(version) ? version : @""),
+        };
+        operationID = mk_ck_taskReadCellularVersionOperation;
     }
     
     return [self dataParserGetDataSuccess:resultDic operationID:operationID];
@@ -1342,6 +1472,9 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"19"]) {
         //配置低电关机充电是否开机
         operationID = mk_ck_taskConfigPowerOnWhenChargingStatusOperation;
+    }else if ([cmd isEqualToString:@"1a"]) {
+        //配置开关机方式
+        operationID = mk_ck_taskConfigPowerOnByMagnetOperation;
     }else if ([cmd isEqualToString:@"20"]) {
         //配置MQTT服务器域名
         operationID = mk_ck_taskConfigServerHostOperation;
@@ -1384,6 +1517,12 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"34"]) {
         //配置NB连接超时时间
         operationID = mk_ck_taskConfigNBConnectTimeoutOperation;
+    }else if ([cmd isEqualToString:@"35"]) {
+        //配置Pin
+        operationID = mk_ck_taskConfigNBPinOperation;
+    }else if ([cmd isEqualToString:@"36"]) {
+        //配置Region
+        operationID = mk_ck_taskConfigNBRegionOperation;
     }else if ([cmd isEqualToString:@"40"]) {
         //蓝牙扫描上报模式
         operationID = mk_ck_taskConfigScanReportModeOperation;
@@ -1528,6 +1667,18 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"7a"]) {
         //配置重复数据过滤规则
         operationID = mk_ck_taskConfigDuplicateDataFilterOperation;
+    }else if ([cmd isEqualToString:@"7b"]) {
+        //配置BXP-S过滤开关
+        operationID = mk_ck_taskConfigFilterByBXPSTagIDStatusOperation;
+    }else if ([cmd isEqualToString:@"7c"]) {
+        //配置BXP-S TagID精准过滤
+        operationID = mk_ck_taskConfigPreciseMatchBXPSTagIDStatusOperation;
+    }else if ([cmd isEqualToString:@"7d"]) {
+        //配置BXP-S TagID反向过滤
+        operationID = mk_ck_taskConfigReverseFilterBXPSTagIDStatusOperation;
+    }else if ([cmd isEqualToString:@"7e"]) {
+        //配置BXP-S TagID列表
+        operationID = mk_ck_taskConfigFilterBXPSTagIDListOperation;
     }else if ([cmd isEqualToString:@"80"]) {
         //配置回应包开关
         operationID = mk_ck_taskConfigAdvertiseResponsePacketStatusOperation;
@@ -1594,6 +1745,9 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"9c"]) {
         //配置PDOP
         operationID = mk_ck_taskConfigGpsPDOPLimitOperation;
+    }else if ([cmd isEqualToString:@"9d"]) {
+        //配置定位数据上报选择
+        operationID = mk_ck_taskConfigPositionUploadPayloadOperation;
     }else if ([cmd isEqualToString:@"a0"]) {
         //配置iBeacon上报选择
         operationID = mk_ck_taskConfigBeaconPayloadOperation;
@@ -1633,6 +1787,12 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"ac"]) {
         //配置Other block上报选择
         operationID = mk_ck_taskConfigOtherBlockPayloadOperation;
+    }else if ([cmd isEqualToString:@"ad"]) {
+        //配置扫描上报包参数
+        operationID = mk_ck_taskConfigCommonPayloadOperation;
+    }else if ([cmd isEqualToString:@"ae"]) {
+        //配置bxp_s上报选择
+        operationID = mk_ck_taskConfigBXPSPayloadOperation;
     }
     
     return [self dataParserGetDataSuccess:@{@"success":@(success)} operationID:operationID];

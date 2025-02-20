@@ -54,6 +54,7 @@
         self.pir = [returnData[@"result"][@"pir"] boolValue];
         self.tof = [returnData[@"result"][@"tof"] boolValue];
         self.other = [returnData[@"result"][@"other"] boolValue];
+        self.bxps = [returnData[@"result"][@"bxps"] boolValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

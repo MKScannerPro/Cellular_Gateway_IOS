@@ -21,6 +21,8 @@
 #import "MKDeviceInfoCell.h"
 #import "MKDeviceInfoDfuCell.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKDeviceInfoModel.h"
 
 #import "MKCKUpdateController.h"
@@ -134,7 +136,19 @@ MKDeviceInfoDfuCellDelegate>
     
     MKDeviceInfoCellModel *cellModel2 = [[MKDeviceInfoCellModel alloc] init];
     cellModel2.leftMsg = @"Product Model";
-    cellModel2.rightMsg = self.dataModel.productMode;
+    NSString *fexString = @"";
+    if ([MKCKConnectModel shared].isV104) {
+        if (self.dataModel.cellularMode == 0) {
+            fexString = @"-40G-GL";
+        }else if (self.dataModel.cellularMode == 1) {
+            fexString = @"-40E-NA";
+        }else if (self.dataModel.cellularMode == 2) {
+            fexString = @"-40E-EU";
+        }else if (self.dataModel.cellularMode == 3) {
+            fexString = @"-40E-LA";
+        }
+    }
+    cellModel2.rightMsg = [self.dataModel.productMode stringByAppendingString:fexString];
     [self.section0List addObject:cellModel2];
     
     MKDeviceInfoCellModel *cellModel3 = [[MKDeviceInfoCellModel alloc] init];
@@ -177,6 +191,13 @@ MKDeviceInfoDfuCellDelegate>
     cellModel3.leftMsg = @"ICCID";
     cellModel3.rightMsg = self.dataModel.iccid;
     [self.section2List addObject:cellModel3];
+    
+    if ([MKCKConnectModel shared].isV104) {
+        MKDeviceInfoCellModel *cellModel4 = [[MKDeviceInfoCellModel alloc] init];
+        cellModel4.leftMsg = @"LTE firmware version";
+        cellModel4.rightMsg = self.dataModel.cellularVersion;
+        [self.section2List addObject:cellModel4];
+    }
 }
 
 #pragma mark - UI

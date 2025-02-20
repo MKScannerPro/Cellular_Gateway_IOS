@@ -351,4 +351,33 @@
     return YES;
 }
 
++ (NSString *)fetchRegionCmdString:(id <mk_ck_networkRegionsBandsProtocol>)protocol {
+    if (![protocol conformsToProtocol:@protocol(mk_ck_networkRegionsBandsProtocol)]) {
+        return @"";
+    }
+    if (protocol.allOfThem) {
+        return @"80";
+    }
+    // 计算选择的区域数量
+    NSUInteger count = 0;
+    NSUInteger result = 0;
+
+    // 检查每个区域的选择状态
+    if (protocol.us) { count++; result |= (1 << 0); }
+    if (protocol.europe) { count++; result |= (1 << 1); }
+    if (protocol.korea) { count++; result |= (1 << 2); }
+    if (protocol.australia) { count++; result |= (1 << 3); }
+    if (protocol.middleEst) { count++; result |= (1 << 4); }
+    if (protocol.japan) { count++; result |= (1 << 5); }
+    if (protocol.china) { count++; result |= (1 << 6); }
+
+    // 只能选择两个区域
+    if (count > 2) {
+        return @""; // 超过两个区域，返回默认值
+    }
+
+    // 返回十六进制字符串
+    return [NSString stringWithFormat:@"%02lx", (unsigned long)result];
+}
+
 @end

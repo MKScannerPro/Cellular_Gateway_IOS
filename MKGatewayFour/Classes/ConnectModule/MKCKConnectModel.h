@@ -22,15 +22,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, readonly)NSString *macAddress;
 
+@property (nonatomic, assign, readonly)BOOL isV104;
+
 /// 连接设备
 /// @param peripheral 设备
 /// @param password 密码
 /// @param deviceName deviceName
+/// @param isV104 isV104
 /// @param sucBlock 成功回调
 /// @param failedBlock 失败回调
 - (void)connectDevice:(CBPeripheral *)peripheral
              password:(NSString *)password
            deviceName:(NSString *)deviceName
+                 isV104:(BOOL)isV104
              sucBlock:(void (^)(void))sucBlock
           failedBlock:(void (^)(NSError *error))failedBlock;
 

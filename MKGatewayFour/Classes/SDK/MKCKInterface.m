@@ -177,6 +177,14 @@
                  failedBlock:failedBlock];
 }
 
++ (void)ck_readPowerOnByMagnetTypeWithSucBlock:(void (^)(id returnData))sucBlock
+                                   failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadPowerOnByMagnetTypeOperation
+                     cmdFlag:@"1a"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
 #pragma mark *********************MQTT Params************************
 
 + (void)ck_readServerHostWithSucBlock:(void (^)(id returnData))sucBlock
@@ -339,6 +347,22 @@
                                 failedBlock:(void (^)(NSError * error))failedBlock {
     [self readDataWithTaskID:mk_ck_taskReadNBConnectTimeoutOperation
                      cmdFlag:@"34"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readNBPinWithSucBlock:(void (^)(id returnData))sucBlock
+                     failedBlock:(void (^)(NSError * error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadNBPinOperation
+                     cmdFlag:@"35"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readNBRegionWithSucBlock:(void (^)(id returnData))sucBlock
+                        failedBlock:(void (^)(NSError * error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadNBRegionOperation
+                     cmdFlag:@"36"
                     sucBlock:sucBlock
                  failedBlock:failedBlock];
 }
@@ -737,6 +761,38 @@
                  failedBlock:failedBlock];
 }
 
++ (void)ck_readFilterByBXPSIDStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                    failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadFilterByBXPSIDStatusOperation
+                     cmdFlag:@"7b"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readPreciseMatchBXPSTagIDStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                           failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadPreciseMatchBXPSTagIDStatusOperation
+                     cmdFlag:@"7c"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readReverseFilterBXPSTagIDStatusWithSucBlock:(void (^)(id returnData))sucBlock
+                                            failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadReverseFilterBXPSTagIDStatusOperation
+                     cmdFlag:@"7d"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readFilterBXPSTagIDListWithSucBlock:(void (^)(id returnData))sucBlock
+                                   failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadFilterBXPSTagIDListOperation
+                     cmdFlag:@"7e"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
 #pragma mark ********************广播参数****************************
 + (void)ck_readAdvertiseResponsePacketStatusWithSucBlock:(void (^)(id returnData))sucBlock
                                              failedBlock:(void (^)(NSError *error))failedBlock {
@@ -915,6 +971,14 @@
                  failedBlock:failedBlock];
 }
 
++ (void)ck_readPositionUploadPayloadSettingsWithSucBlock:(void (^)(id returnData))sucBlock
+                                             failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadPositionUploadPayloadSettingsOperation
+                     cmdFlag:@"9d"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
 #pragma mark ********************蓝牙数据上报****************************
 
 + (void)ck_readBeaconPayloadWithSucBlock:(void (^)(id returnData))sucBlock
@@ -1021,6 +1085,22 @@
                  failedBlock:failedBlock];
 }
 
++ (void)ck_readCommonPayloadWithSucBlock:(void (^)(id returnData))sucBlock
+                             failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadCommonPayloadOperation
+                     cmdFlag:@"ad"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readBXPSPayloadWithSucBlock:(void (^)(id returnData))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadBXPSPayloadOperation
+                     cmdFlag:@"ae"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
 #pragma mark ************************设备状态************************
 + (void)ck_readBatteryVoltageWithSucBlock:(void (^)(id returnData))sucBlock
                               failedBlock:(void (^)(NSError *error))failedBlock {
@@ -1058,6 +1138,30 @@
                           failedBlock:(void (^)(NSError * error))failedBlock {
     [self readDataWithTaskID:mk_ck_taskReadMQTTConnectStatusOperation
                      cmdFlag:@"c5"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readCellularModeWithSucBlock:(void (^)(id returnData))sucBlock
+                            failedBlock:(void (^)(NSError * error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadCellularModeOperation
+                     cmdFlag:@"c7"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readOfflineDataCountWithSucBlock:(void (^)(id returnData))sucBlock
+                                failedBlock:(void (^)(NSError * error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadOfflineDataCountOperation
+                     cmdFlag:@"c8"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readCellularVersionWithSucBlock:(void (^)(id returnData))sucBlock
+                               failedBlock:(void (^)(NSError * error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadCellularVersionOperation
+                     cmdFlag:@"c9"
                     sucBlock:sucBlock
                  failedBlock:failedBlock];
 }

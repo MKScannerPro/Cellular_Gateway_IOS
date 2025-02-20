@@ -22,6 +22,8 @@
 #import "MKTextSwitchCell.h"
 #import "MKTableSectionLineHeader.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKHeartbeatReportModel.h"
 
 @interface MKCKHeartbeatReportController ()<UITableViewDelegate,
@@ -153,6 +155,13 @@ mk_textSwitchCellDelegate>
         cellModel.isOn = isOn;
         return;
     }
+    if (index == 3) {
+        //Sequence number
+        self.dataModel.sequence = isOn;
+        MKTextSwitchCellModel *cellModel = self.section1List[3];
+        cellModel.isOn = isOn;
+        return;
+    }
 }
 
 #pragma mark - interface
@@ -232,6 +241,14 @@ mk_textSwitchCellDelegate>
     cellModel3.msg = @"Vehicle ACC status";
     cellModel3.isOn = self.dataModel.vehicle;
     [self.section1List addObject:cellModel3];
+    
+    if ([MKCKConnectModel shared].isV104) {
+        MKTextSwitchCellModel *cellModel4 = [[MKTextSwitchCellModel alloc] init];
+        cellModel4.index = 3;
+        cellModel4.msg = @"Sequence number";
+        cellModel4.isOn = self.dataModel.sequence;
+        [self.section1List addObject:cellModel4];
+    }
 }
 
 #pragma mark - UI

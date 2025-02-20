@@ -140,7 +140,7 @@ static NSInteger const maxDataLen = 150;
 + (void)ck_configHeartbeatReportItems:(id <mk_ck_heartbeatReportItemsProtocol>)protocol
                              sucBlock:(void (^)(void))sucBlock
                           failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *binary = [NSString stringWithFormat:@"%@%@%@%@",@"00000",(protocol.vehicle ? @"1" : @"0"),(protocol.accelerometer ? @"1" : @"0"),(protocol.battery ? @"1" : @"0")];
+    NSString *binary = [NSString stringWithFormat:@"%@%@%@%@%@",@"0000",(protocol.sequence ? @"1" : @"0"),(protocol.vehicle ? @"1" : @"0"),(protocol.accelerometer ? @"1" : @"0"),(protocol.battery ? @"1" : @"0")];
     NSString *value = [MKBLEBaseSDKAdopter getHexByBinary:binary];
     NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed011201",value];
     [self configDataWithTaskID:mk_ck_taskConfigHeartbeatReportItemsOperation
@@ -224,6 +224,17 @@ static NSInteger const maxDataLen = 150;
                                failedBlock:(void (^)(NSError *error))failedBlock {
     NSString *commandString = (isOn ? @"ed01190101" : @"ed01190100");
     [self configDataWithTaskID:mk_ck_taskConfigPowerOnWhenChargingStatusOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configPowerOnByMagnet:(mk_ck_powerOnByMagnetType)type
+                        sucBlock:(void (^)(void))sucBlock
+                     failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:type byteLen:1];
+    NSString *commandString = [@"ed011a01" stringByAppendingString:value];
+    [self configDataWithTaskID:mk_ck_taskConfigPowerOnByMagnetOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];
@@ -665,6 +676,37 @@ static NSInteger const maxDataLen = 150;
     NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:timeout byteLen:2];
     NSString *commandString = [@"ed013402" stringByAppendingString:value];
     [self configDataWithTaskID:mk_ck_taskConfigNBConnectTimeoutOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configNBPin:(NSString *)pin
+              sucBlock:(void (^)(void))sucBlock
+           failedBlock:(void (^)(NSError *error))failedBlock {
+    if ((pin.length > 0 && pin.length < 4) || pin.length > 8) {
+        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+        return;
+    }
+    NSString *pinString = [MKCKSDKDataAdopter fetchAsciiCode:pin];
+    NSString *length = [MKBLEBaseSDKAdopter fetchHexValue:pin.length byteLen:1];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@%@",@"ed0135",length,pinString];
+    [self configDataWithTaskID:mk_ck_taskConfigNBPinOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configNBRegion:(id <mk_ck_networkRegionsBandsProtocol>)protocol
+                 sucBlock:(void (^)(void))sucBlock
+              failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *cmdString = [MKCKSDKDataAdopter fetchRegionCmdString:protocol];
+    if (!MKValidStr(cmdString)) {
+        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+        return;
+    }
+    NSString *commandString = [@"ed013601" stringByAppendingString:cmdString];
+    [self configDataWithTaskID:mk_ck_taskConfigNBRegionOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];
@@ -1437,6 +1479,63 @@ static NSInteger const maxDataLen = 150;
                    failedBlock:failedBlock];
 }
 
++ (void)ck_configFilterByBXPSTagIDStatus:(BOOL)isOn
+                                sucBlock:(void (^)(void))sucBlock
+                             failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = (isOn ? @"ed017b0101" : @"ed017b0100");
+    [self configDataWithTaskID:mk_ck_taskConfigFilterByBXPSTagIDStatusOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configPreciseMatchBXPSTagIDStatus:(BOOL)isOn
+                                    sucBlock:(void (^)(void))sucBlock
+                                 failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = (isOn ? @"ed017c0101" : @"ed017c0100");
+    [self configDataWithTaskID:mk_ck_taskConfigPreciseMatchBXPSTagIDStatusOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configReverseFilterBXPSTagIDStatus:(BOOL)isOn
+                                     sucBlock:(void (^)(void))sucBlock
+                                  failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = (isOn ? @"ed017d0101" : @"ed017d0100");
+    [self configDataWithTaskID:mk_ck_taskConfigReverseFilterBXPSTagIDStatusOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configFilterBXPSTagIDList:(NSArray <NSString *>*)tagIDList
+                            sucBlock:(void (^)(void))sucBlock
+                         failedBlock:(void (^)(NSError *error))failedBlock {
+    if (tagIDList.count > 10) {
+        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+        return;
+    }
+    NSString *tagIDString = @"";
+    if (MKValidArray(tagIDList)) {
+        for (NSString *tagID in tagIDList) {
+            if ((tagID.length % 2 != 0) || !MKValidStr(tagID) || tagID.length > 12 || ![MKBLEBaseSDKAdopter checkHexCharacter:tagID]) {
+                [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+                return;
+            }
+            NSString *tempLen = [MKBLEBaseSDKAdopter fetchHexValue:(tagID.length / 2) byteLen:1];
+            NSString *string = [tempLen stringByAppendingString:tagID];
+            tagIDString = [tagIDString stringByAppendingString:string];
+        }
+    }
+    NSString *dataLen = [MKBLEBaseSDKAdopter fetchHexValue:(tagIDString.length / 2) byteLen:1];
+    NSString *commandString = [NSString stringWithFormat:@"ed017e%@%@",dataLen,tagIDString];
+    [self configDataWithTaskID:mk_ck_taskConfigFilterBXPSTagIDListOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
 #pragma mark *********************蓝牙广播参数************************
 + (void)ck_configAdvertiseResponsePacketStatus:(BOOL)isOn
                                       sucBlock:(void (^)(void))sucBlock
@@ -1748,6 +1847,19 @@ static NSInteger const maxDataLen = 150;
                    failedBlock:failedBlock];
 }
 
++ (void)ck_configPositionUploadPayload:(BOOL)hdop
+                              sequence:(BOOL)sequence
+                              sucBlock:(void (^)(void))sucBlock
+                           failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *binary = [NSString stringWithFormat:@"%@%@%@",@"000000",(sequence ? @"1" : @"0"),(hdop ? @"1" : @"0")];
+    NSString *value = [MKBLEBaseSDKAdopter getHexByBinary:binary];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed019d01",value];
+    [self configDataWithTaskID:mk_ck_taskConfigPositionUploadPayloadOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
 #pragma mark *********************蓝牙数据上报************************
 
 + (void)ck_configBeaconPayload:(id <mk_ck_beaconPayloadProtocol>)protocol
@@ -1931,6 +2043,33 @@ static NSInteger const maxDataLen = 150;
     NSString *lenString = [MKBLEBaseSDKAdopter fetchHexValue:(dataContent.length / 2) byteLen:1];
     NSString *commandString = [NSString stringWithFormat:@"%@%@%@",@"ed01ac",lenString,dataContent];
     [self configDataWithTaskID:mk_ck_taskConfigOtherBlockPayloadOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configCommonPayload:(BOOL)beacon
+                      sequence:(BOOL)sequence
+                      sucBlock:(void (^)(void))sucBlock
+                   failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *binary = [NSString stringWithFormat:@"%@%@%@",@"000000",(sequence ? @"1" : @"0"),(beacon ? @"1" : @"0")];
+    NSString *value = [MKBLEBaseSDKAdopter getHexByBinary:binary];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@",@"ed01ad01",value];
+    [self configDataWithTaskID:mk_ck_taskConfigCommonPayloadOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configBXPSPayload:(id <mk_ck_bxpBXPSPayloadProtocol>)protocol
+                    sucBlock:(void (^)(void))sucBlock
+                 failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *lowBinary = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",(protocol.tagID ? @"1" : @"0"),(protocol.voltage ? @"1" : @"0"),(protocol.axisData ? @"1" : @"0"),(protocol.motionTriggerEventCount ? @"1" : @"0"),(protocol.hallTriggerEventCount ? @"1" : @"0"),(protocol.sensorStatus ? @"1" : @"0"),(protocol.timestamp ? @"1" : @"0"),(protocol.rssi ? @"1" : @"0")];
+    NSString *highBinary = [NSString stringWithFormat:@"%@%@%@%@%@",@"0000",(protocol.TH ? @"1" : @"0"),(protocol.response ? @"1" : @"0"),(protocol.advertising ? @"1" : @"0"),(protocol.deviceName ? @"1" : @"0")];
+    NSString *lowValue = [MKBLEBaseSDKAdopter getHexByBinary:lowBinary];
+    NSString *highValue = [MKBLEBaseSDKAdopter getHexByBinary:highBinary];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@%@",@"ed01ae02",highValue,lowValue];
+    [self configDataWithTaskID:mk_ck_taskConfigBXPSPayloadOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];

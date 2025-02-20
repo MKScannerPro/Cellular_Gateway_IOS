@@ -10,6 +10,8 @@
 
 #import "MKMacroDefines.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKInterface.h"
 
 @interface MKCKDeviceInfoModel ()
@@ -59,6 +61,16 @@
         if (![self readIccid]) {
             [self operationFailedBlockWithMsg:@"Read ICCID error" block:failedBlock];
             return ;
+        }
+        if ([MKCKConnectModel shared].isV104) {
+            if (![self readCellularMode]) {
+                [self operationFailedBlockWithMsg:@"Read Cellular Mode error" block:failedBlock];
+                return ;
+            }
+            if (![self readCellularVersion]) {
+                [self operationFailedBlockWithMsg:@"Read Cellular Version error" block:failedBlock];
+                return ;
+            }
         }
         moko_dispatch_main_safe(^{
             sucBlock();
@@ -176,6 +188,32 @@
     [MKCKInterface ck_readSimICCIDWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.iccid = returnData[@"result"][@"iccid"];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readCellularMode {
+    __block BOOL success = NO;
+    [MKCKInterface ck_readCellularModeWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.cellularMode = [returnData[@"result"][@"mode"] integerValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readCellularVersion {
+    __block BOOL success = NO;
+    [MKCKInterface ck_readCellularVersionWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.cellularVersion = returnData[@"result"][@"version"];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

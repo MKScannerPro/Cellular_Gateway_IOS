@@ -1,6 +1,6 @@
 {
   "name": "MKGatewayFour",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "A short description of MKGatewayFour.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/lovexiaoxia/MKGatewayFour",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lovexiaoxia/MKGatewayFour.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "14.0"
@@ -331,6 +331,24 @@
               ]
             },
             {
+              "name": "FilterByBXPSPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPSPage/Controller/**",
+                  "dependencies": {
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPSPage/Model/**"
+                }
+              ]
+            },
+            {
               "name": "FilterByBXPTagPage",
               "subspecs": [
                 {
@@ -437,6 +455,9 @@
 
                     ],
                     "MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller": [
+
+                    ],
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Controller": [
 
                     ]
                   }
@@ -676,6 +697,9 @@
                 "MKGatewayFour/Functions/NetworkSettingsPage/Controller": [
 
                 ],
+                "MKGatewayFour/Functions/NetworkSettingsV2Page/Controller": [
+
+                ],
                 "MKGatewayFour/Functions/MqttSettingsPage/Controller": [
 
                 ]
@@ -706,16 +730,45 @@
           ]
         },
         {
+          "name": "NetworkSettingsV2Page",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKGatewayFour/Classes/Functions/NetworkSettingsV2Page/Controller/**",
+              "dependencies": {
+                "MKGatewayFour/Functions/NetworkSettingsV2Page/Model": [
+
+                ],
+                "MKGatewayFour/Functions/NetworkSettingsV2Page/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKGatewayFour/Classes/Functions/NetworkSettingsV2Page/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKGatewayFour/Classes/Functions/NetworkSettingsV2Page/View/**"
+            }
+          ]
+        },
+        {
           "name": "PayloadItemsPage",
           "subspecs": [
             {
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/PayloadItemsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/PayloadPages": [
+                "MKGatewayFour/Functions/PayloadItemsPage/Model": [
 
                 ]
               }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKGatewayFour/Classes/Functions/PayloadItemsPage/Model/**"
             }
           ]
         },
@@ -773,6 +826,24 @@
                 {
                   "name": "Model",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/ButtonPayloadPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "BXPSPayloadPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/BXPSPayloadPage/Controller/**",
+                  "dependencies": {
+                    "MKGatewayFour/Functions/PayloadPages/BXPSPayloadPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/BXPSPayloadPage/Model/**"
                 }
               ]
             },
@@ -1019,6 +1090,9 @@
                 ],
                 "MKGatewayFour/Functions/AxisSettingsPage/Controller": [
 
+                ],
+                "MKGatewayFour/Functions/UploadPayloadSettingsPage/Controller": [
+
                 ]
               }
             }
@@ -1240,6 +1314,24 @@
             {
               "name": "Model",
               "source_files": "MKGatewayFour/Classes/Functions/UpdatePage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "UploadPayloadSettingsPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKGatewayFour/Classes/Functions/UploadPayloadSettingsPage/Controller/**",
+              "dependencies": {
+                "MKGatewayFour/Functions/UploadPayloadSettingsPage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKGatewayFour/Classes/Functions/UploadPayloadSettingsPage/Model/**"
             }
           ]
         }

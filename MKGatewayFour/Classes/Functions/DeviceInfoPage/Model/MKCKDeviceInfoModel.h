@@ -30,6 +30,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy)NSString *iccid;
 
+/*
+ V1.0.4
+ 0:BG95M3
+ 1:EG915Q
+ 2:EG915U-EU
+ 3:EG915U-LA
+ */
+@property (nonatomic, assign)NSInteger cellularMode;
+
+@property (nonatomic, copy)NSString *cellularVersion;
+
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
 
 

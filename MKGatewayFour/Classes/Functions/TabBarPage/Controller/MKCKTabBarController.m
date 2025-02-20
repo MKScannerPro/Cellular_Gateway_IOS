@@ -13,10 +13,13 @@
 
 #import "MKAlertView.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKNetworkController.h"
 #import "MKCKPositionController.h"
 #import "MKCKScannerReportController.h"
 #import "MKCKSettingsController.h"
+#import "MKCKSettingsV2Controller.h"
 
 #import "MKCKCentralManager.h"
 
@@ -188,7 +191,7 @@
     positionPage.tabBarItem.selectedImage = LOADICON(@"MKGatewayFour", @"MKCKTabBarController", @"ck_position_tabBarSelected.png");
     MKBaseNavigationController *positionNav = [[MKBaseNavigationController alloc] initWithRootViewController:positionPage];
 
-    MKCKSettingsController *settingPage = [[MKCKSettingsController alloc] init];
+    UIViewController *settingPage = ([MKCKConnectModel shared].isV104 ? [[MKCKSettingsV2Controller alloc] init] : [[MKCKSettingsController alloc] init]);
     settingPage.tabBarItem.title = @"Settings";
     settingPage.tabBarItem.image = LOADICON(@"MKGatewayFour", @"MKCKTabBarController", @"ck_setting_tabBarUnselected.png");
     settingPage.tabBarItem.selectedImage = LOADICON(@"MKGatewayFour", @"MKCKTabBarController", @"ck_setting_tabBarSelected.png");

@@ -389,7 +389,7 @@ MKCKScanInfoCellDelegate>
         return;
     }
     [[MKHudManager share] showHUDWithTitle:@"Connecting..." inView:self.view isPenetration:NO];
-    [[MKCKConnectModel shared] connectDevice:scanDataModel.peripheral password:(scanDataModel.needPassword ? password : @"") deviceName:scanDataModel.deviceName sucBlock:^{
+    [[MKCKConnectModel shared] connectDevice:scanDataModel.peripheral password:(scanDataModel.needPassword ? password : @"") deviceName:scanDataModel.deviceName isV104:([scanDataModel.deviceType integerValue] > 0) sucBlock:^{
         if (scanDataModel.needPassword && ValidStr(self.asciiText) && (self.asciiText.length >= 6 || self.asciiText.length <= 10)) {
             [[NSUserDefaults standardUserDefaults] setObject:self.asciiText forKey:localPasswordKey];
         }

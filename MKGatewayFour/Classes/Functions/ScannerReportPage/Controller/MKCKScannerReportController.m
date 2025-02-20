@@ -22,6 +22,8 @@
 #import "MKTextSwitchCell.h"
 #import "MKTextButtonCell.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKInterface+MKCKConfig.h"
 
 #import "MKCKScannerReportModel.h"
@@ -29,6 +31,7 @@
 #import "MKCKScanReportModeController.h"
 #import "MKCKScanFilterSettingsController.h"
 #import "MKCKPayloadItemsController.h"
+#import "MKCKPayloadItemsV2Controller.h"
 
 @interface MKCKScannerReportController ()<UITableViewDelegate,
 UITableViewDataSource,
@@ -86,6 +89,11 @@ MKTextButtonCellDelegate>
     }
     if (indexPath.section == 2 && indexPath.row == 1) {
         //Upload payload settings
+        if ([MKCKConnectModel shared].isV104) {
+            MKCKPayloadItemsV2Controller *vc = [[MKCKPayloadItemsV2Controller alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            return;
+        }
         MKCKPayloadItemsController *vc = [[MKCKPayloadItemsController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;

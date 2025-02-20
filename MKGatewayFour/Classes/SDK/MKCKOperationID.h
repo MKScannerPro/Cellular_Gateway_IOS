@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadLowPowerNotificationOperation,            //读取低电报警开关
     mk_ck_taskReadLowPowerThresholdOperation,               //读取低电量阈值
     mk_ck_taskReadPowerOnWhenChargingStatusOperation,       //读取低电关机充电是否开机
+    mk_ck_taskReadPowerOnByMagnetTypeOperation,     //读取开关机方式
     
 #pragma mark - MQTT Params
     mk_ck_taskReadServerHostOperation,          //读取MQTT服务器域名
@@ -45,6 +46,8 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadApnUsernameOperation,         //读取APN用户名
     mk_ck_taskReadApnPasswordOperation,         //读取APN密码
     mk_ck_taskReadNBConnectTimeoutOperation,    //读取NB连接超时时间
+    mk_ck_taskReadNBPinOperation,               //读取Pin
+    mk_ck_taskReadNBRegionOperation,            //读取Region
 #pragma mark - 扫描上报参数
     mk_ck_taskReadScanReportModeOperation,      //读取蓝牙扫描上报模式
     mk_ck_taskReadModeAutomaticSwitchOperation, //读取扫描上报模式自动切换开关
@@ -94,6 +97,10 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadFilterByOtherRelationshipOperation,   //读取Other过滤条件的逻辑关系
     mk_ck_taskReadFilterByOtherConditionsOperation,     //读取Other的过滤条件列表
     mk_ck_taskReadDuplicateDataFilterOperation,         //读取重复数据过滤规则
+    mk_ck_taskReadFilterByBXPSIDStatusOperation,        //读取BXP-S过滤开关
+    mk_ck_taskReadPreciseMatchBXPSTagIDStatusOperation, //读取BXP-S tagID精准过滤开关
+    mk_ck_taskReadReverseFilterBXPSTagIDStatusOperation,    //读取BXP-S tagID反向过滤开关
+    mk_ck_taskReadFilterBXPSTagIDListOperation,         //读取BXP-S tagID列表
     
 #pragma mark - 广播参数
     mk_ck_taskReadAdvertiseResponsePacketStatusOperation,   //读取回应包开关
@@ -120,6 +127,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadFixInStationaryReportIntervalOperation,   //读取静止定位上报间隔
     mk_ck_taskReadGpsFixTimeoutOperation,               //读取GPS定位超时时间
     mk_ck_taskReadGpsPDOPLimitOperation,                //读取PDOP
+    mk_ck_taskReadPositionUploadPayloadSettingsOperation,       //读取定位数据上报选择
     
     
 #pragma mark - 蓝牙数据上报
@@ -136,6 +144,8 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadMKTofPayloadOperation,                //读取TOF上报选择
     mk_ck_taskReadOtherPayloadOperation,                //读取Other上报选择
     mk_ck_taskReadOtherBlockPayloadOperation,           //读取Other数据块上报
+    mk_ck_taskReadCommonPayloadOperation,               //读取扫描上报包参数
+    mk_ck_taskReadBXPSPayloadOperation,                 //读取BXP-S上报选择
     
     
 #pragma mark - 设备状态
@@ -144,6 +154,9 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadSimICCIDOperation,            //读取SIM卡ICCID
     mk_ck_taskReadNetworkStatusOperation,       //读取NB网络注册状态
     mk_ck_taskReadMQTTConnectStatusOperation,   //读取MQTT连接状态
+    mk_ck_taskReadCellularModeOperation,        //读取Cellular模块类型
+    mk_ck_taskReadOfflineDataCountOperation,    //读取离线数据条数
+    mk_ck_taskReadCellularVersionOperation,     //读取Cellular模块版本
     
 #pragma mark - 密码特征
     mk_ck_connectPasswordOperation,             //连接设备时候发送密码
@@ -169,6 +182,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigLowPowerThresholdOperation,         //配置低电量阈值
     mk_ck_taskDeleteBufferDataOperation,                //清除离线数据
     mk_ck_taskConfigPowerOnWhenChargingStatusOperation, //配置低电关机充电是否开机
+    mk_ck_taskConfigPowerOnByMagnetOperation,           //配置开关机方式
     
 #pragma mark - MQTT Params
     mk_ck_taskConfigServerHostOperation,        //配置MQTT服务器域名
@@ -192,6 +206,8 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigApnUsernameOperation,               //配置APN用户名
     mk_ck_taskConfigApnPasswordOperation,               //配置APN密码
     mk_ck_taskConfigNBConnectTimeoutOperation,          //配置NB连接超时时间
+    mk_ck_taskConfigNBPinOperation,                     //配置Pin
+    mk_ck_taskConfigNBRegionOperation,                  //配置Region
     
 #pragma mark - 扫描上报参数
     mk_ck_taskConfigScanReportModeOperation,            //蓝牙扫描上报模式
@@ -244,6 +260,10 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigFilterByOtherRelationshipOperation,     //配置Other过滤条件逻辑关系
     mk_ck_taskConfigFilterByOtherConditionsOperation,       //配置Other过滤条件列表
     mk_ck_taskConfigDuplicateDataFilterOperation,       //配置重复数据过滤规则
+    mk_ck_taskConfigFilterByBXPSTagIDStatusOperation,   //配置BXP-S过滤开关
+    mk_ck_taskConfigPreciseMatchBXPSTagIDStatusOperation,   //配置BXP-S TagID精准过滤
+    mk_ck_taskConfigReverseFilterBXPSTagIDStatusOperation,  //配置BXP-S TagID反向过滤
+    mk_ck_taskConfigFilterBXPSTagIDListOperation,           //配置BXP-S TagID列表
     
 #pragma mark - 广播参数
     mk_ck_taskConfigAdvertiseResponsePacketStatusOperation,     //配置回应包开关
@@ -270,6 +290,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigFixInStationaryReportIntervalOperation, //配置静止定位上报间隔
     mk_ck_taskConfigGpsFixTimeoutOperation,             //配置GPS定位超时时间
     mk_ck_taskConfigGpsPDOPLimitOperation,              //配置PDOP
+    mk_ck_taskConfigPositionUploadPayloadOperation,             //配置定位数据上报选择
     
 #pragma mark - 蓝牙数据上报
     mk_ck_taskConfigBeaconPayloadOperation,             //配置iBeacon上报选择
@@ -285,4 +306,6 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigMKTofPayloadOperation,              //配置TOF上报选择
     mk_ck_taskConfigOtherPayloadOperation,              //配置Other上报选择
     mk_ck_taskConfigOtherBlockPayloadOperation,         //配置Other block上报选择
+    mk_ck_taskConfigCommonPayloadOperation,             //配置扫描上报包参数
+    mk_ck_taskConfigBXPSPayloadOperation,               //配置bxp_s上报选择
 };

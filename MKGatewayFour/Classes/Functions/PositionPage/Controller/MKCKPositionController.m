@@ -17,9 +17,12 @@
 #import "MKHudManager.h"
 #import "MKNormalTextCell.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKFixModeController.h"
 #import "MKCKGpsFixController.h"
 #import "MKCKAxisSettingsController.h"
+#import "MKCKUploadPayloadSettingsController.h"
 
 @interface MKCKPositionController ()<UITableViewDelegate,
 UITableViewDataSource>
@@ -71,6 +74,12 @@ UITableViewDataSource>
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
+    if (indexPath.section == 0 && indexPath.row == 3) {
+        //Upload payload settings
+        MKCKUploadPayloadSettingsController *vc = [[MKCKUploadPayloadSettingsController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -104,6 +113,14 @@ UITableViewDataSource>
     cellModel3.leftMsg = @"3-Axis parameters";
     cellModel3.showRightIcon = YES;
     [self.dataList addObject:cellModel3];
+    
+    if ([MKCKConnectModel shared].isV104) {
+        //新增
+        MKNormalTextCellModel *cellModel4 = [[MKNormalTextCellModel alloc] init];
+        cellModel4.leftMsg = @"Upload payload settings";
+        cellModel4.showRightIcon = YES;
+        [self.dataList addObject:cellModel4];
+    }
     
     [self.tableView reloadData];
 }

@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)BOOL other;
 
+/// V1.0.4版本固件后支持
+@property (nonatomic, assign)BOOL bxps;
+
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
 
 @end

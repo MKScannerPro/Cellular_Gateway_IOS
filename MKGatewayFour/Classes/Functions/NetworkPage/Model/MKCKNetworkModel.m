@@ -10,6 +10,8 @@
 
 #import "MKMacroDefines.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKInterface.h"
 
 @interface MKCKNetworkModel ()
@@ -49,13 +51,28 @@
     [MKCKInterface ck_readNetworkStatusWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
         NSInteger status = [returnData[@"result"][@"status"] integerValue];
-        if (status == 0) {
-            self.networkStatus = @"Unconnected";
-        }else if (status == 1) {
-            self.networkStatus = @"Connecting";
-        }else if (status == 2) {
-            self.networkStatus = @"Connected";
+        if ([MKCKConnectModel shared].isV104) {
+            if (status == 0) {
+                self.networkStatus = @"Unconnected";
+            }else if (status == 1) {
+                self.networkStatus = @"Registering";
+            }else if (status == 2) {
+                self.networkStatus = @"Registered";
+            }else if (status == 3) {
+                self.networkStatus = @"Attaching";
+            }else if (status == 4) {
+                self.networkStatus = @"Connected";
+            }
+        }else {
+            if (status == 0) {
+                self.networkStatus = @"Unconnected";
+            }else if (status == 1) {
+                self.networkStatus = @"Connecting";
+            }else if (status == 2) {
+                self.networkStatus = @"Connected";
+            }
         }
+        
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

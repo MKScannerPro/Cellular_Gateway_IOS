@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)BOOL powerOnWhenCharging;
 
+/// V1.0.4
+@property (nonatomic, copy)NSString *offlineDataCount;
+
+/// V1.0.4
+@property (nonatomic, assign)NSInteger powerOnByMagnet;
+
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
 
 @end
