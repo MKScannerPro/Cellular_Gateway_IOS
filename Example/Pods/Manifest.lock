@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - CircleProgressBar (0.32)
   - CTMediator (48)
   - FMDB (2.7.5):
@@ -476,6 +491,7 @@ PODS:
     - MKGatewayFour/DatabaseManager (= 0.0.2)
     - MKGatewayFour/Expand (= 0.0.2)
     - MKGatewayFour/Functions (= 0.0.2)
+    - MKGatewayFour/LoginManager (= 0.0.2)
     - MKGatewayFour/SDK (= 0.0.2)
     - MKGatewayFour/Target (= 0.0.2)
   - MKGatewayFour/ConnectModule (0.0.2):
@@ -552,6 +568,7 @@ PODS:
     - MKGatewayFour/Functions/ScanPage (= 0.0.2)
     - MKGatewayFour/Functions/ScanReportModePage (= 0.0.2)
     - MKGatewayFour/Functions/SettingsPage (= 0.0.2)
+    - MKGatewayFour/Functions/SyncDevicePage (= 0.0.2)
     - MKGatewayFour/Functions/SyncTime (= 0.0.2)
     - MKGatewayFour/Functions/SystemTimePage (= 0.0.2)
     - MKGatewayFour/Functions/TabBarPage (= 0.0.2)
@@ -1563,6 +1580,7 @@ PODS:
     - MKGatewayFour/Functions/NetworkPage/Model
     - MKGatewayFour/Functions/NetworkSettingsPage/Controller
     - MKGatewayFour/Functions/NetworkSettingsV2Page/Controller
+    - MKGatewayFour/Functions/SyncDevicePage/Controller
     - MKGatewayFour/SDK
     - MLInputDodger
   - MKGatewayFour/Functions/NetworkPage/Model (0.0.2):
@@ -2545,6 +2563,55 @@ PODS:
     - MKGatewayFour/Expand
     - MKGatewayFour/SDK
     - MLInputDodger
+  - MKGatewayFour/Functions/SyncDevicePage (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/SyncDevicePage/Controller (= 0.0.2)
+    - MKGatewayFour/Functions/SyncDevicePage/Model (= 0.0.2)
+    - MKGatewayFour/Functions/SyncDevicePage/View (= 0.0.2)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SyncDevicePage/Controller (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/SyncDevicePage/Model
+    - MKGatewayFour/Functions/SyncDevicePage/View
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SyncDevicePage/Model (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/SyncDevicePage/View (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
   - MKGatewayFour/Functions/SyncTime (0.0.2):
     - HHTransition
     - iOSDFULibrary (= 4.13.0)
@@ -2717,10 +2784,38 @@ PODS:
     - MKGatewayFour/Expand
     - MKGatewayFour/SDK
     - MLInputDodger
+  - MKGatewayFour/LoginManager (0.0.2):
+    - MKIotCloudManager
   - MKGatewayFour/SDK (0.0.2):
     - MKBaseBleModule
   - MKGatewayFour/Target (0.0.2):
     - MKGatewayFour/Functions
+  - MKIotCloudManager (0.0.8):
+    - MKIotCloudManager/SDK (= 0.0.8)
+    - MKIotCloudManager/View (= 0.0.8)
+  - MKIotCloudManager/SDK (0.0.8):
+    - MKIotCloudManager/SDK/Config (= 0.0.8)
+    - MKIotCloudManager/SDK/MKNetwork (= 0.0.8)
+    - MKIotCloudManager/SDK/NetworkService (= 0.0.8)
+  - MKIotCloudManager/SDK/Config (0.0.8)
+  - MKIotCloudManager/SDK/MKNetwork (0.0.8):
+    - AFNetworking
+    - MKBaseModuleLibrary
+    - MKIotCloudManager/SDK/Config
+  - MKIotCloudManager/SDK/NetworkService (0.0.8):
+    - AFNetworking
+    - MKBaseModuleLibrary
+    - MKIotCloudManager/SDK/Config
+    - MKIotCloudManager/SDK/MKNetwork
+  - MKIotCloudManager/View (0.0.8):
+    - MKIotCloudManager/View/AccountLoginAlertView (= 0.0.8)
+    - MKIotCloudManager/View/ExitAccountAlertView (= 0.0.8)
+  - MKIotCloudManager/View/AccountLoginAlertView (0.0.8):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+  - MKIotCloudManager/View/ExitAccountAlertView (0.0.8):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
   - MLInputDodger (1.5.2)
   - SSZipArchive (2.4.3)
   - Toast (4.1.0)
@@ -2732,6 +2827,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
     - CircleProgressBar
     - CTMediator
     - FMDB
@@ -2744,6 +2840,7 @@ SPEC REPOS:
     - MKBaseBleModule
     - MKBaseModuleLibrary
     - MKCustomUIModule
+    - MKIotCloudManager
     - MLInputDodger
     - SSZipArchive
     - Toast
@@ -2755,6 +2852,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
   CTMediator: 3f3578b525b3a46a7a2f92a99922ec40363f4269
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -2767,7 +2865,8 @@ SPEC CHECKSUMS:
   MKBaseBleModule: 15aa067c4e408a473e025b1a768ebce00a7e5949
   MKBaseModuleLibrary: 2b79bcae588c755588413fbb643b510253271b23
   MKCustomUIModule: bbc862397ad4ffad0a88de756265a29aad5ddaab
-  MKGatewayFour: 370e8976376ec5983ed3cb68daba25c93e9c5015
+  MKGatewayFour: 6e608795f1016fe296566a150aa75213d144fe0e
+  MKIotCloudManager: 2f9ed9b3c6eff5ee81725dc3b89099deffbd7230
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   Toast: ec33c32b8688982cecc6348adeae667c1b9938da

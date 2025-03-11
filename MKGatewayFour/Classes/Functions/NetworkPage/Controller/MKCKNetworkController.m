@@ -18,14 +18,21 @@
 
 #import "MKHudManager.h"
 #import "MKNormalTextCell.h"
+#import "MKCustomUIAdopter.h"
+
+#import "MKIoTCloudAccountLoginAlertView.h"
+#import "MKNormalService.h"
 
 #import "MKCKConnectModel.h"
 
 #import "MKCKNetworkModel.h"
 
+#import "MKCKUserLoginManager.h"
+
 #import "MKCKNetworkSettingsController.h"
 #import "MKCKNetworkSettingsV2Controller.h"
 #import "MKCKMqttSettingsController.h"
+#import "MKCKSyncDeviceController.h"
 
 @interface MKCKNetworkController ()<UITableViewDelegate,
 UITableViewDataSource>
@@ -37,6 +44,8 @@ UITableViewDataSource>
 @property (nonatomic, strong)dispatch_source_t refreshTimer;
 
 @property (nonatomic, strong)MKCKNetworkModel *dataModel;
+
+@property (nonatomic, strong)UIView *footerView;
 
 @end
 
@@ -126,6 +135,27 @@ UITableViewDataSource>
     }];
 }
 
+#pragma mark - event method
+- (void)syncButtonPressed {
+    if (self.dataList.count == 0) {
+        [self.view showCentralToast:@"Add devices first"];
+        return;
+    }
+    if (ValidStr([MKCKUserLoginManager shared].password)) {
+        //已经登陆过
+        [self login:[MKCKUserLoginManager shared].isHome username:[MKCKUserLoginManager shared].username password:[MKCKUserLoginManager shared].password];
+        return;
+    }
+    MKIoTCloudAccountLoginAlertViewModel *viewModel = [[MKIoTCloudAccountLoginAlertViewModel alloc] init];
+    viewModel.account = [MKCKUserLoginManager shared].username;
+    viewModel.isHome = [MKCKUserLoginManager shared].isHome;
+    viewModel.password = [MKCKUserLoginManager shared].password;
+    MKIoTCloudAccountLoginAlertView *alertView = [[MKIoTCloudAccountLoginAlertView alloc] init];
+    [alertView showViewWithModel:viewModel completeBlock:^(NSString * _Nonnull account, NSString * _Nonnull password, BOOL isHome) {
+        [self login:isHome username:account password:password];
+    }];
+}
+
 #pragma mark - private method
 - (void)addRefreshTimer {
     self.refreshTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,dispatch_get_global_queue(0, 0));
@@ -147,7 +177,23 @@ UITableViewDataSource>
     MKNormalTextCellModel *cellModel2 = self.dataList[1];
     cellModel2.rightMsg = self.dataModel.mqttStatus;
     
+    self.footerView.hidden = !([self.dataModel.networkStatus isEqualToString:@"Connected"] && [self.dataModel.mqttStatus isEqualToString:@"Connected"]);
+    
     [self.tableView reloadData];
+}
+
+- (void)login:(BOOL)isHome username:(NSString *)username password:(NSString *)password {
+    [[MKHudManager share] showHUDWithTitle:@"Login..." inView:self.view isPenetration:NO];
+    [[MKNormalService share] loginWithUsername:username password:password isHome:isHome sucBlock:^(id returnData) {
+        [[MKHudManager share] hide];
+        [[MKCKUserLoginManager shared] syncLoginDataWithHome:isHome username:username password:password];
+        MKCKSyncDeviceController *vc = [[MKCKSyncDeviceController alloc] init];
+        vc.token = SafeStr(returnData[@"data"][@"access_token"]);
+        [self.navigationController pushViewController:vc animated:YES];
+    } failBlock:^(NSError *error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+    }];
 }
 
 #pragma mark - loadSectionDatas
@@ -168,12 +214,30 @@ UITableViewDataSource>
 #pragma mark - UI
 - (void)loadSubViews {
     self.defaultTitle = [MKCKConnectModel shared].deviceName;
+    [self.view addSubview:self.footerView];
+    [self.footerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(-49.f);
+        make.height.mas_equalTo(60.f);
+    }];
+    
+    UIButton *syncButton = [MKCustomUIAdopter customButtonWithTitle:@"Sync devices to cloud"
+                                                             target:self
+                                                             action:@selector(syncButtonPressed)];
+    [self.footerView addSubview:syncButton];
+    [syncButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(30.f);
+        make.right.mas_equalTo(-30.f);
+        make.centerY.mas_equalTo(self.footerView.mas_centerY);
+        make.height.mas_equalTo(40.f);
+    }];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
-        make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(-49.f);
+        make.bottom.mas_equalTo(self.footerView.mas_top);
     }];
 }
 
@@ -199,6 +263,14 @@ UITableViewDataSource>
         _dataModel = [[MKCKNetworkModel alloc] init];
     }
     return _dataModel;
+}
+
+- (UIView *)footerView {
+    if (!_footerView) {
+        _footerView = [[UIView alloc] init];
+        _footerView.backgroundColor = COLOR_WHITE_MACROS;
+    }
+    return _footerView;
 }
 
 @end

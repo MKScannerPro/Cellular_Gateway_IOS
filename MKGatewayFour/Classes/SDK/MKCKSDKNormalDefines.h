@@ -552,7 +552,7 @@ typedef NS_ENUM(NSInteger, mk_ck_powerOnByMagnetType) {
  @{
  @"rssi":@(-55),
  @"peripheral":peripheral,
- @"deviceName":@"MKGW4-2850",
+ @"deviceName":@"MKCK4-2850",
  @"macAddress":@"AA:BB:CC:DD:EE:FF",
  @"deviceType":@"00",
  @"connectable":advDic[CBAdvertisementDataIsConnectable],

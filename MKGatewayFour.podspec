@@ -98,6 +98,12 @@ TODO: Add long description of the pod here.
     ss.dependency 'MKCustomUIModule'
   end
   
+  s.subspec 'LoginManager' do |ss|
+    ss.source_files = 'MKGatewayFour/Classes/LoginManager/**'
+  
+    ss.dependency 'MKIotCloudManager'
+  end
+  
   s.subspec 'Functions' do |ss|
     
     ss.subspec 'AxisSettingsPage' do |sss|
@@ -466,6 +472,7 @@ TODO: Add long description of the pod here.
         ssss.dependency 'MKGatewayFour/Functions/NetworkSettingsPage/Controller'
         ssss.dependency 'MKGatewayFour/Functions/NetworkSettingsV2Page/Controller'
         ssss.dependency 'MKGatewayFour/Functions/MqttSettingsPage/Controller'
+        ssss.dependency 'MKGatewayFour/Functions/SyncDevicePage/Controller'
       end
       
       sss.subspec 'Model' do |ssss|
@@ -824,6 +831,23 @@ TODO: Add long description of the pod here.
       
       sss.subspec 'Model' do |ssss|
         ssss.source_files = 'MKGatewayFour/Classes/Functions/SettingsPage/Model/**'
+      end
+    end
+    
+    ss.subspec 'SyncDevicePage' do |sss|
+      sss.subspec 'Controller' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/SyncDevicePage/Controller/**'
+        
+        ssss.dependency 'MKGatewayFour/Functions/SyncDevicePage/Model'
+        ssss.dependency 'MKGatewayFour/Functions/SyncDevicePage/View'
+      end
+      
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/SyncDevicePage/Model/**'
+      end
+      
+      sss.subspec 'View' do |ssss|
+        ssss.source_files = 'MKGatewayFour/Classes/Functions/SyncDevicePage/View/**'
       end
     end
     

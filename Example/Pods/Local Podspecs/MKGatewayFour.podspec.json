@@ -127,6 +127,15 @@
       ]
     },
     {
+      "name": "LoginManager",
+      "source_files": "MKGatewayFour/Classes/LoginManager/**",
+      "dependencies": {
+        "MKIotCloudManager": [
+
+        ]
+      }
+    },
+    {
       "name": "Functions",
       "dependencies": {
         "MKGatewayFour/SDK": [
@@ -702,6 +711,9 @@
                 ],
                 "MKGatewayFour/Functions/MqttSettingsPage/Controller": [
 
+                ],
+                "MKGatewayFour/Functions/SyncDevicePage/Controller": [
+
                 ]
               }
             },
@@ -1234,6 +1246,31 @@
             {
               "name": "Model",
               "source_files": "MKGatewayFour/Classes/Functions/SettingsPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "SyncDevicePage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKGatewayFour/Classes/Functions/SyncDevicePage/Controller/**",
+              "dependencies": {
+                "MKGatewayFour/Functions/SyncDevicePage/Model": [
+
+                ],
+                "MKGatewayFour/Functions/SyncDevicePage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKGatewayFour/Classes/Functions/SyncDevicePage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKGatewayFour/Classes/Functions/SyncDevicePage/View/**"
             }
           ]
         },
