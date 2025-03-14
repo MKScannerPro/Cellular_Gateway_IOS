@@ -21,7 +21,7 @@
 #import "MKCustomUIAdopter.h"
 
 #import "MKIoTCloudAccountLoginAlertView.h"
-#import "MKNormalService.h"
+#import "MKIoTLoginService.h"
 
 #import "MKCKConnectModel.h"
 
@@ -184,7 +184,7 @@ UITableViewDataSource>
 
 - (void)login:(BOOL)isHome username:(NSString *)username password:(NSString *)password {
     [[MKHudManager share] showHUDWithTitle:@"Login..." inView:self.view isPenetration:NO];
-    [[MKNormalService share] loginWithUsername:username password:password isHome:isHome sucBlock:^(id returnData) {
+    [[MKIoTLoginService share] loginWithUsername:username password:password isHome:isHome sucBlock:^(id returnData) {
         [[MKHudManager share] hide];
         [[MKCKUserLoginManager shared] syncLoginDataWithHome:isHome username:username password:password];
         MKCKSyncDeviceController *vc = [[MKCKSyncDeviceController alloc] init];

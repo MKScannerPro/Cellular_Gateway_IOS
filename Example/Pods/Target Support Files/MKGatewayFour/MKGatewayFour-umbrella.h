@@ -143,6 +143,7 @@
 #import "MKCKDFUModule.h"
 #import "MKCKUploadPayloadSettingsController.h"
 #import "MKCKUploadPayloadSettingsModel.h"
+#import "MKCKNetworkService.h"
 #import "MKCKUserLoginManager.h"
 #import "CBPeripheral+MKCKAdd.h"
 #import "MKCKCentralManager.h"
