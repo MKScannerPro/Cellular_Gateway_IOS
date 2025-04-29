@@ -137,16 +137,14 @@ MKDeviceInfoDfuCellDelegate>
     MKDeviceInfoCellModel *cellModel2 = [[MKDeviceInfoCellModel alloc] init];
     cellModel2.leftMsg = @"Product Model";
     NSString *fexString = @"";
-    if ([MKCKConnectModel shared].isV104) {
-        if (self.dataModel.cellularMode == 0) {
-            fexString = @"-40G-GL";
-        }else if (self.dataModel.cellularMode == 1) {
-            fexString = @"-40E-NA";
-        }else if (self.dataModel.cellularMode == 2) {
-            fexString = @"-40E-EU";
-        }else if (self.dataModel.cellularMode == 3) {
-            fexString = @"-40E-LA";
-        }
+    if (self.dataModel.cellularMode == 0) {
+        fexString = @"-40G-GL";
+    }else if (self.dataModel.cellularMode == 1) {
+        fexString = @"-40E-NA";
+    }else if (self.dataModel.cellularMode == 2) {
+        fexString = @"-40E-EU";
+    }else if (self.dataModel.cellularMode == 3) {
+        fexString = @"-40E-LA";
     }
     cellModel2.rightMsg = [self.dataModel.productMode stringByAppendingString:fexString];
     [self.section0List addObject:cellModel2];

@@ -137,10 +137,10 @@ NS_ASSUME_NONNULL_BEGIN
                             failedBlock:(void (^)(NSError *error))failedBlock;
 
 /// Power on when charging.
-/// @param isOn isOn
+/// @param type type
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
-+ (void)ck_configPowerOnWhenChargingStatus:(BOOL)isOn 
++ (void)ck_configPowerOnWhenChargingStatus:(mk_ck_powerOnByChargingType)type
                                   sucBlock:(void (^)(void))sucBlock
                                failedBlock:(void (^)(NSError *error))failedBlock;
 

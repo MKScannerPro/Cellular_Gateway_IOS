@@ -275,9 +275,8 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
         operationID = mk_ck_taskReadLowPowerThresholdOperation;
     }else if ([cmd isEqualToString:@"19"]) {
         //读取低电关机充电是否开机
-        BOOL isOn = ([content isEqualToString:@"01"]);
         resultDic = @{
-            @"isOn":@(isOn)
+            @"status":content
         };
         operationID = mk_ck_taskReadPowerOnWhenChargingStatusOperation;
     }else if ([cmd isEqualToString:@"1a"]) {

@@ -206,6 +206,7 @@ MKTextButtonCellDelegate>
         return cell;
     }
     if (indexPath.section == 2) {
+        NSLog(@"当前刷新的index:%@",@(indexPath.row));
         MKTextButtonCell *cell = [MKTextButtonCell initCellWithTableView:tableView];
         cell.dataModel = self.section2List[indexPath.row];
         cell.delegate = self;
@@ -231,11 +232,6 @@ MKTextButtonCellDelegate>
         [self configPowerLossNotification:isOn];
         return;
     }
-    if (index == 1) {
-        //Power on when charging
-        [self configPowerOnWhenCharging:isOn];
-        return;
-    }
 }
 
 #pragma mark - MKTextButtonCellDelegate
@@ -247,6 +243,11 @@ MKTextButtonCellDelegate>
                         dataListIndex:(NSInteger)dataListIndex
                                 value:(NSString *)value {
     if (index == 0) {
+        //Power on when charging
+        [self configPowerOnWhenCharging:dataListIndex];
+        return;
+    }
+    if (index == 1) {
         //Power on by magnet
         [self configPowerOnByMagnet:dataListIndex];
         return;
@@ -277,10 +278,10 @@ MKTextButtonCellDelegate>
     MKTextSwitchCellModel *powerLossModel = self.section1List[0];
     powerLossModel.isOn = self.dataModel.powerLoss;
     
-    MKTextSwitchCellModel *powerOnModel = self.section1List[1];
-    powerOnModel.isOn = self.dataModel.powerOnWhenCharging;
+    MKTextButtonCellModel *powerOnModel = self.section2List[0];
+    powerOnModel.dataListIndex = self.dataModel.powerOnWhenCharging;
     
-    MKTextButtonCellModel *powerOnByMagnetModel = self.section2List[0];
+    MKTextButtonCellModel *powerOnByMagnetModel = self.section2List[1];
     powerOnByMagnetModel.dataListIndex = self.dataModel.powerOnByMagnet;
     
     [self.tableView reloadData];
@@ -333,17 +334,17 @@ MKTextButtonCellDelegate>
 }
 
 #pragma mark - Power on when charging
-- (void)configPowerOnWhenCharging:(BOOL)isOn {
+- (void)configPowerOnWhenCharging:(NSInteger)type {
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
-    [MKCKInterface ck_configPowerOnWhenChargingStatus:isOn sucBlock:^{
+    [MKCKInterface ck_configPowerOnWhenChargingStatus:type sucBlock:^{
         [[MKHudManager share] hide];
-        MKTextSwitchCellModel *cellModel = self.section1List[1];
-        cellModel.isOn = isOn;
-        self.dataModel.powerOnWhenCharging = isOn;
+        MKTextButtonCellModel *cellModel = self.section2List[0];
+        cellModel.dataListIndex = type;
+        self.dataModel.powerOnWhenCharging = type;
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
-        [self.tableView mk_reloadRow:1 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView mk_reloadRow:0 inSection:2 withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
 
@@ -352,13 +353,13 @@ MKTextButtonCellDelegate>
     [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
     [MKCKInterface ck_configPowerOnByMagnet:type sucBlock:^{
         [[MKHudManager share] hide];
-        MKTextButtonCellModel *cellModel = self.section2List[0];
+        MKTextButtonCellModel *cellModel = self.section2List[1];
         cellModel.dataListIndex = type;
         self.dataModel.powerOnByMagnet = type;
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
-        [self.tableView mk_reloadRow:0 inSection:2 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView mk_reloadRow:1 inSection:2 withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
 
@@ -506,21 +507,22 @@ MKTextButtonCellDelegate>
     cellModel1.msg = @"Power loss notification";
     cellModel1.isOn = YES;
     [self.section1List addObject:cellModel1];
-    
-    MKTextSwitchCellModel *cellModel2 = [[MKTextSwitchCellModel alloc] init];
-    cellModel2.index = 1;
-    cellModel2.msg = @"Power on when charging";
-    cellModel2.isOn = YES;
-    [self.section1List addObject:cellModel2];
 }
 
 - (void)loadSection2Datas {
-    MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
-    cellModel.index = 0;
-    cellModel.msg = @"Power on by magnet";
-    cellModel.dataList = @[@"Detects three times",@"Detects three seconds"];
-    cellModel.buttonLabelFont = MKFont(13.f);
-    [self.section2List addObject:cellModel];
+    MKTextButtonCellModel *cellModel1 = [[MKTextButtonCellModel alloc] init];
+    cellModel1.index = 0;
+    cellModel1.msg = @"Power on when charging";
+    cellModel1.dataList = @[@"Every time",@"When battery dead"];
+    cellModel1.buttonLabelFont = MKFont(12.f);
+    [self.section2List addObject:cellModel1];
+    
+    MKTextButtonCellModel *cellModel2 = [[MKTextButtonCellModel alloc] init];
+    cellModel2.index = 1;
+    cellModel2.msg = @"Power on by magnet";
+    cellModel2.dataList = @[@"Detects three times",@"Detects three seconds"];
+    cellModel2.buttonLabelFont = MKFont(12.f);
+    [self.section2List addObject:cellModel2];
 }
 
 - (void)loadSection3Datas {

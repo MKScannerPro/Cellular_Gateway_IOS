@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign)BOOL powerLoss;
 
-@property (nonatomic, assign)BOOL powerOnWhenCharging;
+/// 0:Every time    1:When battery dead
+@property (nonatomic, assign)NSInteger powerOnWhenCharging;
 
 /// V1.0.4
 @property (nonatomic, copy)NSString *offlineDataCount;

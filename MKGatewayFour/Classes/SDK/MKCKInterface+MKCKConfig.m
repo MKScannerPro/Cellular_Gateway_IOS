@@ -219,10 +219,11 @@ static NSInteger const maxDataLen = 150;
                    failedBlock:failedBlock];
 }
 
-+ (void)ck_configPowerOnWhenChargingStatus:(BOOL)isOn
++ (void)ck_configPowerOnWhenChargingStatus:(mk_ck_powerOnByChargingType)type
                                   sucBlock:(void (^)(void))sucBlock
                                failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *commandString = (isOn ? @"ed01190101" : @"ed01190100");
+    NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:type byteLen:1];
+    NSString *commandString = [@"ed011901" stringByAppendingString:value];
     [self configDataWithTaskID:mk_ck_taskConfigPowerOnWhenChargingStatusOperation
                           data:commandString
                       sucBlock:sucBlock

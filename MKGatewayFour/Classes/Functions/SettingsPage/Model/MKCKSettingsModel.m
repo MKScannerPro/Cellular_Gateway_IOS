@@ -93,7 +93,7 @@
     __block BOOL success = NO;
     [MKCKInterface ck_readPowerOnWhenChargingStatusWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        self.powerOnWhenCharging = [returnData[@"result"][@"isOn"] boolValue];
+        self.powerOnWhenCharging = [returnData[@"result"][@"status"] integerValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);
@@ -121,7 +121,7 @@
     __block BOOL success = NO;
     [MKCKInterface ck_readPowerOnByMagnetTypeWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        self.powerOnByMagnet = returnData[@"result"][@"type"];
+        self.powerOnByMagnet = [returnData[@"result"][@"type"] integerValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

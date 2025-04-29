@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Power on when charging.
 /*
  @{
- @"isOn":@(YES)
+ @"status":@"0"     //@"0":Every time    @"1":When battery dead
  }
  */
 /// @param sucBlock Success callback

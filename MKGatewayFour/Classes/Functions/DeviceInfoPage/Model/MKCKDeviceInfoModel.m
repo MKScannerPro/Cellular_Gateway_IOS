@@ -62,11 +62,11 @@
             [self operationFailedBlockWithMsg:@"Read ICCID error" block:failedBlock];
             return ;
         }
+        if (![self readCellularMode]) {
+            [self operationFailedBlockWithMsg:@"Read Cellular Mode error" block:failedBlock];
+            return ;
+        }
         if ([MKCKConnectModel shared].isV104) {
-            if (![self readCellularMode]) {
-                [self operationFailedBlockWithMsg:@"Read Cellular Mode error" block:failedBlock];
-                return ;
-            }
             if (![self readCellularVersion]) {
                 [self operationFailedBlockWithMsg:@"Read Cellular Version error" block:failedBlock];
                 return ;
