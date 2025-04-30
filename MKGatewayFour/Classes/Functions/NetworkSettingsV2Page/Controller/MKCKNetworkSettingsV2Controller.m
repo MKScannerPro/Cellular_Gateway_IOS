@@ -238,7 +238,7 @@ MKTextFieldCellDelegate>
     cellModel4.msg = @"Pin";
     cellModel4.textPlaceholder = @"0 or 4-8 Characters";
     cellModel4.textFieldType = mk_normal;
-    cellModel4.maxLength = 1;
+    cellModel4.maxLength = 8;
     cellModel4.textFieldValue = self.dataModel.pin;
     [self.section1List addObject:cellModel4];
     

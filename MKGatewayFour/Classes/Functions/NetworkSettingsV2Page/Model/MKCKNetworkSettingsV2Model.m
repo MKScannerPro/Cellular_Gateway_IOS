@@ -366,6 +366,10 @@
         return @"Connect timeout Error";
     }
     
+    if ((self.pin.length > 0 && self.pin.length < 4) || self.pin.length > 8) {
+        return @"Pin Error";
+    }
+    
     return @"";
 }
 
