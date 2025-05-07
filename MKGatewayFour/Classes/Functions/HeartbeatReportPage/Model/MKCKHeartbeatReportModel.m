@@ -11,6 +11,8 @@
 #import "MKMacroDefines.h"
 #import "NSObject+MKModel.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKInterface.h"
 #import "MKCKInterface+MKCKConfig.h"
 
@@ -112,6 +114,10 @@
 
 - (BOOL)configItems {
     __block BOOL success = NO;
+    if (![MKCKConnectModel shared].isV104) {
+        //固件存在问题，测试让app端适配处理
+        self.sequence = NO;
+    }
     [MKCKInterface ck_configHeartbeatReportItems:self sucBlock:^{
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
