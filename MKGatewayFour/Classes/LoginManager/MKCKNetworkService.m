@@ -111,7 +111,7 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
     
     // 创建请求 URL
-    NSString *urlString = (isHome ? MKRequstUrl(@"stage-api/mqtt/mqttgateway/cellular/batchAdd") : MKTestRequstUrl(@"prod-api/mqtt/mqttgateway/cellular/batchAdd"));
+    NSString *urlString = (isHome ? MKRequstUrl(@"stage-api/mqtt/mqttGateway/cellular/batchAdd") : MKTestRequstUrl(@"prod-api/mqtt/mqttGateway/cellular/batchAdd"));
     NSURL *url = [NSURL URLWithString:urlString];
     
     // 创建请求对象
