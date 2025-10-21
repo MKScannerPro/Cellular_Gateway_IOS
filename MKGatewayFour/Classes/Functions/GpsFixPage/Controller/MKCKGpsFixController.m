@@ -19,6 +19,8 @@
 #import "MKHudManager.h"
 #import "MKTextFieldCell.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKGpsFixModel.h"
 
 @interface MKCKGpsFixController ()<UITableViewDelegate,
@@ -143,7 +145,7 @@ MKTextFieldCellDelegate>
     MKTextFieldCellModel *cellModel2 = [[MKTextFieldCellModel alloc] init];
     cellModel2.index = 1;
     cellModel2.msg = @"PDOP";
-    cellModel2.textPlaceholder = @"25~100";
+    cellModel2.textPlaceholder = ([MKCKConnectModel shared].isV200 ? @"5~100" : @"25~100");
     cellModel2.textFieldType = mk_realNumberOnly;
     cellModel2.textFieldValue = self.dataModel.pdop;
     cellModel2.unit = @"x0.1";

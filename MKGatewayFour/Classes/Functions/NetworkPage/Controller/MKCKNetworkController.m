@@ -19,6 +19,7 @@
 #import "MKHudManager.h"
 #import "MKNormalTextCell.h"
 #import "MKCustomUIAdopter.h"
+#import "MKAlertView.h"
 
 #import "MKIoTCloudAccountLoginAlertView.h"
 #import "MKIoTLoginService.h"
@@ -28,6 +29,8 @@
 #import "MKCKNetworkModel.h"
 
 #import "MKCKUserLoginManager.h"
+
+#import "MKCKInterface+MKCKConfig.h"
 
 #import "MKCKNetworkSettingsController.h"
 #import "MKCKNetworkSettingsV2Controller.h"
@@ -156,6 +159,35 @@ UITableViewDataSource>
     }];
 }
 
+- (void)connectButtonPressed {
+    @weakify(self);
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"Cancel" handler:^{
+    }];
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"OK" handler:^{
+        @strongify(self);
+        [self sendRebootToDevice];
+    }];
+    NSString *msg = @"The device will reboot and apply new settings to conenct network and MQTT broker.";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"Warning!" message:msg notificationName:@"mk_ck_needDismissAlert"];
+}
+
+- (void)sendRebootToDevice{
+    [[MKHudManager share] showHUDWithTitle:@"Setting..."
+                                     inView:self.view
+                              isPenetration:NO];
+    [MKCKInterface ck_restartDeviceWithSucBlock:^{
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:@"setup succeed."];
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:@"setup failed."];
+    }];
+}
+
 #pragma mark - private method
 - (void)addRefreshTimer {
     self.refreshTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,dispatch_get_global_queue(0, 0));
@@ -219,7 +251,7 @@ UITableViewDataSource>
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(-49.f);
-        make.height.mas_equalTo(60.f);
+        make.height.mas_equalTo(120.f);
     }];
     
     UIButton *syncButton = [MKCustomUIAdopter customButtonWithTitle:@"Sync devices to cloud"
@@ -229,9 +261,21 @@ UITableViewDataSource>
     [syncButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(30.f);
         make.right.mas_equalTo(-30.f);
-        make.centerY.mas_equalTo(self.footerView.mas_centerY);
+        make.top.mas_equalTo(20.f);
         make.height.mas_equalTo(40.f);
     }];
+    
+    UIButton *connectButton = [MKCustomUIAdopter customButtonWithTitle:@"Connect"
+                                                                target:self
+                                                                action:@selector(connectButtonPressed)];
+    [self.footerView addSubview:connectButton];
+    [connectButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(30.f);
+        make.right.mas_equalTo(-30.f);
+        make.top.mas_equalTo(syncButton.mas_bottom).mas_offset(20.f);
+        make.height.mas_equalTo(40.f);
+    }];
+    
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);

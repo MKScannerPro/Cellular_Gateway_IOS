@@ -28,23 +28,15 @@
       "name": "CTMediator",
       "source_files": "MKGatewayFour/Classes/CTMediator/**",
       "dependencies": {
-        "MKBaseModuleLibrary": [
-
-        ],
-        "CTMediator": [
-
-        ]
+        "MKBaseModuleLibrary": [],
+        "CTMediator": []
       }
     },
     {
       "name": "DatabaseManager",
       "dependencies": {
-        "MKBaseModuleLibrary": [
-
-        ],
-        "FMDB": [
-
-        ]
+        "MKBaseModuleLibrary": [],
+        "FMDB": []
       },
       "subspecs": [
         {
@@ -57,53 +49,37 @@
       "name": "SDK",
       "source_files": "MKGatewayFour/Classes/SDK/**",
       "dependencies": {
-        "MKBaseBleModule": [
-
-        ]
+        "MKBaseBleModule": []
       }
     },
     {
       "name": "Target",
       "source_files": "MKGatewayFour/Classes/Target/**",
       "dependencies": {
-        "MKGatewayFour/Functions": [
-
-        ]
+        "MKGatewayFour/Functions": []
       }
     },
     {
       "name": "ConnectModule",
       "source_files": "MKGatewayFour/Classes/ConnectModule/**",
       "dependencies": {
-        "MKGatewayFour/SDK": [
-
-        ],
-        "MKBaseModuleLibrary": [
-
-        ]
+        "MKGatewayFour/SDK": [],
+        "MKBaseModuleLibrary": []
       }
     },
     {
       "name": "Expand",
       "dependencies": {
-        "MKBaseModuleLibrary": [
-
-        ],
-        "MKCustomUIModule": [
-
-        ]
+        "MKBaseModuleLibrary": [],
+        "MKCustomUIModule": []
       },
       "subspecs": [
         {
           "name": "ExcelManager",
           "source_files": "MKGatewayFour/Classes/Expand/ExcelManager/**",
           "dependencies": {
-            "libxlsxwriter": [
-
-            ],
-            "SSZipArchive": [
-
-            ]
+            "libxlsxwriter": [],
+            "SSZipArchive": []
           }
         },
         {
@@ -130,41 +106,21 @@
       "name": "LoginManager",
       "source_files": "MKGatewayFour/Classes/LoginManager/**",
       "dependencies": {
-        "MKIotCloudManager": [
-
-        ]
+        "MKIotCloudManager": []
       }
     },
     {
       "name": "Functions",
       "dependencies": {
-        "MKGatewayFour/SDK": [
-
-        ],
-        "MKGatewayFour/DatabaseManager": [
-
-        ],
-        "MKGatewayFour/CTMediator": [
-
-        ],
-        "MKGatewayFour/ConnectModule": [
-
-        ],
-        "MKGatewayFour/Expand": [
-
-        ],
-        "MKBaseModuleLibrary": [
-
-        ],
-        "MKCustomUIModule": [
-
-        ],
-        "HHTransition": [
-
-        ],
-        "MLInputDodger": [
-
-        ],
+        "MKGatewayFour/SDK": [],
+        "MKGatewayFour/DatabaseManager": [],
+        "MKGatewayFour/CTMediator": [],
+        "MKGatewayFour/ConnectModule": [],
+        "MKGatewayFour/Expand": [],
+        "MKBaseModuleLibrary": [],
+        "MKCustomUIModule": [],
+        "HHTransition": [],
+        "MLInputDodger": [],
         "iOSDFULibrary": [
           "4.13.0"
         ]
@@ -177,9 +133,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/AxisSettingsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/AxisSettingsPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/AxisSettingsPage/Model": []
               }
             },
             {
@@ -195,9 +149,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/BatteryManagementPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/BatteryManagementPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/BatteryManagementPage/Model": []
               }
             },
             {
@@ -213,12 +165,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/BleParamsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/BleParamsPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/BleParamsPage/View": [
-
-                ]
+                "MKGatewayFour/Functions/BleParamsPage/Model": [],
+                "MKGatewayFour/Functions/BleParamsPage/View": []
               }
             },
             {
@@ -238,9 +186,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/DebuggerPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/DebuggerPage/View": [
-
-                ]
+                "MKGatewayFour/Functions/DebuggerPage/View": []
               }
             },
             {
@@ -256,12 +202,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/DeviceInfoPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/DeviceInfoPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/UpdatePage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/DeviceInfoPage/Model": [],
+                "MKGatewayFour/Functions/UpdatePage/Controller": []
               }
             },
             {
@@ -280,9 +222,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByAdvNamePage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByAdvNamePage/Model": []
                   }
                 },
                 {
@@ -298,12 +238,8 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByBeaconPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Model": []
                   }
                 },
                 {
@@ -314,9 +250,7 @@
                   "name": "Model",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByBeaconPage/Model/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Header": []
                   }
                 }
               ]
@@ -328,9 +262,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPButtonPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Model": []
                   }
                 },
                 {
@@ -346,9 +278,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPSPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Model": []
                   }
                 },
                 {
@@ -364,9 +294,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByBXPTagPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Model": []
                   }
                 },
                 {
@@ -382,14 +310,28 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByMacPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByMacPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByMacPage/Model": []
                   }
                 },
                 {
                   "name": "Model",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByMacPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByNanoBeaconPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Controller/**",
+                  "dependencies": {
+                    "MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Model": []
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Model/**"
                 }
               ]
             },
@@ -400,9 +342,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByOtherPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Model": []
                   }
                 },
                 {
@@ -418,9 +358,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByPirPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByPirPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByPirPage/Model": []
                   }
                 },
                 {
@@ -436,39 +374,18 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByRawDataPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Model": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByURLPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByPirPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByTofPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller": [
-
-                    ],
-                    "MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Controller": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Model": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByBeaconPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByURLPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByPirPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByTofPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Controller": [],
+                    "MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Controller": []
                   }
                 },
                 {
@@ -484,9 +401,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByTLMPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByTLMPage/Model": []
                   }
                 },
                 {
@@ -502,9 +417,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByTofPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByTofPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByTofPage/Model": []
                   }
                 },
                 {
@@ -520,9 +433,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByUIDPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByUIDPage/Model": []
                   }
                 },
                 {
@@ -538,9 +449,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/FilterPages/FilterByURLPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/FilterPages/FilterByURLPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/FilterPages/FilterByURLPage/Model": []
                   }
                 },
                 {
@@ -558,12 +467,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/FilterSettingsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/FilterSettingsPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/FilterPages": [
-
-                ]
+                "MKGatewayFour/Functions/FilterSettingsPage/Model": [],
+                "MKGatewayFour/Functions/FilterPages": []
               }
             },
             {
@@ -579,15 +484,9 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/FixModePage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/FixModePage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/PeriodicFixPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/MotionFixPage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/FixModePage/Model": [],
+                "MKGatewayFour/Functions/PeriodicFixPage/Controller": [],
+                "MKGatewayFour/Functions/MotionFixPage/Controller": []
               }
             },
             {
@@ -603,9 +502,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/GpsFixPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/GpsFixPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/GpsFixPage/Model": []
               }
             },
             {
@@ -621,9 +518,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/HeartbeatReportPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/HeartbeatReportPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/HeartbeatReportPage/Model": []
               }
             },
             {
@@ -639,9 +534,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/LedSettingsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/LedSettingsPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/LedSettingsPage/Model": []
               }
             },
             {
@@ -657,9 +550,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/MotionFixPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/MotionFixPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/MotionFixPage/Model": []
               }
             },
             {
@@ -675,12 +566,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/MqttSettingsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/MqttSettingsPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/MqttSettingsPage/View": [
-
-                ]
+                "MKGatewayFour/Functions/MqttSettingsPage/Model": [],
+                "MKGatewayFour/Functions/MqttSettingsPage/View": []
               }
             },
             {
@@ -700,21 +587,11 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/NetworkPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/NetworkPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/NetworkSettingsPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/NetworkSettingsV2Page/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/MqttSettingsPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/SyncDevicePage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/NetworkPage/Model": [],
+                "MKGatewayFour/Functions/NetworkSettingsPage/Controller": [],
+                "MKGatewayFour/Functions/NetworkSettingsV2Page/Controller": [],
+                "MKGatewayFour/Functions/MqttSettingsPage/Controller": [],
+                "MKGatewayFour/Functions/SyncDevicePage/Controller": []
               }
             },
             {
@@ -730,9 +607,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/NetworkSettingsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/NetworkSettingsPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/NetworkSettingsPage/Model": []
               }
             },
             {
@@ -748,12 +623,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/NetworkSettingsV2Page/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/NetworkSettingsV2Page/Model": [
-
-                ],
-                "MKGatewayFour/Functions/NetworkSettingsV2Page/View": [
-
-                ]
+                "MKGatewayFour/Functions/NetworkSettingsV2Page/Model": [],
+                "MKGatewayFour/Functions/NetworkSettingsV2Page/View": []
               }
             },
             {
@@ -773,9 +644,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/PayloadItemsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/PayloadItemsPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/PayloadItemsPage/Model": []
               }
             },
             {
@@ -794,9 +663,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/AccPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/AccPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/AccPayloadPage/Model": []
                   }
                 },
                 {
@@ -812,9 +679,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/BeaconPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/BeaconPayloadPage/Model": []
                   }
                 },
                 {
@@ -830,9 +695,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/ButtonPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage/Model": []
                   }
                 },
                 {
@@ -848,9 +711,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/BXPSPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/BXPSPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/BXPSPayloadPage/Model": []
                   }
                 },
                 {
@@ -866,14 +727,28 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/InfoPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Model": []
                   }
                 },
                 {
                   "name": "Model",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/InfoPayloadPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "NanoBeaconPayloadPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/NanoBeaconPayloadPage/Controller/**",
+                  "dependencies": {
+                    "MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage/Model": []
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/NanoBeaconPayloadPage/Model/**"
                 }
               ]
             },
@@ -884,12 +759,8 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/OtherPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/Model": [
-
-                    ],
-                    "MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/View": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/Model": [],
+                    "MKGatewayFour/Functions/PayloadPages/OtherPayloadPage/View": []
                   }
                 },
                 {
@@ -909,9 +780,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/PirPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/PirPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/PirPayloadPage/Model": []
                   }
                 },
                 {
@@ -927,9 +796,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/TagPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/TagPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/TagPayloadPage/Model": []
                   }
                 },
                 {
@@ -945,9 +812,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/ThPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/ThPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/ThPayloadPage/Model": []
                   }
                 },
                 {
@@ -963,9 +828,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/TlmPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/TlmPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/TlmPayloadPage/Model": []
                   }
                 },
                 {
@@ -981,9 +844,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/TofPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/TofPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/TofPayloadPage/Model": []
                   }
                 },
                 {
@@ -999,9 +860,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/UidPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/UidPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/UidPayloadPage/Model": []
                   }
                 },
                 {
@@ -1017,9 +876,7 @@
                   "name": "Controller",
                   "source_files": "MKGatewayFour/Classes/Functions/PayloadPages/UrlPayloadPage/Controller/**",
                   "dependencies": {
-                    "MKGatewayFour/Functions/PayloadPages/UrlPayloadPage/Model": [
-
-                    ]
+                    "MKGatewayFour/Functions/PayloadPages/UrlPayloadPage/Model": []
                   }
                 },
                 {
@@ -1037,9 +894,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/PeriodicFixPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/PeriodicFixPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/PeriodicFixPage/Model": []
               }
             },
             {
@@ -1055,9 +910,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/PeriodicScanPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/PeriodicScanPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/PeriodicScanPage/Model": []
               }
             },
             {
@@ -1073,9 +926,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/PeriodicScanReportPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/PeriodicScanReportPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/PeriodicScanReportPage/Model": []
               }
             },
             {
@@ -1091,21 +942,11 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/PositionPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/PeriodicScanReportPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/FixModePage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/GpsFixPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/AxisSettingsPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/UploadPayloadSettingsPage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/PeriodicScanReportPage/Model": [],
+                "MKGatewayFour/Functions/FixModePage/Controller": [],
+                "MKGatewayFour/Functions/GpsFixPage/Controller": [],
+                "MKGatewayFour/Functions/AxisSettingsPage/Controller": [],
+                "MKGatewayFour/Functions/UploadPayloadSettingsPage/Controller": []
               }
             }
           ]
@@ -1117,9 +958,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/RealtimeScanPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/RealtimeScanPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/RealtimeScanPage/Model": []
               }
             },
             {
@@ -1135,18 +974,10 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/ScannerReportPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/ScannerReportPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/ScanReportModePage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/FilterSettingsPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/PayloadItemsPage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/ScannerReportPage/Model": [],
+                "MKGatewayFour/Functions/ScanReportModePage/Controller": [],
+                "MKGatewayFour/Functions/FilterSettingsPage/Controller": [],
+                "MKGatewayFour/Functions/PayloadItemsPage/Controller": []
               }
             },
             {
@@ -1162,12 +993,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/ScanPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/ScanPage/View": [
-
-                ],
-                "MKGatewayFour/Functions/TabBarPage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/ScanPage/View": [],
+                "MKGatewayFour/Functions/TabBarPage/Controller": []
               }
             },
             {
@@ -1183,21 +1010,11 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/ScanReportModePage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/ScanReportModePage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/ScanReportModePage/View": [
-
-                ],
-                "MKGatewayFour/Functions/RealtimeScanPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/PeriodicScanPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/PeriodicScanReportPage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/ScanReportModePage/Model": [],
+                "MKGatewayFour/Functions/ScanReportModePage/View": [],
+                "MKGatewayFour/Functions/RealtimeScanPage/Controller": [],
+                "MKGatewayFour/Functions/PeriodicScanPage/Controller": [],
+                "MKGatewayFour/Functions/PeriodicScanReportPage/Controller": []
               }
             },
             {
@@ -1217,30 +1034,14 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/SettingsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/SettingsPage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/LedSettingsPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/BleParamsPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/HeartbeatReportPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/SystemTimePage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/BatteryManagementPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/DeviceInfoPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/DebuggerPage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/SettingsPage/Model": [],
+                "MKGatewayFour/Functions/LedSettingsPage/Controller": [],
+                "MKGatewayFour/Functions/BleParamsPage/Controller": [],
+                "MKGatewayFour/Functions/HeartbeatReportPage/Controller": [],
+                "MKGatewayFour/Functions/SystemTimePage/Controller": [],
+                "MKGatewayFour/Functions/BatteryManagementPage/Controller": [],
+                "MKGatewayFour/Functions/DeviceInfoPage/Controller": [],
+                "MKGatewayFour/Functions/DebuggerPage/Controller": []
               }
             },
             {
@@ -1256,12 +1057,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/SyncDevicePage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/SyncDevicePage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/SyncDevicePage/View": [
-
-                ]
+                "MKGatewayFour/Functions/SyncDevicePage/Model": [],
+                "MKGatewayFour/Functions/SyncDevicePage/View": []
               }
             },
             {
@@ -1281,9 +1078,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/SyncTime/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/SyncTime/Model": [
-
-                ]
+                "MKGatewayFour/Functions/SyncTime/Model": []
               }
             },
             {
@@ -1299,12 +1094,8 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/SystemTimePage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/SystemTimePage/Model": [
-
-                ],
-                "MKGatewayFour/Functions/SyncTime/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/SystemTimePage/Model": [],
+                "MKGatewayFour/Functions/SyncTime/Controller": []
               }
             },
             {
@@ -1320,18 +1111,10 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/TabBarPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/NetworkPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/PositionPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/ScannerReportPage/Controller": [
-
-                ],
-                "MKGatewayFour/Functions/SettingsPage/Controller": [
-
-                ]
+                "MKGatewayFour/Functions/NetworkPage/Controller": [],
+                "MKGatewayFour/Functions/PositionPage/Controller": [],
+                "MKGatewayFour/Functions/ScannerReportPage/Controller": [],
+                "MKGatewayFour/Functions/SettingsPage/Controller": []
               }
             }
           ]
@@ -1343,9 +1126,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/UpdatePage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/UpdatePage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/UpdatePage/Model": []
               }
             },
             {
@@ -1361,9 +1142,7 @@
               "name": "Controller",
               "source_files": "MKGatewayFour/Classes/Functions/UploadPayloadSettingsPage/Controller/**",
               "dependencies": {
-                "MKGatewayFour/Functions/UploadPayloadSettingsPage/Model": [
-
-                ]
+                "MKGatewayFour/Functions/UploadPayloadSettingsPage/Model": []
               }
             },
             {

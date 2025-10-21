@@ -537,6 +537,7 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
         BOOL tof = ([[highBinary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"]);
         BOOL other = ([[highBinary substringWithRange:NSMakeRange(4, 1)] isEqualToString:@"1"]);
         BOOL bxps = ([[highBinary substringWithRange:NSMakeRange(3, 1)] isEqualToString:@"1"]);
+        BOOL nanoBeacon = ([[highBinary substringWithRange:NSMakeRange(2, 1)] isEqualToString:@"1"]);
         resultDic = @{
             @"iBeacon":@(iBeacon),
             @"uid":@(uid),
@@ -551,6 +552,7 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"other":@(other),
             @"tof":@(tof),
             @"bxps":@(bxps),
+            @"nanoBeacon":@(nanoBeacon)
         };
         operationID = mk_ck_taskReadFilterTypeStatusOperation;
     }else if ([cmd isEqualToString:@"5a"]) {
@@ -808,6 +810,22 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"tagIDList":(MKValidArray(tagIDList) ? tagIDList : @[]),
         };
         operationID = mk_ck_taskReadFilterBXPSTagIDListOperation;
+    }else if ([cmd isEqualToString:@"7f"]) {
+        //读取NanoBeacon过滤信息
+        BOOL isOn = ([[content substringWithRange:NSMakeRange(0, 2)] isEqualToString:@"01"]);
+        NSString *triggerType = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(2, 2)];
+        NSMutableArray *manufactureIDList = [NSMutableArray array];
+        NSInteger count = (content.length - 4) / 4;
+        for (NSInteger i = 0; i < count; i ++) {
+            NSString *code = [content substringWithRange:NSMakeRange(4 + i * 4, 4)];
+            [manufactureIDList addObject:code];
+        }
+        resultDic = @{
+            @"isOn":@(isOn),
+            @"triggerType":triggerType,
+            @"manufactureIDList":manufactureIDList,
+        };
+        operationID = mk_ck_taskReadFilterNanoBeaconOperation;
     }else if ([cmd isEqualToString:@"80"]) {
         //读取回应包开关
         BOOL isOn = ([content isEqualToString:@"01"]);
@@ -1348,6 +1366,37 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"TH":@(TH),
         };
         operationID = mk_ck_taskReadBXPSPayloadOperation;
+    }else if ([cmd isEqualToString:@"af"]) {
+        //读取NanoBeacon上报选择
+        NSString *highBinary = [MKBLEBaseSDKAdopter binaryByhex:[content substringWithRange:NSMakeRange(0, 2)]];
+        NSString *lowBinary = [MKBLEBaseSDKAdopter binaryByhex:[content substringWithRange:NSMakeRange(2, 2)]];
+        BOOL rssi = ([[lowBinary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"]);
+        BOOL timestamp = ([[lowBinary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
+        BOOL deviceName = ([[lowBinary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"]);
+        BOOL manufactureId = ([[lowBinary substringWithRange:NSMakeRange(4, 1)] isEqualToString:@"1"]);
+        BOOL advType = ([[lowBinary substringWithRange:NSMakeRange(3, 1)] isEqualToString:@"1"]);
+        BOOL batteryVoltage = ([[lowBinary substringWithRange:NSMakeRange(2, 1)] isEqualToString:@"1"]);
+        BOOL temperature = ([[lowBinary substringWithRange:NSMakeRange(1, 1)] isEqualToString:@"1"]);
+        BOOL secCNT = ([[lowBinary substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"1"]);
+        
+        BOOL triggerStatus = ([[highBinary substringWithRange:NSMakeRange(7, 1)] isEqualToString:@"1"]);
+        BOOL advertising = ([[highBinary substringWithRange:NSMakeRange(6, 1)] isEqualToString:@"1"]);
+        BOOL response = ([[highBinary substringWithRange:NSMakeRange(5, 1)] isEqualToString:@"1"]);
+        resultDic = @{
+            @"rssi":@(rssi),
+            @"timestamp":@(timestamp),
+            @"deviceName":@(deviceName),
+            @"manufactureId":@(manufactureId),
+            @"advType":@(advType),
+            @"batteryVoltage":@(batteryVoltage),
+            @"temperature":@(temperature),
+            @"secCNT":@(secCNT),
+            
+            @"triggerStatus":@(triggerStatus),
+            @"advertising":@(advertising),
+            @"response":@(response),
+        };
+        operationID = mk_ck_taskReadBXPNanoBeaconPayloadPayloadOperation;
     }else if ([cmd isEqualToString:@"c0"]) {
         //读取电池电压
         resultDic = @{
@@ -1678,6 +1727,9 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"7e"]) {
         //配置BXP-S TagID列表
         operationID = mk_ck_taskConfigFilterBXPSTagIDListOperation;
+    }else if ([cmd isEqualToString:@"7f"]) {
+        //配置NanoBeacon过滤信息
+        operationID = mk_ck_taskConfigFilterNanoBeaconOperation;
     }else if ([cmd isEqualToString:@"80"]) {
         //配置回应包开关
         operationID = mk_ck_taskConfigAdvertiseResponsePacketStatusOperation;
@@ -1792,6 +1844,9 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"ae"]) {
         //配置bxp_s上报选择
         operationID = mk_ck_taskConfigBXPSPayloadOperation;
+    }else if ([cmd isEqualToString:@"af"]) {
+        //配置NanoBeacon上报选择
+        operationID = mk_ck_taskConfigBXPNanoBeaconPayloadOperation;
     }
     
     return [self dataParserGetDataSuccess:@{@"success":@(success)} operationID:operationID];

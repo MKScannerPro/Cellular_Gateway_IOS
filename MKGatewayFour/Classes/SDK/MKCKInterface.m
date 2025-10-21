@@ -793,6 +793,14 @@
                  failedBlock:failedBlock];
 }
 
++ (void)ck_readFilterNanoBeaconWithSucBlock:(void (^)(id returnData))sucBlock
+                                failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadFilterNanoBeaconOperation
+                     cmdFlag:@"7f"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
 #pragma mark ********************广播参数****************************
 + (void)ck_readAdvertiseResponsePacketStatusWithSucBlock:(void (^)(id returnData))sucBlock
                                              failedBlock:(void (^)(NSError *error))failedBlock {
@@ -1097,6 +1105,14 @@
                            failedBlock:(void (^)(NSError *error))failedBlock {
     [self readDataWithTaskID:mk_ck_taskReadBXPSPayloadOperation
                      cmdFlag:@"ae"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readBXPNanoBeaconPayloadWithSucBlock:(void (^)(id returnData))sucBlock
+                                    failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadBXPNanoBeaconPayloadPayloadOperation
+                     cmdFlag:@"af"
                     sucBlock:sucBlock
                  failedBlock:failedBlock];
 }

@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// V1.0.4版本固件后支持
 @property (nonatomic, assign)BOOL bxps;
 
+/// V1.1.4版本固件后支持
+@property (nonatomic, assign)BOOL nanoBeacon;
+
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
 
 @end

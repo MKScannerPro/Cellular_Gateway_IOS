@@ -19,6 +19,8 @@
 #import "MKTextSwitchCell.h"
 #import "MKTableSectionLineHeader.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKPayloadItemsV2Model.h"
 
 #import "MKCKBeaconPayloadController.h"
@@ -34,7 +36,7 @@
 #import "MKCKTofPayloadController.h"
 #import "MKCKOtherPayloadController.h"
 #import "MKCKBXPSPayloadController.h"
-
+#import "MKCKNanoBeaconPayloadController.h"
 
 @interface MKCKPayloadItemsV2Controller ()<UITableViewDelegate,
 UITableViewDataSource,
@@ -45,6 +47,10 @@ mk_textSwitchCellDelegate>
 @property (nonatomic, strong)NSMutableArray *section0List;
 
 @property (nonatomic, strong)NSMutableArray *section1List;
+
+@property (nonatomic, strong)NSMutableArray *section2List;
+
+@property (nonatomic, strong)NSMutableArray *section3List;
 
 @property (nonatomic, strong)NSMutableArray *headerList;
 
@@ -80,7 +86,7 @@ mk_textSwitchCellDelegate>
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 1) {
+    if (section == 3) {
         return 20.f;
     }
     return 0.0f;
@@ -153,7 +159,6 @@ mk_textSwitchCellDelegate>
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    
     if (indexPath.section == 0 && indexPath.row == 10) {
         //BXP-PIR payload
         MKCKPirPayloadController *vc = [[MKCKPirPayloadController alloc] init];
@@ -166,7 +171,13 @@ mk_textSwitchCellDelegate>
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 0 && indexPath.row == 12) {
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        //NanoBeacon info
+        MKCKNanoBeaconPayloadController *vc = [[MKCKNanoBeaconPayloadController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.section == 2 && indexPath.row == 0) {
         //Other type payload
         MKCKOtherPayloadController *vc = [[MKCKOtherPayloadController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
@@ -185,7 +196,13 @@ mk_textSwitchCellDelegate>
         return self.section0List.count;
     }
     if (section == 1) {
-        return self.section1List.count;
+        return ([MKCKConnectModel shared].isV200 ? self.section1List.count : 0);
+    }
+    if (section == 2) {
+        return self.section2List.count;
+    }
+    if (section == 3) {
+        return self.section3List.count;
     }
     return 0;
 }
@@ -196,8 +213,18 @@ mk_textSwitchCellDelegate>
         cell.dataModel = self.section0List[indexPath.row];
         return cell;
     }
+    if (indexPath.section == 1) {
+        MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section1List[indexPath.row];
+        return cell;
+    }
+    if (indexPath.section == 2) {
+        MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section2List[indexPath.row];
+        return cell;
+    }
     MKTextSwitchCell *cell = [MKTextSwitchCell initCellWithTableView:tableView];
-    cell.dataModel = self.section1List[indexPath.row];
+    cell.dataModel = self.section3List[indexPath.row];
     cell.delegate = self;
     return cell;
 }
@@ -211,7 +238,7 @@ mk_textSwitchCellDelegate>
         //Beacon number
         self.dataModel.beaconNumber = isOn;
         
-        MKTextSwitchCellModel *cellModel = self.section1List[0];
+        MKTextSwitchCellModel *cellModel = self.section3List[0];
         cellModel.isOn = isOn;
         return;
     }
@@ -219,7 +246,7 @@ mk_textSwitchCellDelegate>
         //Sequence number
         self.dataModel.sequenceNumber = isOn;
         
-        MKTextSwitchCellModel *cellModel = self.section1List[1];
+        MKTextSwitchCellModel *cellModel = self.section3List[1];
         cellModel.isOn = isOn;
         return;
     }
@@ -256,10 +283,10 @@ mk_textSwitchCellDelegate>
 
 #pragma mark - loadSectionDatas
 - (void)updateCellValues {
-    MKTextSwitchCellModel *cellModel1 = self.section1List[0];
+    MKTextSwitchCellModel *cellModel1 = self.section3List[0];
     cellModel1.isOn = self.dataModel.beaconNumber;
     
-    MKTextSwitchCellModel *cellModel2 = self.section1List[1];
+    MKTextSwitchCellModel *cellModel2 = self.section3List[1];
     cellModel2.isOn = self.dataModel.sequenceNumber;
     
     [self.tableView reloadData];
@@ -268,10 +295,12 @@ mk_textSwitchCellDelegate>
 - (void)loadSectionDatas {
     [self loadSection0Datas];
     [self loadSection1Datas];
+    [self loadSection2Datas];
+    [self loadSection3Datas];
     
-    for (NSInteger i = 0; i < 2; i ++) {
+    for (NSInteger i = 0; i < 4; i ++) {
         MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
-        if (i == 1) {
+        if (i == 3) {
             headerModel.text = @"Common items";
         }
         [self.headerList addObject:headerModel];
@@ -340,23 +369,32 @@ mk_textSwitchCellDelegate>
     cellModel12.leftMsg = @"MK TOF";
     cellModel12.showRightIcon = YES;
     [self.section0List addObject:cellModel12];
-    
-    MKNormalTextCellModel *cellModel13 = [[MKNormalTextCellModel alloc] init];
-    cellModel13.leftMsg = @"Other type";
-    cellModel13.showRightIcon = YES;
-    [self.section0List addObject:cellModel13];
 }
 
 - (void)loadSection1Datas {
+    MKNormalTextCellModel *cellModel = [[MKNormalTextCellModel alloc] init];
+    cellModel.leftMsg = @"NanoBeacon info";
+    cellModel.showRightIcon = YES;
+    [self.section1List addObject:cellModel];
+}
+
+- (void)loadSection2Datas {
+    MKNormalTextCellModel *cellModel = [[MKNormalTextCellModel alloc] init];
+    cellModel.leftMsg = @"Other type";
+    cellModel.showRightIcon = YES;
+    [self.section2List addObject:cellModel];
+}
+
+- (void)loadSection3Datas {
     MKTextSwitchCellModel *cellModel1 = [[MKTextSwitchCellModel alloc] init];
     cellModel1.index = 0;
     cellModel1.msg = @"Beacon number";
-    [self.section1List addObject:cellModel1];
+    [self.section3List addObject:cellModel1];
     
     MKTextSwitchCellModel *cellModel2 = [[MKTextSwitchCellModel alloc] init];
     cellModel2.index = 1;
     cellModel2.msg = @"Sequence number";
-    [self.section1List addObject:cellModel2];
+    [self.section3List addObject:cellModel2];
 }
 
 #pragma mark - UI
@@ -369,7 +407,7 @@ mk_textSwitchCellDelegate>
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
-        make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(-49.f);
+        make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
     }];
 }
 
@@ -395,6 +433,20 @@ mk_textSwitchCellDelegate>
         _section1List = [NSMutableArray array];
     }
     return _section1List;
+}
+
+- (NSMutableArray *)section2List {
+    if (!_section2List) {
+        _section2List = [NSMutableArray array];
+    }
+    return _section2List;
+}
+
+- (NSMutableArray *)section3List {
+    if (!_section3List) {
+        _section3List = [NSMutableArray array];
+    }
+    return _section3List;
 }
 
 - (NSMutableArray *)headerList {

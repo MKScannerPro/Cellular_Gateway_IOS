@@ -29,6 +29,8 @@
 
 @property (nonatomic, assign)BOOL isV104;
 
+@property (nonatomic, assign)BOOL isV200;
+
 @end
 
 @implementation MKCKConnectModel
@@ -49,7 +51,7 @@
 - (void)connectDevice:(CBPeripheral *)peripheral
              password:(NSString *)password
            deviceName:(NSString *)deviceName
-                 isV104:(BOOL)isV104
+           deviceType:(NSInteger)deviceType
              sucBlock:(void (^)(void))sucBlock
           failedBlock:(void (^)(NSError *error))failedBlock {
     dispatch_async(self.connectQueue, ^{
@@ -73,7 +75,8 @@
             return;
         }
         self.deviceName = deviceName;
-        self.isV104 = isV104;
+        self.isV104 = (deviceType > 0);
+        self.isV200 = (deviceType > 1);
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();

@@ -1537,6 +1537,34 @@ static NSInteger const maxDataLen = 150;
                    failedBlock:failedBlock];
 }
 
++ (void)ck_configFilterNanoBeacon:(BOOL)isOn
+                          advType:(mk_ck_filterByNanoBeaconAdvType)advType
+                manufactureIDList:(NSArray <NSString *>*)manufactureIDList
+                         sucBlock:(void (^)(void))sucBlock
+                      failedBlock:(void (^)(NSError *error))failedBlock {
+    if (manufactureIDList.count > 10) {
+        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+        return;
+    }
+    NSString *codeString = @"";
+    if (MKValidArray(manufactureIDList)) {
+        for (NSString *code in manufactureIDList) {
+            if (!MKValidStr(code) || code.length != 4 || ![MKBLEBaseSDKAdopter checkHexCharacter:code]) {
+                [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+                return;
+            }
+            codeString = [codeString stringByAppendingString:code];
+        }
+    }
+    NSString *triggerHex = [MKBLEBaseSDKAdopter fetchHexValue:advType byteLen:1];
+    NSString *dataLen = [MKBLEBaseSDKAdopter fetchHexValue:((codeString.length / 2) + 2) byteLen:1];
+    NSString *commandString = [NSString stringWithFormat:@"ed017f%@%@%@%@",dataLen,(isOn ? @"01" : @"00"),triggerHex,codeString];
+    [self configDataWithTaskID:mk_ck_taskConfigFilterNanoBeaconOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
 #pragma mark *********************蓝牙广播参数************************
 + (void)ck_configAdvertiseResponsePacketStatus:(BOOL)isOn
                                       sucBlock:(void (^)(void))sucBlock
@@ -1836,7 +1864,7 @@ static NSInteger const maxDataLen = 150;
 + (void)ck_configGpsPDOPLimit:(NSInteger)pdop
                      sucBlock:(void (^)(void))sucBlock
                   failedBlock:(void (^)(NSError *error))failedBlock {
-    if (pdop < 25 || pdop > 100) {
+    if (pdop < 1 || pdop > 100) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
     }
@@ -2071,6 +2099,20 @@ static NSInteger const maxDataLen = 150;
     NSString *highValue = [MKBLEBaseSDKAdopter getHexByBinary:highBinary];
     NSString *commandString = [NSString stringWithFormat:@"%@%@%@",@"ed01ae02",highValue,lowValue];
     [self configDataWithTaskID:mk_ck_taskConfigBXPSPayloadOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configBXPNanoBeaconPayload:(id <mk_ck_bxpNanoBeaconPayloadProtocol>)protocol
+                             sucBlock:(void (^)(void))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *lowBinary = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",(protocol.secCNT ? @"1" : @"0"),(protocol.temperature ? @"1" : @"0"),(protocol.batteryVoltage ? @"1" : @"0"),(protocol.advType ? @"1" : @"0"),(protocol.manufactureId ? @"1" : @"0"),(protocol.deviceName ? @"1" : @"0"),(protocol.timestamp ? @"1" : @"0"),(protocol.rssi ? @"1" : @"0")];
+    NSString *highBinary = [NSString stringWithFormat:@"%@%@%@%@",@"00000",(protocol.response ? @"1" : @"0"),(protocol.advertising ? @"1" : @"0"),(protocol.triggerStatus ? @"1" : @"0")];
+    NSString *lowValue = [MKBLEBaseSDKAdopter getHexByBinary:lowBinary];
+    NSString *highValue = [MKBLEBaseSDKAdopter getHexByBinary:highBinary];
+    NSString *commandString = [NSString stringWithFormat:@"%@%@%@",@"ed01af02",highValue,lowValue];
+    [self configDataWithTaskID:mk_ck_taskConfigBXPNanoBeaconPayloadOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];

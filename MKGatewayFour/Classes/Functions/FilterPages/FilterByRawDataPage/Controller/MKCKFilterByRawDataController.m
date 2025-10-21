@@ -35,6 +35,7 @@
 #import "MKCKFilterByTofController.h"
 #import "MKCKFilterByOtherController.h"
 #import "MKCKFilterByBXPSController.h"
+#import "MKCKFilterByNanoBeaconController.h"
 
 @interface MKCKFilterByRawDataController ()<UITableViewDelegate,
 UITableViewDataSource,
@@ -51,6 +52,10 @@ mk_textSwitchCellDelegate>
 @property (nonatomic, strong)NSMutableArray *section3List;
 
 @property (nonatomic, strong)NSMutableArray *section4List;
+
+@property (nonatomic, strong)NSMutableArray *section5List;
+
+@property (nonatomic, strong)NSMutableArray *section6List;
 
 @property (nonatomic, strong)MKCKFilterByRawDataModel *dataModel;
 
@@ -134,7 +139,13 @@ mk_textSwitchCellDelegate>
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 4 && indexPath.row == 2) {
+    if (indexPath.section == 5 && indexPath.row == 0) {
+        //NanoBeacon info
+        MKCKFilterByNanoBeaconController *vc = [[MKCKFilterByNanoBeaconController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.section == 6 && indexPath.row == 0) {
         //Other
         MKCKFilterByOtherController *vc = [[MKCKFilterByOtherController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
@@ -144,7 +155,7 @@ mk_textSwitchCellDelegate>
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 7;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -162,6 +173,12 @@ mk_textSwitchCellDelegate>
     }
     if (section == 4) {
         return self.section4List.count;
+    }
+    if (section == 5) {
+        return ([MKCKConnectModel shared].isV200 ? self.section5List.count : 0);
+    }
+    if (section == 6) {
+        return self.section6List.count;
     }
     return 0;
 }
@@ -188,8 +205,18 @@ mk_textSwitchCellDelegate>
         cell.dataModel = self.section3List[indexPath.row];
         return cell;
     }
+    if (indexPath.section == 4) {
+        MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section4List[indexPath.row];
+        return cell;
+    }
+    if (indexPath.section == 5) {
+        MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section5List[indexPath.row];
+        return cell;
+    }
     MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
-    cell.dataModel = self.section4List[indexPath.row];
+    cell.dataModel = self.section6List[indexPath.row];
     return cell;
 }
 
@@ -310,8 +337,11 @@ mk_textSwitchCellDelegate>
     MKNormalTextCellModel *cellModel13 = self.section4List[1];
     cellModel13.rightMsg = (self.dataModel.tof ? @"ON" : @"OFF");
     
-    MKNormalTextCellModel *cellModel14 = self.section4List[2];
-    cellModel14.rightMsg = (self.dataModel.other ? @"ON" : @"OFF");
+    MKNormalTextCellModel *cellModel14 = self.section5List[0];
+    cellModel14.rightMsg = (self.dataModel.nanoBeacon ? @"ON" : @"OFF");
+    
+    MKNormalTextCellModel *cellModel15 = self.section6List[0];
+    cellModel15.rightMsg = (self.dataModel.other ? @"ON" : @"OFF");
     
     [self.tableView reloadData];
 }
@@ -322,6 +352,8 @@ mk_textSwitchCellDelegate>
     [self loadSection2Datas];
     [self loadSection3Datas];
     [self loadSection4Datas];
+    [self loadSection5Datas];
+    [self loadSection6Datas];
     
     [self.tableView reloadData];
 }
@@ -394,11 +426,20 @@ mk_textSwitchCellDelegate>
     cellModel2.showRightIcon = YES;
     cellModel2.leftMsg = @"MK TOF";
     [self.section4List addObject:cellModel2];
-    
-    MKNormalTextCellModel *cellModel3 = [[MKNormalTextCellModel alloc] init];
-    cellModel3.showRightIcon = YES;
-    cellModel3.leftMsg = @"Other";
-    [self.section4List addObject:cellModel3];
+}
+
+- (void)loadSection5Datas {
+    MKNormalTextCellModel *cellModel = [[MKNormalTextCellModel alloc] init];
+    cellModel.showRightIcon = YES;
+    cellModel.leftMsg = @"NanoBeacon info";
+    [self.section5List addObject:cellModel];
+}
+
+- (void)loadSection6Datas {
+    MKNormalTextCellModel *cellModel = [[MKNormalTextCellModel alloc] init];
+    cellModel.showRightIcon = YES;
+    cellModel.leftMsg = @"Other";
+    [self.section6List addObject:cellModel];
 }
 
 #pragma mark - UI
@@ -456,6 +497,20 @@ mk_textSwitchCellDelegate>
         _section4List = [NSMutableArray array];
     }
     return _section4List;
+}
+
+- (NSMutableArray *)section5List {
+    if (!_section5List) {
+        _section5List = [NSMutableArray array];
+    }
+    return _section5List;
+}
+
+- (NSMutableArray *)section6List {
+    if (!_section6List) {
+        _section6List = [NSMutableArray array];
+    }
+    return _section6List;
 }
 
 - (MKCKFilterByRawDataModel *)dataModel {

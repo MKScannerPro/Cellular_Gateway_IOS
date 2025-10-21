@@ -258,6 +258,19 @@ TODO: Add long description of the pod here.
         end
       end
       
+      sss.subspec 'FilterByNanoBeaconPage' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Controller/**'
+        
+          sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Model'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/FilterPages/FilterByNanoBeaconPage/Model/**'
+        end
+      end
+      
       sss.subspec 'FilterByOtherPage' do |ssss|
         ssss.subspec 'Controller' do |sssss|
           sssss.source_files = 'MKGatewayFour/Classes/Functions/FilterPages/FilterByOtherPage/Controller/**'
@@ -300,6 +313,7 @@ TODO: Add long description of the pod here.
           sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByTofPage/Controller'
           sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller'
           sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Controller'
+          sssss.dependency 'MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Controller'
           
         end
       
@@ -587,6 +601,19 @@ TODO: Add long description of the pod here.
       
         ssss.subspec 'Model' do |sssss|
           sssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadPages/InfoPayloadPage/Model/**'
+        end
+      end
+      
+      sss.subspec 'NanoBeaconPayloadPage' do |ssss|
+        ssss.subspec 'Controller' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadPages/NanoBeaconPayloadPage/Controller/**'
+        
+          sssss.dependency 'MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage/Model'
+          
+        end
+      
+        ssss.subspec 'Model' do |sssss|
+          sssss.source_files = 'MKGatewayFour/Classes/Functions/PayloadPages/NanoBeaconPayloadPage/Model/**'
         end
       end
       

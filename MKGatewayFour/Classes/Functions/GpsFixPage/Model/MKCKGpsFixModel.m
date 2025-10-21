@@ -10,6 +10,8 @@
 
 #import "MKMacroDefines.h"
 
+#import "MKCKConnectModel.h"
+
 #import "MKCKInterface.h"
 #import "MKCKInterface+MKCKConfig.h"
 
@@ -130,8 +132,14 @@
     if (!ValidStr(self.timeout) || [self.timeout integerValue] < 60 || [self.timeout integerValue] > 600) {
         return NO;
     }
-    if (!ValidStr(self.pdop) || [self.pdop integerValue] < 25 || [self.pdop integerValue] > 100) {
-        return NO;
+    if ([MKCKConnectModel shared].isV200) {
+        if (!ValidStr(self.pdop) || [self.pdop integerValue] < 5 || [self.pdop integerValue] > 100) {
+            return NO;
+        }
+    }else {
+        if (!ValidStr(self.pdop) || [self.pdop integerValue] < 25 || [self.pdop integerValue] > 100) {
+            return NO;
+        }
     }
     
     return YES;

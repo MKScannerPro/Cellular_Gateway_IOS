@@ -783,6 +783,18 @@ NS_ASSUME_NONNULL_BEGIN
                             sucBlock:(void (^)(void))sucBlock
                          failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// Filtered information of NanoBeacon.
+/// @param isOn isOn
+/// @param advType advType
+/// @param manufactureIDList You can set up to 10 filters.2 Bytes.
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configFilterNanoBeacon:(BOOL)isOn
+                          advType:(mk_ck_filterByNanoBeaconAdvType)advType
+                manufactureIDList:(NSArray <NSString *>*)manufactureIDList
+                         sucBlock:(void (^)(void))sucBlock
+                      failedBlock:(void (^)(NSError *error))failedBlock;
+
 #pragma mark *********************蓝牙广播参数************************
 
 /// Advertise response packet status.
@@ -1116,6 +1128,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_configBXPSPayload:(id <mk_ck_bxpBXPSPayloadProtocol>)protocol
                     sucBlock:(void (^)(void))sucBlock
                  failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// NanoBeacon Info payload.
+/// @param protocol protocol
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configBXPNanoBeaconPayload:(id <mk_ck_bxpNanoBeaconPayloadProtocol>)protocol
+                             sucBlock:(void (^)(void))sucBlock
+                          failedBlock:(void (^)(NSError *error))failedBlock;
 
 @end
 

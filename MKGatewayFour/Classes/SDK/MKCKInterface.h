@@ -661,7 +661,9 @@ NS_ASSUME_NONNULL_BEGIN
      @"bxp_tag":@(YES),
      @"bxp_pir":@(YES),
      @"bxp_tof":@(YES),
-     @"other":@(YES)
+     @"other":@(YES),
+     @"bxps":@(YES),
+     @"nanoBeacon":@(YES)
  }
  */
 /// @param sucBlock Success callback
@@ -1082,6 +1084,23 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)ck_readFilterBXPSTagIDListWithSucBlock:(void (^)(id returnData))sucBlock
                                    failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Filtered information of NanoBeacon.
+/*
+ @{
+ @"isOn":@(YES),
+ @"triggerType":@"0",   //@"0":Normal type @"1":Trigger type @"2":All
+ @"manufactureIDList":@[
+    @"aabb",
+ @"ccdd",
+ @"eeff"
+ ],
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readFilterNanoBeaconWithSucBlock:(void (^)(id returnData))sucBlock
+                                failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark ********************广播参数****************************
 /// Advertise response packet status.
@@ -1662,6 +1681,29 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)ck_readBXPSPayloadWithSucBlock:(void (^)(id returnData))sucBlock
                            failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// NanoBeacon Info payload.
+/*
+ @{
+    @"rssi":@(YES),
+    @"timestamp":@(YES),
+ 
+    @"deviceName":@(YES),
+    @"manufactureId":@(YES),
+    @"advType":@(YES),
+    @"batteryVoltage":@(YES),
+    @"temperature":@(YES),
+    @"secCNT":@(YES),
+    @"triggerStatus":@(YES),
+ 
+    @"advertising":@(YES),
+    @"response":@(YES)
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readBXPNanoBeaconPayloadWithSucBlock:(void (^)(id returnData))sucBlock
+                                    failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark ********************设备状态****************************
 /// Read battery voltage.

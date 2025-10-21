@@ -55,6 +55,7 @@
         self.tof = [returnData[@"result"][@"tof"] boolValue];
         self.other = [returnData[@"result"][@"other"] boolValue];
         self.bxps = [returnData[@"result"][@"bxps"] boolValue];
+        self.nanoBeacon = [returnData[@"result"][@"nanoBeacon"] boolValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

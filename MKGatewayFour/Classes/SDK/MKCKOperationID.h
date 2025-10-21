@@ -101,6 +101,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadPreciseMatchBXPSTagIDStatusOperation, //读取BXP-S tagID精准过滤开关
     mk_ck_taskReadReverseFilterBXPSTagIDStatusOperation,    //读取BXP-S tagID反向过滤开关
     mk_ck_taskReadFilterBXPSTagIDListOperation,         //读取BXP-S tagID列表
+    mk_ck_taskReadFilterNanoBeaconOperation,            //读取NanoBeacon过滤信息
     
 #pragma mark - 广播参数
     mk_ck_taskReadAdvertiseResponsePacketStatusOperation,   //读取回应包开关
@@ -146,6 +147,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadOtherBlockPayloadOperation,           //读取Other数据块上报
     mk_ck_taskReadCommonPayloadOperation,               //读取扫描上报包参数
     mk_ck_taskReadBXPSPayloadOperation,                 //读取BXP-S上报选择
+    mk_ck_taskReadBXPNanoBeaconPayloadPayloadOperation, //读取NanoBeacon上报选择
     
     
 #pragma mark - 设备状态
@@ -264,6 +266,7 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigPreciseMatchBXPSTagIDStatusOperation,   //配置BXP-S TagID精准过滤
     mk_ck_taskConfigReverseFilterBXPSTagIDStatusOperation,  //配置BXP-S TagID反向过滤
     mk_ck_taskConfigFilterBXPSTagIDListOperation,           //配置BXP-S TagID列表
+    mk_ck_taskConfigFilterNanoBeaconOperation,              //配置NanoBeacon过滤信息
     
 #pragma mark - 广播参数
     mk_ck_taskConfigAdvertiseResponsePacketStatusOperation,     //配置回应包开关
@@ -308,4 +311,5 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskConfigOtherBlockPayloadOperation,         //配置Other block上报选择
     mk_ck_taskConfigCommonPayloadOperation,             //配置扫描上报包参数
     mk_ck_taskConfigBXPSPayloadOperation,               //配置bxp_s上报选择
+    mk_ck_taskConfigBXPNanoBeaconPayloadOperation,      //配置NanoBeacon上报选择
 };

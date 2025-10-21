@@ -217,10 +217,10 @@
             }
         }
         
-        if (![self restart]) {
-            [self operationFailedBlockWithMsg:@"Restart Error" block:failedBlock];
-            return;
-        }
+//        if (![self restart]) {
+//            [self operationFailedBlockWithMsg:@"Restart Error" block:failedBlock];
+//            return;
+//        }
         moko_dispatch_main_safe(^{
             if (sucBlock) {
                 sucBlock();

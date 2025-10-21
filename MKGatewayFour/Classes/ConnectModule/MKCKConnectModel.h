@@ -24,17 +24,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, readonly)BOOL isV104;
 
+@property (nonatomic, assign, readonly)BOOL isV200;
+
 /// 连接设备
 /// @param peripheral 设备
 /// @param password 密码
 /// @param deviceName deviceName
-/// @param isV104 isV104
+/// @param deviceType 0:V1.4之前的固件 1:1.4之后的固件 2:2.0需求版本
 /// @param sucBlock 成功回调
 /// @param failedBlock 失败回调
 - (void)connectDevice:(CBPeripheral *)peripheral
              password:(NSString *)password
            deviceName:(NSString *)deviceName
-                 isV104:(BOOL)isV104
+           deviceType:(NSInteger)deviceType
              sucBlock:(void (^)(void))sucBlock
           failedBlock:(void (^)(NSError *error))failedBlock;
 

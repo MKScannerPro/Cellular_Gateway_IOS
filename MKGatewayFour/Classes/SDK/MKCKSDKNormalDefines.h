@@ -159,7 +159,11 @@ typedef NS_ENUM(NSInteger, mk_ck_powerOnByChargingType) {
     mk_ck_powerOnByChargingTypeWhenBatteryDead,
 };
 
-
+typedef NS_ENUM(NSInteger, mk_ck_filterByNanoBeaconAdvType) {
+    mk_ck_filterByNanoBeaconAdvType_normal,
+    mk_ck_filterByNanoBeaconAdvType_trigger,
+    mk_ck_filterByNanoBeaconAdvType_all
+};
 
 @protocol mk_ck_heartbeatReportItemsProtocol <NSObject>
 
@@ -525,6 +529,34 @@ typedef NS_ENUM(NSInteger, mk_ck_powerOnByChargingType) {
 @property (nonatomic, assign)BOOL rssi;
 
 @property (nonatomic, assign)BOOL timestamp;
+
+@property (nonatomic, assign)BOOL advertising;
+
+@property (nonatomic, assign)BOOL response;
+
+@end
+
+@protocol mk_ck_bxpNanoBeaconPayloadProtocol <NSObject>
+
+
+@property (nonatomic, assign)BOOL rssi;
+
+@property (nonatomic, assign)BOOL timestamp;
+
+@property (nonatomic, assign)BOOL deviceName;
+
+@property (nonatomic, assign)BOOL manufactureId;
+
+@property (nonatomic, assign)BOOL advType;
+
+@property (nonatomic, assign)BOOL batteryVoltage;
+
+@property (nonatomic, assign)BOOL temperature;
+
+@property (nonatomic, assign)BOOL secCNT;
+
+@property (nonatomic, assign)BOOL triggerStatus;
+
 
 @property (nonatomic, assign)BOOL advertising;
 

@@ -715,6 +715,7 @@ PODS:
     - MKGatewayFour/Functions/FilterPages/FilterByBXPSPage (= 0.0.2)
     - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage (= 0.0.2)
     - MKGatewayFour/Functions/FilterPages/FilterByMacPage (= 0.0.2)
+    - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage (= 0.0.2)
     - MKGatewayFour/Functions/FilterPages/FilterByOtherPage (= 0.0.2)
     - MKGatewayFour/Functions/FilterPages/FilterByPirPage (= 0.0.2)
     - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage (= 0.0.2)
@@ -954,6 +955,42 @@ PODS:
     - MKGatewayFour/Expand
     - MKGatewayFour/SDK
     - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Controller (= 0.0.2)
+    - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Model (= 0.0.2)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Controller (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Model (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
   - MKGatewayFour/Functions/FilterPages/FilterByOtherPage (0.0.2):
     - HHTransition
     - iOSDFULibrary (= 4.13.0)
@@ -1052,6 +1089,7 @@ PODS:
     - MKGatewayFour/Functions/FilterPages/FilterByBXPButtonPage/Controller
     - MKGatewayFour/Functions/FilterPages/FilterByBXPSPage/Controller
     - MKGatewayFour/Functions/FilterPages/FilterByBXPTagPage/Controller
+    - MKGatewayFour/Functions/FilterPages/FilterByNanoBeaconPage/Controller
     - MKGatewayFour/Functions/FilterPages/FilterByOtherPage/Controller
     - MKGatewayFour/Functions/FilterPages/FilterByPirPage/Controller
     - MKGatewayFour/Functions/FilterPages/FilterByRawDataPage/Model
@@ -1659,6 +1697,7 @@ PODS:
     - MKGatewayFour/Functions/PayloadPages/ButtonPayloadPage (= 0.0.2)
     - MKGatewayFour/Functions/PayloadPages/BXPSPayloadPage (= 0.0.2)
     - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage (= 0.0.2)
+    - MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage (= 0.0.2)
     - MKGatewayFour/Functions/PayloadPages/OtherPayloadPage (= 0.0.2)
     - MKGatewayFour/Functions/PayloadPages/PirPayloadPage (= 0.0.2)
     - MKGatewayFour/Functions/PayloadPages/TagPayloadPage (= 0.0.2)
@@ -1839,6 +1878,42 @@ PODS:
     - MKGatewayFour/SDK
     - MLInputDodger
   - MKGatewayFour/Functions/PayloadPages/InfoPayloadPage/Model (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage/Controller (= 0.0.2)
+    - MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage/Model (= 0.0.2)
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage/Controller (0.0.2):
+    - HHTransition
+    - iOSDFULibrary (= 4.13.0)
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayFour/ConnectModule
+    - MKGatewayFour/CTMediator
+    - MKGatewayFour/DatabaseManager
+    - MKGatewayFour/Expand
+    - MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage/Model
+    - MKGatewayFour/SDK
+    - MLInputDodger
+  - MKGatewayFour/Functions/PayloadPages/NanoBeaconPayloadPage/Model (0.0.2):
     - HHTransition
     - iOSDFULibrary (= 4.13.0)
     - MKBaseModuleLibrary
@@ -2754,7 +2829,7 @@ DEPENDENCIES:
   - MKGatewayFour (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - CircleProgressBar
     - CTMediator
     - FMDB
@@ -2789,7 +2864,7 @@ SPEC CHECKSUMS:
   MKBaseBleModule: 15aa067c4e408a473e025b1a768ebce00a7e5949
   MKBaseModuleLibrary: 2b79bcae588c755588413fbb643b510253271b23
   MKCustomUIModule: 8426eba1d3178b06d92741d31da32502920fb8fa
-  MKGatewayFour: 6e608795f1016fe296566a150aa75213d144fe0e
+  MKGatewayFour: 44ef86ea8c5edb08040838f548a6f32f571dc6f7
   MKIotCloudManager: 241bd4bb7fae48e6b031c69a40c26637aabe67be
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
@@ -2797,6 +2872,6 @@ SPEC CHECKSUMS:
   WRNavigationBar: 10bfdf96addf14d640d07c2ef08a029c18d8af10
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: d5cf4b03760f0f46849529f6cf8ff547ac0e8229
+PODFILE CHECKSUM: aaa50cf298d15937e686a62c4d3e33315e2c2547
 
-COCOAPODS: 1.16.1
+COCOAPODS: 1.16.2
