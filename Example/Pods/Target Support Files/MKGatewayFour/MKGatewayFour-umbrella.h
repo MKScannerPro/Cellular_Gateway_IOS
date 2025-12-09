@@ -95,7 +95,7 @@
 #import "MKCKButtonPayloadModel.h"
 #import "MKCKInfoPayloadController.h"
 #import "MKCKInfoPayloadModel.h"
-#import "MKCKTNanoBeaconPayloadController.h"
+#import "MKCKNanoBeaconPayloadController.h"
 #import "MKCKNanoBeaconPayloadModel.h"
 #import "MKCKOtherPayloadController.h"
 #import "MKCKOtherPayloadModel.h"

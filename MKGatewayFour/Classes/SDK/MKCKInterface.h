@@ -219,6 +219,38 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ck_readPowerOnByMagnetTypeWithSucBlock:(void (^)(id returnData))sucBlock
                                    failedBlock:(void (^)(NSError *error))failedBlock;
 
+/// External power supply type.
+/*
+ @{
+ @"type":@"0",  //@"0":Non-solar  @"1":Solar
+ }
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readExternalPowerSupplyTypeWithSucBlock:(void (^)(id returnData))sucBlock
+                                       failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Power on threshold.
+/*
+ @{
+ @"value":@"0",
+ }
+ @"0":5%
+ @"1":10%
+ @"2":15%
+ @"3":20%
+ @"4":25%
+ @"5":30%
+ @"6":35%
+ @"7":40%
+ @"8":45%
+ @"9":50%
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_readPowerOnThresholdWithSucBlock:(void (^)(id returnData))sucBlock
+                                failedBlock:(void (^)(NSError *error))failedBlock;
+
 
 #pragma mark *********************MQTT Params************************
 

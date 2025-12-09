@@ -50,6 +50,8 @@ UITableViewDataSource>
 
 @property (nonatomic, strong)UIView *footerView;
 
+@property (nonatomic, strong)UIButton *syncBtn;
+
 @end
 
 @implementation MKCKNetworkController
@@ -209,7 +211,7 @@ UITableViewDataSource>
     MKNormalTextCellModel *cellModel2 = self.dataList[1];
     cellModel2.rightMsg = self.dataModel.mqttStatus;
     
-    self.footerView.hidden = !([self.dataModel.networkStatus isEqualToString:@"Connected"] && [self.dataModel.mqttStatus isEqualToString:@"Connected"]);
+    self.syncBtn.hidden = !([self.dataModel.networkStatus isEqualToString:@"Connected"] && [self.dataModel.mqttStatus isEqualToString:@"Connected"]);
     
     [self.tableView reloadData];
 }
@@ -254,11 +256,8 @@ UITableViewDataSource>
         make.height.mas_equalTo(120.f);
     }];
     
-    UIButton *syncButton = [MKCustomUIAdopter customButtonWithTitle:@"Sync devices to cloud"
-                                                             target:self
-                                                             action:@selector(syncButtonPressed)];
-    [self.footerView addSubview:syncButton];
-    [syncButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.footerView addSubview:self.syncBtn];
+    [self.syncBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(30.f);
         make.right.mas_equalTo(-30.f);
         make.top.mas_equalTo(20.f);
@@ -272,7 +271,7 @@ UITableViewDataSource>
     [connectButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(30.f);
         make.right.mas_equalTo(-30.f);
-        make.top.mas_equalTo(syncButton.mas_bottom).mas_offset(20.f);
+        make.top.mas_equalTo(self.syncBtn.mas_bottom).mas_offset(20.f);
         make.height.mas_equalTo(40.f);
     }];
     
@@ -315,6 +314,15 @@ UITableViewDataSource>
         _footerView.backgroundColor = COLOR_WHITE_MACROS;
     }
     return _footerView;
+}
+
+- (UIButton *)syncBtn {
+    if (!_syncBtn) {
+        _syncBtn = [MKCustomUIAdopter customButtonWithTitle:@"Sync devices to cloud"
+                                                     target:self
+                                                     action:@selector(syncButtonPressed)];
+    }
+    return _syncBtn;
 }
 
 @end

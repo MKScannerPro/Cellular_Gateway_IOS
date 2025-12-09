@@ -52,6 +52,16 @@
                 return;
             }
         }
+        if ([MKCKConnectModel shared].isV200) {
+            if (![self readExternalPowerSupplyType]) {
+                [self operationFailedBlockWithMsg:@"Read External power supply type Error" block:failedBlock];
+                return;
+            }
+            if (![self readPowerOnThreshold]) {
+                [self operationFailedBlockWithMsg:@"Read Power On Threshold Error" block:failedBlock];
+                return;
+            }
+        }
         
         moko_dispatch_main_safe(^{
             if (sucBlock) {
@@ -122,6 +132,34 @@
     [MKCKInterface ck_readPowerOnByMagnetTypeWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.powerOnByMagnet = [returnData[@"result"][@"type"] integerValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readExternalPowerSupplyType {
+    __block BOOL success = NO;
+    [MKCKInterface ck_readExternalPowerSupplyTypeWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.externalPowerType = [returnData[@"result"][@"type"] integerValue];
+        dispatch_semaphore_signal(self.semaphore);
+    } failedBlock:^(NSError * _Nonnull error) {
+        dispatch_semaphore_signal(self.semaphore);
+    }];
+    
+    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+    return success;
+}
+
+- (BOOL)readPowerOnThreshold {
+    __block BOOL success = NO;
+    [MKCKInterface ck_readPowerOnThresholdWithSucBlock:^(id  _Nonnull returnData) {
+        success = YES;
+        self.powerOnThreshold = [returnData[@"result"][@"value"] integerValue];
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

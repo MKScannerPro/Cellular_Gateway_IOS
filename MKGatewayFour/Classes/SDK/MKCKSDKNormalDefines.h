@@ -154,6 +154,11 @@ typedef NS_ENUM(NSInteger, mk_ck_powerOnByMagnetType) {
     mk_ck_powerOnByMagnetType_detectsThreeSeconds,
 };
 
+typedef NS_ENUM(NSInteger, mk_ck_externalPowerSupplyType) {
+    mk_ck_externalPowerSupplyType_nonSolar,
+    mk_ck_externalPowerSupplyType_solar,
+};
+
 typedef NS_ENUM(NSInteger, mk_ck_powerOnByChargingType) {
     mk_ck_powerOnByChargingTypeEveryTime,
     mk_ck_powerOnByChargingTypeWhenBatteryDead,

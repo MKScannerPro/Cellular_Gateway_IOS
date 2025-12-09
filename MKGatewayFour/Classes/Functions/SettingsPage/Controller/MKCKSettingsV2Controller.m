@@ -55,6 +55,10 @@ MKTextButtonCellDelegate>
 
 @property (nonatomic, strong)NSMutableArray *section4List;
 
+@property (nonatomic, strong)NSMutableArray *section5List;
+
+@property (nonatomic, strong)NSMutableArray *section6List;
+
 @property (nonatomic, strong)NSMutableArray *headerList;
 
 @property (nonatomic, strong)MKCKSettingsModel *dataModel;
@@ -89,7 +93,7 @@ MKTextButtonCellDelegate>
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 3 || section == 4) {
+    if (section == 3 || section == 4 || section == 5) {
         return 10.f;
     }
     return 0.f;
@@ -189,6 +193,12 @@ MKTextButtonCellDelegate>
     if (section == 4) {
         return self.section4List.count;
     }
+    if ([MKCKConnectModel shared].isV200 && section == 5) {
+        return self.section5List.count;
+    }
+    if ([MKCKConnectModel shared].isV200 && section == 6) {
+        return (self.dataModel.externalPowerType == 1 ? self.section6List.count : 0);
+    }
     
     return 0;
 }
@@ -206,7 +216,6 @@ MKTextButtonCellDelegate>
         return cell;
     }
     if (indexPath.section == 2) {
-        NSLog(@"当前刷新的index:%@",@(indexPath.row));
         MKTextButtonCell *cell = [MKTextButtonCell initCellWithTableView:tableView];
         cell.dataModel = self.section2List[indexPath.row];
         cell.delegate = self;
@@ -217,8 +226,20 @@ MKTextButtonCellDelegate>
         cell.dataModel = self.section3List[indexPath.row];
         return cell;
     }
-    MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
-    cell.dataModel = self.section4List[indexPath.row];
+    if (indexPath.section == 4) {
+        MKNormalTextCell *cell = [MKNormalTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section4List[indexPath.row];
+        return cell;
+    }
+    if (indexPath.section == 5) {
+        MKTextButtonCell *cell = [MKTextButtonCell initCellWithTableView:tableView];
+        cell.dataModel = self.section5List[indexPath.row];
+        cell.delegate = self;
+        return cell;
+    }
+    MKTextButtonCell *cell = [MKTextButtonCell initCellWithTableView:tableView];
+    cell.dataModel = self.section6List[indexPath.row];
+    cell.delegate = self;
     return cell;
 }
 
@@ -252,6 +273,16 @@ MKTextButtonCellDelegate>
         [self configPowerOnByMagnet:dataListIndex];
         return;
     }
+    if (index == 2) {
+        //External power supply type
+        [self configExternalPowerSupplyType:dataListIndex];
+        return;
+    }
+    if (index == 3) {
+        //Power on threshold
+        [self configPowerOnThreshold:dataListIndex];
+        return;
+    }
 }
 
 #pragma mark - Interface
@@ -283,6 +314,12 @@ MKTextButtonCellDelegate>
     
     MKTextButtonCellModel *powerOnByMagnetModel = self.section2List[1];
     powerOnByMagnetModel.dataListIndex = self.dataModel.powerOnByMagnet;
+    
+    MKTextButtonCellModel *externalPowerSupplyModel = self.section5List[0];
+    externalPowerSupplyModel.dataListIndex = self.dataModel.externalPowerType;
+    
+    MKTextButtonCellModel *powerOnThresholdModel = self.section6List[0];
+    powerOnThresholdModel.dataListIndex = self.dataModel.powerOnThreshold;
     
     [self.tableView reloadData];
 }
@@ -453,6 +490,37 @@ MKTextButtonCellDelegate>
     }];
 }
 
+#pragma mark - External power supply type
+- (void)configExternalPowerSupplyType:(NSInteger)type {
+    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
+    [MKCKInterface ck_configExternalPowerSupplyType:type sucBlock:^{
+        [[MKHudManager share] hide];
+        MKTextButtonCellModel *cellModel = self.section5List[0];
+        cellModel.dataListIndex = type;
+        self.dataModel.externalPowerType = type;
+        [self.tableView reloadData];
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.tableView reloadData];
+    }];
+}
+
+#pragma mark - Power on threshold
+- (void)configPowerOnThreshold:(NSInteger)threshold {
+    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
+    [MKCKInterface ck_configPowerOnThreshold:threshold sucBlock:^{
+        [[MKHudManager share] hide];
+        MKTextButtonCellModel *cellModel = self.section6List[0];
+        cellModel.dataListIndex = threshold;
+        self.dataModel.powerOnThreshold = threshold;
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+        [self.tableView mk_reloadRow:0 inSection:6 withRowAnimation:UITableViewRowAnimationNone];
+    }];
+}
+
 #pragma mark - loadSectionDatas
 - (void)loadSectionDatas {
     [self loadSection0Datas];
@@ -460,8 +528,10 @@ MKTextButtonCellDelegate>
     [self loadSection2Datas];
     [self loadSection3Datas];
     [self loadSection4Datas];
+    [self loadSection5Datas];
+    [self loadSection6Datas];
     
-    for (NSInteger i = 0; i < 5; i ++) {
+    for (NSInteger i = 0; i < 7; i ++) {
         MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
         [self.headerList addObject:headerModel];
     }
@@ -554,6 +624,24 @@ MKTextButtonCellDelegate>
     [self.section4List addObject:cellModel2];
 }
 
+- (void)loadSection5Datas {
+    MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
+    cellModel.index = 2;
+    cellModel.msg = @"External power supply type";
+    cellModel.dataList = @[@"Non-solar",@"Solar"];
+    cellModel.buttonLabelFont = MKFont(12.f);
+    [self.section5List addObject:cellModel];
+}
+
+- (void)loadSection6Datas {
+    MKTextButtonCellModel *cellModel = [[MKTextButtonCellModel alloc] init];
+    cellModel.index = 3;
+    cellModel.msg = @"Power on threshold";
+    cellModel.dataList = @[@"5%",@"10%",@"15%",@"20%",@"25%",@"30%",@"35%",@"40%",@"45%",@"50%"];
+    cellModel.buttonLabelFont = MKFont(12.f);
+    [self.section6List addObject:cellModel];
+}
+
 #pragma mark - UI
 - (void)loadSubViews {
     self.defaultTitle = @"Settings";
@@ -609,6 +697,20 @@ MKTextButtonCellDelegate>
         _section4List = [NSMutableArray array];
     }
     return _section4List;
+}
+
+- (NSMutableArray *)section5List {
+    if (!_section5List) {
+        _section5List = [NSMutableArray array];
+    }
+    return _section5List;
+}
+
+- (NSMutableArray *)section6List {
+    if (!_section6List) {
+        _section6List = [NSMutableArray array];
+    }
+    return _section6List;
 }
 
 - (NSMutableArray *)headerList {

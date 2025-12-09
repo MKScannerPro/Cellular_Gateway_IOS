@@ -25,6 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// V1.0.4
 @property (nonatomic, assign)NSInteger powerOnByMagnet;
 
+/// V1.0.4
+@property (nonatomic, assign)NSInteger externalPowerType;
+
+/// V1.0.4
+@property (nonatomic, assign)NSInteger powerOnThreshold;
+
 - (void)readDataWithSucBlock:(void (^)(void))sucBlock failedBlock:(void (^)(NSError *error))failedBlock;
 
 @end

@@ -185,6 +185,22 @@
                  failedBlock:failedBlock];
 }
 
++ (void)ck_readExternalPowerSupplyTypeWithSucBlock:(void (^)(id returnData))sucBlock
+                                       failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadExternalPowerSupplyTypeOperation
+                     cmdFlag:@"1d"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
++ (void)ck_readPowerOnThresholdWithSucBlock:(void (^)(id returnData))sucBlock
+                                failedBlock:(void (^)(NSError *error))failedBlock {
+    [self readDataWithTaskID:mk_ck_taskReadPowerOnThresholdOperation
+                     cmdFlag:@"1e"
+                    sucBlock:sucBlock
+                 failedBlock:failedBlock];
+}
+
 #pragma mark *********************MQTT Params************************
 
 + (void)ck_readServerHostWithSucBlock:(void (^)(id returnData))sucBlock

@@ -26,6 +26,8 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskReadLowPowerThresholdOperation,               //读取低电量阈值
     mk_ck_taskReadPowerOnWhenChargingStatusOperation,       //读取低电关机充电是否开机
     mk_ck_taskReadPowerOnByMagnetTypeOperation,     //读取开关机方式
+    mk_ck_taskReadExternalPowerSupplyTypeOperation, //读取是否是太阳能板类型
+    mk_ck_taskReadPowerOnThresholdOperation,        //读取供电开机电池电量百分比
     
 #pragma mark - MQTT Params
     mk_ck_taskReadServerHostOperation,          //读取MQTT服务器域名
@@ -185,6 +187,8 @@ typedef NS_ENUM(NSInteger, mk_ck_taskOperationID) {
     mk_ck_taskDeleteBufferDataOperation,                //清除离线数据
     mk_ck_taskConfigPowerOnWhenChargingStatusOperation, //配置低电关机充电是否开机
     mk_ck_taskConfigPowerOnByMagnetOperation,           //配置开关机方式
+    mk_ck_taskConfigExternalPowerSupplyTypeOperation,   //配置是否是太阳能板类型
+    mk_ck_taskConfigPowerOnThresholdOperation,          //配置供电开机电池电量百分比
     
 #pragma mark - MQTT Params
     mk_ck_taskConfigServerHostOperation,        //配置MQTT服务器域名

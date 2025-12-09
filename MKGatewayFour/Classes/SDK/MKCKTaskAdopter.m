@@ -285,6 +285,18 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
             @"type":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
         };
         operationID = mk_ck_taskReadPowerOnByMagnetTypeOperation;
+    }else if ([cmd isEqualToString:@"1d"]) {
+        //读取是否是太阳能板类型
+        resultDic = @{
+            @"type":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
+        };
+        operationID = mk_ck_taskReadExternalPowerSupplyTypeOperation;
+    }else if ([cmd isEqualToString:@"1e"]) {
+        //读取供电开机电池电量百分比
+        resultDic = @{
+            @"value":[MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)],
+        };
+        operationID = mk_ck_taskReadPowerOnThresholdOperation;
     }else if ([cmd isEqualToString:@"20"]) {
         //读取MQTT服务器域名
         NSString *host = @"";
@@ -1523,6 +1535,12 @@ NSString *const mk_ck_contentKey = @"mk_ck_contentKey";
     }else if ([cmd isEqualToString:@"1a"]) {
         //配置开关机方式
         operationID = mk_ck_taskConfigPowerOnByMagnetOperation;
+    }else if ([cmd isEqualToString:@"1d"]) {
+        //配置是否是太阳能板类型
+        operationID = mk_ck_taskConfigExternalPowerSupplyTypeOperation;
+    }else if ([cmd isEqualToString:@"1e"]) {
+        //配置供电开机电池电量百分比
+        operationID = mk_ck_taskConfigPowerOnThresholdOperation;
     }else if ([cmd isEqualToString:@"20"]) {
         //配置MQTT服务器域名
         operationID = mk_ck_taskConfigServerHostOperation;

@@ -145,12 +145,40 @@ NS_ASSUME_NONNULL_BEGIN
                                failedBlock:(void (^)(NSError *error))failedBlock;
 
 /// Power on by magnet.
-/// @param isOn isOn
+/// @param type type
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
 + (void)ck_configPowerOnByMagnet:(mk_ck_powerOnByMagnetType)type
                         sucBlock:(void (^)(void))sucBlock
                      failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// External power supply type.
+/// @param isOn isOn
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configExternalPowerSupplyType:(mk_ck_externalPowerSupplyType)type
+                                sucBlock:(void (^)(void))sucBlock
+                             failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Power on threshold.
+/// @param threshold 0~9
+/*
+ 0:5%
+ 1:10%
+ 2:15%
+ 3:20%
+ 4:25%
+ 5:30%
+ 6:35%
+ 7:40%
+ 8:45%
+ 9:50%
+ */
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ck_configPowerOnThreshold:(NSInteger)threshold
+                         sucBlock:(void (^)(void))sucBlock
+                      failedBlock:(void (^)(NSError *error))failedBlock;
 
 #pragma mark *********************MQTT Params************************
 /// Configure the domain name of the MQTT server.

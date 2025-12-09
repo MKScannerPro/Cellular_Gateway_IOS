@@ -241,6 +241,32 @@ static NSInteger const maxDataLen = 150;
                    failedBlock:failedBlock];
 }
 
++ (void)ck_configExternalPowerSupplyType:(mk_ck_externalPowerSupplyType)type
+                                sucBlock:(void (^)(void))sucBlock
+                             failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:type byteLen:1];
+    NSString *commandString = [@"ed011d01" stringByAppendingString:value];
+    [self configDataWithTaskID:mk_ck_taskConfigExternalPowerSupplyTypeOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
++ (void)ck_configPowerOnThreshold:(NSInteger)threshold
+                         sucBlock:(void (^)(void))sucBlock
+                      failedBlock:(void (^)(NSError *error))failedBlock {
+    if (threshold < 0 || threshold > 9) {
+        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
+        return;
+    }
+    NSString *value = [MKBLEBaseSDKAdopter fetchHexValue:threshold byteLen:1];
+    NSString *commandString = [@"ed011e01" stringByAppendingString:value];
+    [self configDataWithTaskID:mk_ck_taskConfigPowerOnThresholdOperation
+                          data:commandString
+                      sucBlock:sucBlock
+                   failedBlock:failedBlock];
+}
+
 #pragma mark *********************MQTT Params************************
 
 + (void)ck_configServerHost:(NSString *)host
